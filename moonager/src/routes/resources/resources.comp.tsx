@@ -1,8 +1,12 @@
 import '../resources/resources.styles.scss';
 
-function Resources() {
+type ResourcesProps = {
+    menuIsOpen: boolean
+}
+
+function Resources(props: ResourcesProps) {
     return(
-        <div className='resources'>
+        <div className={`resources ${props.menuIsOpen ? 'open' : 'closed'}` }>
             <h1>Resources</h1>
         </div>
 

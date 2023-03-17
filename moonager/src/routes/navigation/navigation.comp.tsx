@@ -4,22 +4,22 @@ import { Outlet, Link } from 'react-router-dom';
 import '../navigation/navigation.styles.scss'
 import CloseIcon from '../../assets/icon-close.svg';
 
-function Navigation() {
-    const [ isOpen, setIsOpen ] = useState(true);
+type NavigationProps = {
+    menuHandler: () => void,
+    menuIsOpen: boolean
+}
 
-    const hamburgerHandler = () => {
-        { isOpen ? setIsOpen(false) : setIsOpen(true) }
-    }
+function Navigation(props: NavigationProps) {
 
     return (
         <Fragment>
         <div className="navigation">
             
-            { !isOpen ?
+            { !props.menuIsOpen ?
                 <div className='closedNav'>
                     <h4>LOGO</h4>
                     
-                    <div className='hamburger' onClick={hamburgerHandler}>
+                    <div className='hamburger' onClick={props.menuHandler}>
                         <span className='hamburger-line'></span>
                         <span className='hamburger-line'></span>
                         <span className='hamburger-line'></span>
@@ -32,14 +32,14 @@ function Navigation() {
                 <div className='openNav'>
                     <h4>OPEN LOGO</h4>
 
-                    <img src={CloseIcon} onClick={hamburgerHandler} className='close-icon'></img>
+                    <img src={CloseIcon} onClick={props.menuHandler} className='close-icon'></img>
 
                     <div className='navlinks'>
-                        <Link to='/' onClick={hamburgerHandler} className='link'>DASHBOARD</Link>
-                        <Link to='/resources' onClick={hamburgerHandler} className='link'>RESOURCES</Link>
-                        <Link to='/alerts' onClick={hamburgerHandler} className='link'>ALERTS</Link>
-                        <Link to='/requests' onClick={hamburgerHandler} className='link'>REQUESTS</Link>
-                        <Link to='/account' onClick={hamburgerHandler} className='link'>ACCOUNT</Link>
+                        <Link to='/' onClick={props.menuHandler} className='link'>DASHBOARD</Link>
+                        <Link to='/resources' onClick={props.menuHandler} className='link'>RESOURCES</Link>
+                        <Link to='/alerts' onClick={props.menuHandler} className='link'>ALERTS</Link>
+                        <Link to='/requests' onClick={props.menuHandler} className='link'>REQUESTS</Link>
+                        <Link to='/account' onClick={props.menuHandler} className='link'>ACCOUNT</Link>
                     </div>
 
                     <div className='avatar-placeholder'></div>

@@ -1,8 +1,12 @@
 import '../alerts/alerts.styles.scss';
 
-function Alerts() {
+type AlertsProps = {
+    menuIsOpen: boolean
+}
+
+function Alerts(props: AlertsProps) {
     return(
-        <div className='alerts'>
+        <div className={`alerts ${props.menuIsOpen ? 'open' : 'closed'}` }>
             <h1>Alerts</h1>
         </div>
 

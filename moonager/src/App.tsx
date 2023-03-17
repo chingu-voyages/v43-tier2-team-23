@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { Routes, Route } from 'react-router-dom';
 
@@ -13,17 +11,22 @@ import Requests from '../src/routes/requests/requests.comp';
 import Account from '../src/routes/account/account.comp';
 
 function App() {
+  const [ menuIsOpen, setMenuIsOpen ] = useState(false);
+
+  const menuHandler = () => {
+      { menuIsOpen ? setMenuIsOpen(false) : setMenuIsOpen(true) }
+  }
 
   return (
     <div className="App">
       <Routes>
-        <Route path='/' element={<Navigation />}>
+        <Route path='/' element={<Navigation menuHandler={menuHandler} menuIsOpen={menuIsOpen} />}>
 
-          <Route index element={<Dashboard />} />
-          <Route path='/resources' element={<Resources />} />
-          <Route path='/alerts' element={<Alerts />} />
-          <Route path='/requests' element={<Requests />} />
-          <Route path='/account' element={<Account />} />
+          <Route index element={<Dashboard menuIsOpen={menuIsOpen}/>} />
+          <Route path='/resources' element={<Resources menuIsOpen={menuIsOpen}/>} />
+          <Route path='/alerts' element={<Alerts menuIsOpen={menuIsOpen}/>} />
+          <Route path='/requests' element={<Requests menuIsOpen={menuIsOpen}/>} />
+          <Route path='/account' element={<Account menuIsOpen={menuIsOpen}/>} />
 
         </Route>
       </Routes>

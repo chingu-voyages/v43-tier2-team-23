@@ -1,11 +1,11 @@
 .navigation {
     position: absolute;
-    background-image: url('../../assets/earth-background.jpg');
     background-position-x: center;
     height: 100vh;
     width: 100vw;
+    z-index: 0;
     background-size: cover;
-    z-index: -1;
+    background-image: url('../../assets/earth-background.jpg');
 
     .avatar-placeholder {
         background-image: url('../../assets/avatar.jpg');
@@ -26,6 +26,7 @@
         background-color: rgba(255,255,255,.3);
         backdrop-filter: blur(5px);
         display: block;
+        position: fixed;
 
         h4 {
             color: black;
@@ -41,10 +42,13 @@
             justify-content: space-between;
             align-items: center;
 
+            &:hover {
+                cursor: pointer;
+            }
+
             .hamburger-line {
-                height: 5px;
+                height: 4px;
                 width: 35px;
-                border-radius: 2px;
                 display: block;
                 background: black;
             }
@@ -57,6 +61,7 @@
         background-color: rgba(255,255,255,.6);
         backdrop-filter: blur(10px);
         display: block;
+        position: fixed;
 
         h4 {
             margin: 0;
@@ -69,6 +74,10 @@
         .close-icon {
             height: 35px;
             margin-left: 70%;
+
+            &:hover {
+                cursor: pointer;
+            }
         }
 
         .navlinks {
