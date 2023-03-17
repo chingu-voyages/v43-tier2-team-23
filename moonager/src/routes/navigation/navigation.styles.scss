@@ -1,0 +1,84 @@
+.navigation {
+    background-image: url('../../assets/login-background.png');
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    position: absolute;
+
+    .avatar-placeholder {
+        background-color: white;
+        height: 50px;
+        width: 50px;
+        display: block;
+        border-radius: 50%;
+        position: absolute;
+        bottom: 20px;
+        left: 12px;
+    }
+
+    .closedNav {
+        height: 100vh;
+        width: 75px;
+        background-color: rgba(255,255,255,.3);
+        backdrop-filter: blur(5px);
+        display: block;
+
+        h4 {
+            color: black;
+            text-align: center;
+            margin: 0;
+            padding: 25px 0;
+        }
+
+        .hamburger {
+            height: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+
+            .hamburger-line {
+                height: 5px;
+                width: 35px;
+                border-radius: 2px;
+                display: block;
+                background: black;
+            }
+        }
+    }
+
+    .openNav {
+        height: 100vh;
+        width: 200px;
+        background-color: rgba(255,255,255,.6);
+        backdrop-filter: blur(10px);
+        display: block;
+
+        h4 {
+            margin: 0;
+            padding: 25px 0;
+            color: black;
+            text-align: center;
+            letter-spacing: 10px;
+        }
+
+        .close-icon {
+            height: 35px;
+            margin-left: 70%;
+        }
+
+        .navlinks {
+            list-style: none;
+            font-size: 20px;
+            color: rgba(0, 0, 0, 0.8);
+            font-weight: 700;
+            line-height: 50px;
+            padding: 25px 0px 0px 25px;
+
+            li:hover {
+                color: rgb(35, 149, 166);
+                cursor: pointer;
+            }
+        }
+    }
+}
