@@ -1,12 +1,14 @@
 .navigation {
-    background-image: url('../../assets/login-background.png');
+    background-image: url('../../assets/earth-background.jpg');
     height: 100vh;
     width: 100vw;
     background-size: cover;
     position: absolute;
 
     .avatar-placeholder {
-        background-color: white;
+        background-image: url('../../assets/avatar.jpg');
+        background-size: cover;
+        background-position-x: center;
         height: 50px;
         width: 50px;
         display: block;
@@ -49,7 +51,7 @@
 
     .openNav {
         height: 100vh;
-        width: 200px;
+        width: 15vw;
         background-color: rgba(255,255,255,.6);
         backdrop-filter: blur(10px);
         display: block;
@@ -69,7 +71,7 @@
 
         .navlinks {
             list-style: none;
-            font-size: 20px;
+            font-size: 1.5vw;
             color: rgba(0, 0, 0, 0.8);
             font-weight: 700;
             line-height: 50px;
