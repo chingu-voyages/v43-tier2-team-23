@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, Fragment } from 'react';
+import { Outlet, Link } from 'react-router-dom';
 
 import '../navigation/navigation.styles.scss'
 import CloseIcon from '../../assets/icon-close.svg';
@@ -11,6 +12,7 @@ function Navigation() {
     }
 
     return (
+        <Fragment>
         <div className="navigation">
             
             { !isOpen ?
@@ -32,19 +34,22 @@ function Navigation() {
 
                     <img src={CloseIcon} onClick={hamburgerHandler} className='close-icon'></img>
 
-                    <ul className='navlinks'>
-                        <li>DASHBOARD</li>
-                        <li>RESOURCES</li>
-                        <li>ALERTS</li>
-                        <li>REQUESTS</li>
-                        <li>ACCOUNT</li>
-                    </ul>
+                    <div className='navlinks'>
+                        <Link to='/' onClick={hamburgerHandler} className='link'>DASHBOARD</Link>
+                        <Link to='/resources' onClick={hamburgerHandler} className='link'>RESOURCES</Link>
+                        <Link to='/alerts' onClick={hamburgerHandler} className='link'>ALERTS</Link>
+                        <Link to='/requests' onClick={hamburgerHandler} className='link'>REQUESTS</Link>
+                        <Link to='/account' onClick={hamburgerHandler} className='link'>ACCOUNT</Link>
+                    </div>
 
                     <div className='avatar-placeholder'></div>
                 </div>
             }
 
         </div>
+        <Outlet />
+        </Fragment>
+        
     )
 }
 

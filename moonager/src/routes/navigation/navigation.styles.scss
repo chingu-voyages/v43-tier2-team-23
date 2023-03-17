@@ -1,21 +1,23 @@
 .navigation {
+    position: absolute;
     background-image: url('../../assets/earth-background.jpg');
+    background-position-x: center;
     height: 100vh;
     width: 100vw;
     background-size: cover;
-    position: absolute;
+    z-index: -1;
 
     .avatar-placeholder {
         background-image: url('../../assets/avatar.jpg');
         background-size: cover;
         background-position-x: center;
-        height: 50px;
-        width: 50px;
+        height: 60px;
+        width: 60px;
         display: block;
         border-radius: 50%;
         position: absolute;
         bottom: 20px;
-        left: 12px;
+        left: 9px;
     }
 
     .closedNav {
@@ -70,16 +72,23 @@
         }
 
         .navlinks {
-            list-style: none;
+            display: flex;
+            flex-direction: column;
             font-size: 1.5vw;
-            color: rgba(0, 0, 0, 0.8);
-            font-weight: 700;
-            line-height: 50px;
-            padding: 25px 0px 0px 25px;
+            margin-top: 50px;
+            margin-left: 25px;
 
-            li:hover {
-                color: rgb(35, 149, 166);
-                cursor: pointer;
+            .link {
+                color: black;
+                margin-top: 15px;
+
+                &:hover {
+                    color: rgb(0, 195, 255);
+                }
+
+                &:active {
+                    color: white;
+                }
             }
         }
     }
