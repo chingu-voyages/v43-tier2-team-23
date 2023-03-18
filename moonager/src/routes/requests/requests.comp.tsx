@@ -1,8 +1,6 @@
 import '../requests/requests.styles.scss';
+import { RequestsProps } from './requests-types';
 
-type RequestsProps = {
-    menuIsOpen: boolean
-}
 
 function Requests(props: RequestsProps) {
     return(

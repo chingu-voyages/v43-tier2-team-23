@@ -1,9 +1,6 @@
 import '../dashboard/dashboard.styles.scss';
 import { useState } from 'react';
-
-type DashboardProps = {
-    menuIsOpen: boolean
-}
+import { DashboardProps } from './dashboard-types';
 
 function Dashboard(props: DashboardProps) {
 
@@ -38,7 +35,11 @@ function Dashboard(props: DashboardProps) {
                 </div>
 
                 <div className='pods-section-wrapper'>
-                    <h3>PODS</h3>
+                    
+                    <div className='pods-header-wrapper'>
+                        <h3>PODS</h3>
+                        <span className='filter'>FILTER COMPONENT</span>
+                    </div>
 
                     <div className='tile-wrapper'>
                         <div className='pod-placeholder'></div>

@@ -1,8 +1,6 @@
 import '../resources/resources.styles.scss';
+import { ResourcesProps } from './resources-types';
 
-type ResourcesProps = {
-    menuIsOpen: boolean
-}
 
 function Resources(props: ResourcesProps) {
     return(

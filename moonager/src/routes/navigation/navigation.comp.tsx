@@ -1,19 +1,21 @@
 import { useState, Fragment } from 'react';
 import { Outlet, Link } from 'react-router-dom';
+import { NavigationProps } from './navigation-types';
 
 import '../navigation/navigation.styles.scss'
 import CloseIcon from '../../assets/icon-close.svg';
-
-type NavigationProps = {
-    menuHandler: () => void,
-    menuIsOpen: boolean
-}
 
 function Navigation(props: NavigationProps) {
 
     return (
         <Fragment>
         <div className="navigation">
+        
+        <div className='time-bar'>
+            <h3>12:00AM</h3>
+            <span className='time-toggle'>O==</span>
+            <span className='alert-icon'>!</span>
+        </div>
             
             { !props.menuIsOpen ?
                 <div className='closedNav'>

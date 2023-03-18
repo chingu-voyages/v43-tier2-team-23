@@ -1,8 +1,6 @@
 import '../alerts/alerts.styles.scss';
+import { AlertsProps } from './alerts-types';
 
-type AlertsProps = {
-    menuIsOpen: boolean
-}
 
 function Alerts(props: AlertsProps) {
     return(
