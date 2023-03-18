@@ -63,12 +63,26 @@
 
     .pods-section-wrapper {
         margin-left: 50px;
-        height: 800px;
-        overflow-y: scroll;
+        height: 80vh;
+
+        .pods-header-wrapper {
+            display: flex;
+            align-items: center;
+            width: 250px;
+            justify-content: space-between;
+
+            .filter {
+                background-color: white;
+                color: black;
+            }
+        }
 
         .tile-wrapper {
             display: flex;
             flex-wrap:wrap;
+            overflow-y: scroll;
+            height: 70vh;
+            box-shadow: inset 0 -75px 50px -25px rgba(0, 0, 0, 0.628);
         }
 
         .pod-placeholder {
@@ -78,6 +92,7 @@
             backdrop-filter: blur(5px);
             border-radius: 10px;
             margin: 10px;
+            z-index: -1;
         }
     }
 }

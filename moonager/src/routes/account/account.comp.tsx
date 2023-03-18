@@ -1,8 +1,5 @@
 import '../account/account.styles.scss';
-
-type AccountProps = {
-    menuIsOpen: boolean
-}
+import { AccountProps } from './account-types';
 
 function Account(props: AccountProps) {
     return(
