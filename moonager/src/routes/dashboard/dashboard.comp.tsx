@@ -2,6 +2,8 @@ import '../dashboard/dashboard.styles.scss';
 import { useState } from 'react';
 import { DashboardProps } from './dashboard-types';
 import { Supplies } from '../dashboard/Supplies/supplies.comp';
+import Request from './Request/Request.comp';
+import Allocate from './Allocate/Allocate.comp';
 
 function Dashboard(props: DashboardProps) {
 
@@ -21,12 +23,12 @@ function Dashboard(props: DashboardProps) {
 
                     <h5>Allocate</h5>
                     <div className='allocate-panel'>
-
+                        <Allocate />
                     </div>
 
                     <h5>Request</h5>
                     <div className='request-panel'>
-
+                        <Request />
                     </div>
 
                     <h5>Alerts</h5>

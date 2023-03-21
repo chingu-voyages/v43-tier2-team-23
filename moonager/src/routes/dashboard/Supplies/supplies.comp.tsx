@@ -13,7 +13,7 @@ export const Supplies = ( props: suppliesTypes ) => {
                 return(
                     
                 <div key={item.id} className='supply-container'>
-                    <img src={item.icon}></img>
+                    <img src={item.icon} className='supply-icon' />
 
                     <div className='supply-values'>
                         <h3 className='supply-name'>{item.name}</h3>

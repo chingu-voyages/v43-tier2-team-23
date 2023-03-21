@@ -9,13 +9,14 @@ export const suppliesArray = [
         name: 'Electricity',
         value: 100,
         units: 'mWh',
-        icon: '',
+        icon: electricIcon,
     },
     {
         id: 2,
         name: 'Food',
         value: 100,
         units: 'Mk',
+        icon: foodIcon,
 
     },
     {
@@ -23,14 +24,13 @@ export const suppliesArray = [
         name: 'Oxygen',
         value: 100,
         units: 'ft3',
-
+        icon: oxygenIcon,
     },
     {
         id: 3,
         name: 'Water',
         value: 100,
         units: 'L',
-
+        icon: waterIcon,
     },
 ]
-
