@@ -1,6 +1,7 @@
 import { useState, Fragment } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { NavigationProps } from './navigation-types';
+import Clock from './Clock/Clock';
 
 import '../navigation/navigation.styles.scss'
 import CloseIcon from '../../assets/icon-close.svg';
@@ -12,7 +13,7 @@ function Navigation(props: NavigationProps) {
         <div className="navigation">
         
         <div className='time-bar'>
-            <h3>12:00AM</h3>
+            <Clock />
             <span className='time-toggle'>O==</span>
             <span className='alert-icon'>!</span>
         </div>

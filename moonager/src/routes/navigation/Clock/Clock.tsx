@@ -25,8 +25,8 @@ import { useState, useEffect } from "react";
       const date = new Date(time) // create a new Date object based on setInterval
       const localTime = date.toLocaleDateString(undefined, options);
       const hours = (date.getHours() > 12 ? date.getHours() % 12 : date.getHours()).toString().padStart(2,'0');
-      const minutes = date.getMinutes().toString().padEnd(2,'0');
-      const seconds = date.getSeconds().toString().padEnd(2,'0');
+      const minutes = date.getMinutes().toString().padStart(2,'0');
+      const seconds = date.getSeconds().toString().padStart(2,'0');
       return `${localTime} ${hours}:${minutes}:${seconds}`
     }
 
