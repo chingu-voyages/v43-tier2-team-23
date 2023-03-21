@@ -1,6 +1,7 @@
 import '../dashboard/dashboard.styles.scss';
 import { useState } from 'react';
 import { DashboardProps } from './dashboard-types';
+import { Supplies } from '../dashboard/Supplies/supplies.comp';
 
 function Dashboard(props: DashboardProps) {
 
@@ -14,9 +15,9 @@ function Dashboard(props: DashboardProps) {
                 
                 <div className='supply-reserve'>
                     <h3>SUPPLY RESERVE</h3>
-                    <div className='supply-panel'>
 
-                    </div>
+                    <Supplies />
+
 
                     <h5>Allocate</h5>
                     <div className='allocate-panel'>
