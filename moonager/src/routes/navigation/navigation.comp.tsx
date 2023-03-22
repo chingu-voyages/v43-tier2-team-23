@@ -18,7 +18,7 @@ function Navigation(props: NavigationProps) {
         <div className="navigation">
         
         <div className='time-bar'>
-            <AlertIcon />
+            <AlertIcon time={time}/>
             <DeveloperModeSwitch developerMode={developerMode} setDeveloperMode={setDeveloperMode} />
             <Clock time={time} setTime={setTime} developerMode={developerMode}/>
         </div>
