@@ -11,14 +11,20 @@ import { useState, useEffect } from "react";
     }, [props.developerMode, props.time]);      // reactive values
 
     function formatTime(time:number){
-      const options:Intl.DateTimeFormatOptions = { weekday: 'short', year: '2-digit', month: 'short', day: 'numeric', hour12: true} as const;
+      const options:Intl.DateTimeFormatOptions = { weekday: undefined, year: '2-digit', month: 'numeric', day: 'numeric', hour12: true} as const;
       const date = new Date(time) // create a new Date object based on setInterval
       const localTime = date.toLocaleDateString(undefined, options);
       const hour = date.getHours();
       // const hours = (hour > 12 ? hour % 12 : hour).toString().padStart(2,'0');
       const minutes = date.getMinutes().toString().padStart(2,'0');
       const seconds = date.getSeconds().toString().padStart(2,'0');
-      return `${hour}:${minutes}:${seconds} ${localTime}`
+      return (
+        <>
+          {`${hour}:${minutes}:${seconds}`}
+          <br></br>
+          {`${localTime}`}
+        </>
+        )
     }
 
     return(
