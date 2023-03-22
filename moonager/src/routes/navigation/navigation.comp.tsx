@@ -2,19 +2,22 @@ import { useState, Fragment } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { NavigationProps } from './navigation-types';
 import Clock from './Clock/Clock';
+import DeveloperModeSwitch from './DeveloperModeSwitch/DeveloperModeSwitch';
 
 import '../navigation/navigation.styles.scss'
 import CloseIcon from '../../assets/icon-close.svg';
 
 function Navigation(props: NavigationProps) {
+    const [time, setTime] = useState(Date.now()); // get and set a snapshot of the time
+    const [developerMode, setDeveloperMode] = useState(false);
 
     return (
         <Fragment>
         <div className="navigation">
         
         <div className='time-bar'>
-            <Clock />
-            <span className='time-toggle'>O==</span>
+            <Clock time={time} setTime={setTime} developerMode={developerMode}/>
+            <DeveloperModeSwitch developerMode={developerMode} setDeveloperMode={setDeveloperMode} />
             <span className='alert-icon'>!</span>
         </div>
             

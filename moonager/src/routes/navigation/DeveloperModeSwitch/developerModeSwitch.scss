@@ -1,0 +1,36 @@
+.switch { 
+    cursor: pointer;
+    position : relative ;
+    display : inline-block;
+    width : 2.6rem;
+    height : 20px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    margin-bottom: 1rem;
+  }
+
+
+.switch::after {
+    content: '';
+    position: absolute;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+    top: 1px; /* TO GIVE AN EFFECT OF CIRCLE INSIDE SWITCH. */
+    left: 1px;
+    transition: all 0.4s;
+  }
+  
+  .checkbox:checked + .switch::after {
+    left : 1.5rem; 
+    /* background-color: var(--surface1-light); */
+  }
+  
+  .checkbox { 
+    display : none;
+  }
+  
+  .switch-container {
+    text-align: right;
+  }
