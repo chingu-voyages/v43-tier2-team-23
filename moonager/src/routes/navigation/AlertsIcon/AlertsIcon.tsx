@@ -16,7 +16,7 @@ export default function AlertsIcon (props:{time:number}) {
 
     return (
     <>
-        <span className={alertStyle}>{
+        <span className={alert? 'alert-icon' : 'no-alert'}>{
                     alert? '!' : 'No Alerts'
             }
         </span>
