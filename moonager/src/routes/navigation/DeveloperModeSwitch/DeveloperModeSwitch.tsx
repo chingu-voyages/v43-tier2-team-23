@@ -2,7 +2,7 @@ import './developerModeSwitch.scss';
 
 export default function DeveloperModeSwitch(prop: { developerMode:boolean, setDeveloperMode:Function }) {
     return (
-        <div className="switch-container">
+        <div className="switch-wrapper">
             <input 
                 type="checkbox" 
                 id="toggle" 
