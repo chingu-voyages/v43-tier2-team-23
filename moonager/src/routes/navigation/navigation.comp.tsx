@@ -14,6 +14,8 @@ function Navigation(props: NavigationProps) {
     return (
         <Fragment>
         <div className="navigation">
+
+        <div className='background-image' />
         
         <div className='time-bar'>
             <div>
