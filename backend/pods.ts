@@ -22,15 +22,15 @@ export const pods = [
         changeRate: 0
     },
     {
-        name : '',
-        population: null,
+        name : 'Red Bear',
+        population: 9,
         supplies: {
-            electricity:null,
-            food:null,
-            oxygen:null,
-            water:null  
+            electricity:1500,
+            food:600,
+            oxygen:1000,
+            water:2000  
         },
-        changeRate: null
+        changeRate: .01
     }
 ]
 

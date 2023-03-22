@@ -3,9 +3,17 @@
     background-position-x: center;
     height: 100vh;
     width: 100vw;
-    z-index: 0;
-    background-size: cover;
-    background-image: url('../../assets/earth-background.jpg');
+    z-index: 1;
+
+    .background-image {
+        position: fixed;
+        background-position-x: center;
+        height: 100vh;
+        width: 100vw;
+        z-index: 0;
+        background-image: url('../../assets/earth-background.jpg');
+        background-size: cover;
+    }
 
     .avatar-placeholder {
         background-image: url('../../assets/avatar.jpg');

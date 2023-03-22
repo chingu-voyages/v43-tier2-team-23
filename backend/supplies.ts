@@ -27,7 +27,7 @@ export const suppliesArray = [
         icon: oxygenIcon,
     },
     {
-        id: 3,
+        id: 4,
         name: 'Water',
         value: 100,
         units: 'L',
