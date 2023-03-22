@@ -1,39 +1,98 @@
-import { suppliesArray } from '../../../../../backend/supplies';
-import { pods } from '../../../../../backend/pods';
-import { useState } from 'react';
+import { useState } from "react";
+import styles from './Allocate.module.scss';
+import { suppliesArray } from "../../../../../backend/supplies";
+import { pods } from "../../../../../backend/pods";
 
-function Allocate( ) {
+function Allocate() {
 
-  const [allocation, setAllocation] = useState({
+  const formInitial = {
     resource: '',
     quantity: 0,
     destination: '',
-  });
+  }
 
-  console.log(suppliesArray)
-  console.log(allocation)
-  
+  const [form, setForm] = useState({...formInitial});
+
+  const [formAlert, setformAlert] = useState('');
+
+  const plusQuantity = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const newQuantity = form.quantity + 10;
+    const maxQuantity = suppliesArray.filter((supply) => supply.name === form.resource)[0]?.value
+    console.log(maxQuantity)
+    if (newQuantity > maxQuantity) {
+      setformAlert(`Quantity must be below total supply reserves (${maxQuantity})`);
+      return;
+    }
+    setForm({...form, quantity: newQuantity});
+    setformAlert('')
+  }
+  const minusQuantity = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const newQuantity = form.quantity - 10;
+    if (newQuantity < 0) {
+      setformAlert('quantity must be above 0')
+      return;
+    }
+    setForm({...form, quantity: newQuantity})
+    setformAlert('');
+  }
+
+  const submitHandler = (event: React.SyntheticEvent) => {
+    event.preventDefault();
+    const maxQuantity = suppliesArray.filter((supply) => supply.name === form.resource)[0]?.value;
+    if (form.resource.length < 1) {
+        setformAlert('please provide a resource to allocate');
+        return;
+    } else if (form.destination.length < 1) {
+        setformAlert('please provide a destination to allocate to');
+        return;
+    } else if (form.quantity > maxQuantity) {
+      setformAlert(`Quantity must be below total supply reserves (${maxQuantity})`);
+      return;
+    }
+    console.log('submitted');
+    setformAlert('Submitted!');
+    setForm({...formInitial});
+  }
+
   return (
-    <form>
-      <label>
-        Resource
-        <select onChange={(e) => setAllocation({...allocation, resource: e.target.value})} >
-            <option >Resource</option>
-            {suppliesArray.map((supply) => <option >{supply.name}</option>)}
-        </select>
-      </label>
-      <label >
-        Quantity
-        <input type='number' min='1' max={suppliesArray.filter((supply) => supply.name === allocation.resource)[0]?.value} />
-      </label>
-      <label >
-        Destination
-        <select >
-            <option >Destination</option>
-            {pods.map((pod) => <option >{pod.name}</option>)}
-        </select>
-      </label>
+    <form onSubmit={submitHandler} className={styles.form} >
+
+      <select required defaultValue='Resource'
+        onChange={(e) =>
+          setForm({...form, resource: e.target.value })
+        }
+      >
+        <option disabled hidden >Resource</option>
+        {suppliesArray.map((supply) => (
+          <option>{supply.name}</option>
+        ))}
+      </select>
+
+      <div className={styles['num-input']} >
+        <button onClick={minusQuantity} type='button' className={`${styles['num-button']} ${styles['left-button']}`} >-</button>
+        <input type="number" min='1' value={form.quantity} required
+          onChange={(e) =>
+            setForm({...form, quantity: Number(e.target.value) })
+          }
+        />
+        <button id='plus' onClick={plusQuantity} type='button' className={`${styles['num-button']} ${styles['right-button']}`} >+</button>
+      </div>
+
+      <select required defaultValue='Destination'
+        onChange={(e) =>
+            setForm({...form, destination: e.target.value })
+        }
+      >
+        <option disabled hidden >Destination</option>
+        {pods.map((pod) => (
+          <option>{pod.name}</option>
+        ))}
+      </select>
+
+        {formAlert.length > 0 ? <>{formAlert}</> : null}
+
       <button type='submit' >Send</button>
+
     </form>
   );
 }
