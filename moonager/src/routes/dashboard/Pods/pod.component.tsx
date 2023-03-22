@@ -1,6 +1,6 @@
-import { PodTypes } from "./pods.types";
+import { PodType } from "./pods.types";
 
-export const Pod = ({ pod }) => {
+export const Pod = ({ pod }: PodType) => {
   const { name } = pod;
   return <div className="pod-placeholder">{name}</div>;
 };

@@ -14,3 +14,7 @@ export type PodTypes = {
 export type PodListTypes = {
   pods: PodTypes[];
 };
+
+export type PodType = {
+  pod: PodTypes;
+};
