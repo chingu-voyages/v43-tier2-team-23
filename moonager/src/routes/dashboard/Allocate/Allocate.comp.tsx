@@ -64,7 +64,7 @@ function Allocate() {
       >
         <option disabled hidden >Resource</option>
         {suppliesArray.map((supply) => (
-          <option>{supply.name}</option>
+          <option key={supply.id}>{supply.name}</option>
         ))}
       </select>
 
@@ -85,7 +85,7 @@ function Allocate() {
       >
         <option disabled hidden >Destination</option>
         {pods.map((pod) => (
-          <option>{pod.name}</option>
+          <option key={pod.id}>{pod.name}</option>
         ))}
       </select>
 
