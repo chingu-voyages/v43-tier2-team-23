@@ -3,13 +3,13 @@ import '../Supplies/supplies.styles.scss';
 import { suppliesArray } from '../../../../../backend/supplies';
 import { suppliesTypes } from '../Supplies/supplies.types';
 
-export const Supplies = ( props: suppliesTypes ) => {
-    const data = suppliesArray;
+export const Supplies = ( /*props: suppliesTypes*/ ) => {
+    // const data = suppliesArray;
 
     return(
         <div className='supply-panel'>
 
-            {data.map(item => {
+            {suppliesArray.map(item => {
                 return(
                     
                 <div key={item.id} className='supply-container'>
