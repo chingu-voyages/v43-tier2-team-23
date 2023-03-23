@@ -1,6 +1,6 @@
 import React from 'react';
 import '../Supplies/supplies.styles.scss';
-import { suppliesArray } from '../../../../../backend/supplies';
+import { suppliesArray } from '../../../../backend/supplies';
 import { suppliesTypes } from '../Supplies/supplies.types';
 
 export const Supplies = ( /*props: suppliesTypes*/ ) => {

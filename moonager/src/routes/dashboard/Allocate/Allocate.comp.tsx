@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from './Allocate.module.scss';
-import { suppliesArray } from "../../../../../backend/supplies";
-import { pods } from "../../../../../backend/pods";
+import { suppliesArray } from "../../../../backend/supplies";
+import { pods } from "../../../../backend/pods";
 
 function Allocate() {
 
