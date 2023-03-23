@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from './Request.module.scss';
-import { suppliesArray } from "../../../../../backend/supplies";
-import { pods } from "../../../../../backend/pods";
+import { suppliesArray } from "../../../../backend/supplies";
+import { pods } from "../../../../backend/pods";
 
 function Request() {
   
@@ -63,7 +63,7 @@ function Request() {
       >
         <option disabled hidden >Resource</option>
         {suppliesArray.map((supply) => (
-          <option>{supply.name}</option>
+          <option key={supply.id}>{supply.name}</option>
         ))}
       </select>
 
@@ -84,7 +84,7 @@ function Request() {
       >
         <option disabled hidden >Pod</option>
         {pods.map((pod) => (
-          <option>{pod.name}</option>
+          <option key={pod.id}>{pod.name}</option>
         ))}
       </select>
 

@@ -1,9 +1,7 @@
 .navigation {
-    position: absolute;
-    background-position-x: center;
-    height: 100vh;
-    width: 100vw;
+    position: relative;
     z-index: 1;
+    padding-bottom: 100px;
 
     .background-image {
         position: fixed;
@@ -29,12 +27,17 @@
     }
 
     .time-bar {
-        width: 300px;
-        height: 40px;
+        background-color: rgba(255,255,255,.5);
+        border: solid white 1px;
+        border-radius: 1rem;
+        max-width: 50%;
+        min-width: 30%;
+        //max-height: 3rem;
         display: flex;
         position: absolute;
         right: 0;
-        margin: 20px;
+        margin: 2rem;
+        padding: 1rem;
         align-items: center;
         justify-content: space-between;
 

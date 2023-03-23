@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from './Allocate.module.scss';
-import { suppliesArray } from "../../../../../backend/supplies";
-import { pods } from "../../../../../backend/pods";
+import { suppliesArray } from "../../../../backend/supplies";
+import { pods } from "../../../../backend/pods";
 
 function Allocate() {
 
@@ -13,44 +13,44 @@ function Allocate() {
 
   const [form, setForm] = useState({...formInitial});
 
-  const [formAlert, setformAlert] = useState('');
+  const [formAlert, setFormAlert] = useState('');
 
   const plusQuantity = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const newQuantity = form.quantity + 10;
     const maxQuantity = suppliesArray.filter((supply) => supply.name === form.resource)[0]?.value
     console.log(maxQuantity)
     if (newQuantity > maxQuantity) {
-      setformAlert(`Quantity must be below total supply reserves (${maxQuantity})`);
+      setFormAlert(`Quantity must be below total supply reserves (${maxQuantity})`);
       return;
     }
     setForm({...form, quantity: newQuantity});
-    setformAlert('')
+    setFormAlert('')
   }
   const minusQuantity = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const newQuantity = form.quantity - 10;
     if (newQuantity < 0) {
-      setformAlert('quantity must be above 0')
+      setFormAlert('quantity must be above 0')
       return;
     }
     setForm({...form, quantity: newQuantity})
-    setformAlert('');
+    setFormAlert('');
   }
 
   const submitHandler = (event: React.SyntheticEvent) => {
     event.preventDefault();
     const maxQuantity = suppliesArray.filter((supply) => supply.name === form.resource)[0]?.value;
     if (form.resource.length < 1) {
-        setformAlert('please provide a resource to allocate');
+        setFormAlert('please provide a resource to allocate');
         return;
     } else if (form.destination.length < 1) {
-        setformAlert('please provide a destination to allocate to');
+        setFormAlert('please provide a destination to allocate to');
         return;
     } else if (form.quantity > maxQuantity) {
-      setformAlert(`Quantity must be below total supply reserves (${maxQuantity})`);
+      setFormAlert(`Quantity must be below total supply reserves (${maxQuantity})`);
       return;
     }
     console.log('submitted');
-    setformAlert('Submitted!');
+    setFormAlert('Submitted!');
     setForm({...formInitial});
   }
 
@@ -64,7 +64,7 @@ function Allocate() {
       >
         <option disabled hidden >Resource</option>
         {suppliesArray.map((supply) => (
-          <option>{supply.name}</option>
+          <option key={supply.id}>{supply.name}</option>
         ))}
       </select>
 
@@ -85,7 +85,7 @@ function Allocate() {
       >
         <option disabled hidden >Destination</option>
         {pods.map((pod) => (
-          <option>{pod.name}</option>
+          <option key={pod.id}>{pod.name}</option>
         ))}
       </select>
 
