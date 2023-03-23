@@ -20,11 +20,14 @@ function Navigation(props: NavigationProps) {
         <div className='background-image' />
         
         <div className='time-bar'>
-            <AlertIcon time={time}/>
-            <DeveloperModeSwitch developerMode={developerMode} setDeveloperMode={setDeveloperMode} />
+            <div>
+                <DeveloperModeSwitch developerMode={developerMode} setDeveloperMode={setDeveloperMode} /> 
+                <p>Developer Mode</p>   
+            </div>
             <Clock time={time} setTime={setTime} developerMode={developerMode}/>
+            <AlertIcon time={time}/>
         </div>
-            
+                    
             { !props.menuIsOpen ?
                 <div className='closedNav'>
                     <h4>LOGO</h4>
