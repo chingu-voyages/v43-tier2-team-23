@@ -2,6 +2,7 @@ import '../pod-details/pod-details.styles.scss';
 import { Link } from 'react-router-dom';
 
 export default function PodDetails(props: {menuIsOpen: boolean, podRoute: string }) {
+    console.log(props.podRoute)
 
     return(
         <div className={`pod-details ${props.menuIsOpen ? 'open' : 'closed'}`}>
