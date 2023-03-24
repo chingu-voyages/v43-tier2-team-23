@@ -6,7 +6,7 @@ import Request from "./Request/Request.comp";
 import Allocate from "./Allocate/Allocate.comp";
 import "../dashboard/dashboard.styles.scss";
 import { Pods } from "./Pods/pods.comp";
-import { podData } from "../../../../backend/pods";
+import { podData } from "../../../backend/pods";
 import NextResupply from './NextResupply/NextResupply';
 
 function Dashboard(props: { menuIsOpen:boolean, time:number, setTime:Function, developerMode:boolean, setDeveloperMode:Function } ) {
