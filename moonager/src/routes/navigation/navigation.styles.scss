@@ -1,11 +1,17 @@
 .navigation {
-    position: absolute;
-    background-position-x: center;
-    height: 100vh;
-    width: 100vw;
-    z-index: 0;
-    background-size: cover;
-    background-image: url('../../assets/earth-background.jpg');
+    position: relative;
+    z-index: 1;
+    padding-bottom: 100px;
+
+    .background-image {
+        position: fixed;
+        background-position-x: center;
+        height: 100vh;
+        width: 100vw;
+        z-index: 0;
+        background-image: url('../../assets/earth-background.jpg');
+        background-size: cover;
+    }
 
     .avatar-placeholder {
         background-image: url('../../assets/avatar.jpg');
@@ -21,33 +27,23 @@
     }
 
     .time-bar {
-        width: 300px;
-        height: 40px;
+        background-color: rgba(255,255,255,.5);
+        border: solid white 1px;
+        border-radius: 1rem;
+        max-width: 50%;
+        min-width: 30%;
+        //max-height: 3rem;
         display: flex;
         position: absolute;
         right: 0;
-        margin: 20px;
+        margin: 2rem;
+        padding: 1rem;
         align-items: center;
         justify-content: space-between;
 
         h3 {
             font-size: 22px;
             opacity: 80%;
-        }
-
-        .time-toggle {
-
-        }
-
-        .alert-icon {
-            font-size: 30px;
-            font-weight: 800;
-            color: black;
-            background-color: rgba(255,255,255,.5);
-            height: 40px;
-            width: 40px;
-            text-align: center;
-            border-radius: 50%;
         }
     }
 

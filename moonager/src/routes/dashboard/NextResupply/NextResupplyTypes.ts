@@ -1,0 +1,1 @@
+export type month = 28 | 30 | 31;

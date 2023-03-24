@@ -1,23 +1,31 @@
 import { useState, Fragment } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { NavigationProps } from './navigation-types';
+
 import Clock from './Clock/Clock';
+import DeveloperModeSwitch from './DeveloperModeSwitch/DeveloperModeSwitch';
+import AlertIcon from './AlertsIcon/AlertsIcon';
 
 import '../navigation/navigation.styles.scss'
 import CloseIcon from '../../assets/icon-close.svg';
 
-function Navigation(props: NavigationProps) {
+function Navigation(props:{ menuHandler:Function, menuIsOpen:boolean, time:number, setTime:Function, developerMode:boolean, setDeveloperMode:Function }) {
 
     return (
         <Fragment>
         <div className="navigation">
+
+        <div className='background-image' />
         
         <div className='time-bar'>
-            <Clock />
-            <span className='time-toggle'>O==</span>
-            <span className='alert-icon'>!</span>
+            <div>
+                <DeveloperModeSwitch developerMode={props.developerMode} setDeveloperMode={props.setDeveloperMode} /> 
+                <p>Developer Mode</p>   
+            </div>
+            <Clock time={props.time} setTime={props.setTime} developerMode={props.developerMode}/>
+            <AlertIcon time={props.time}/>
         </div>
-            
+                    
             { !props.menuIsOpen ?
                 <div className='closedNav'>
                     <h4>LOGO</h4>
