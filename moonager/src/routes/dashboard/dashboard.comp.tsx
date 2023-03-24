@@ -41,9 +41,9 @@ function Dashboard(props: { menuIsOpen:boolean, time:number, setTime:Function, d
             <h3>PODS</h3>
             <span className="filter">FILTER COMPONENT</span>
           </div>
-          <div>
-            <Pods pods={podData} />
-          </div>
+          
+          <Pods pods={podData} />
+
         </div>
       </div>
 
