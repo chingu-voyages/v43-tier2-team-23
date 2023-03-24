@@ -1,38 +1,63 @@
 import { v4 as uuidv4 } from 'uuid';
 
-import electricIcon from '../src/assets/electricity.png';
-import foodIcon from '../src/assets/food.png';
-import oxygenIcon from '../src/assets/oxygen.png';
-import waterIcon from '../src/assets/water.png';
+export const users = [
+    { name : 'Adam',
+    id: uuidv4(),
+    job : '',
+    age : 25,
+    sex : 'm',
+    weight : 150,
+    activityLevel: 'high',
+    metabolicRate : null,},
+    { name : 'Jane',
+    id: uuidv4(),
+    job : '',
+    age : 25,
+    sex : 'f',
+    weight : 140,
+    activityLevel: 'high',
+    metabolicRate : null,},
+    { name : 'Mike',
+    id: uuidv4(),
+    job : '',
+    age : 25,
+    sex : 'm',
+    weight : 170,
+    activityLevel: 'average',
+    metabolicRate : null,},
+    { name : 'John',
+    id: uuidv4(),
+    job : '',
+    age : 41,
+    sex : 'm',
+    weight : 250,
+    activityLevel: 'low',
+    metabolicRate : null,},
+    { name : 'Rachel',
+    id: uuidv4(),
+    job : '',
+    age : 21,
+    sex : 'f',
+    weight : 120,
+    activityLevel: 'average',
+    metabolicRate : null,},
+    { name : 'Mitch',
+    id: uuidv4(),
+    job : '',
+    age : 26,
+    sex : 'm',
+    weight : 180,
+    activityLevel: 'average',
+    metabolicRate : null,}
+];
 
-export const suppliesArray = [
-    {
-        // id: uuidv4(),
-        name: 'Electricity',
-        value: 100,
-        units: 'mWh',
-        icon: electricIcon,
-    },
-    {
-        // id: uuidv4(),
-        name: 'Food',
-        value: 100,
-        units: 'Mcal',
-        icon: foodIcon,
-
-    },
-    {
-        // id: uuidv4(),
-        name: 'Oxygen',
-        value: 100,
-        units: 'kiloliters',
-        icon: oxygenIcon,
-    },
-    {
-        // id: uuidv4(),
-        name: 'Water',
-        value: 100,
-        units: 'kiloliters',
-        icon: waterIcon,
-    },
-]
+export type User = {
+    name : string,
+    id: string,
+    job : string,
+    age : number,
+    sex : string,
+    weight : number,
+    activityLevel: 'low' | 'average' | 'high',
+    metabolicRate : number
+}
