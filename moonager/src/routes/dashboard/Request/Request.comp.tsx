@@ -63,7 +63,7 @@ function Request() {
       >
         <option disabled hidden >Resource</option>
         {suppliesArray.map((supply) => (
-          <option key={supply.id}>{supply.name}</option>
+          <option key={supply.name}>{supply.name}</option>
         ))}
       </select>
 

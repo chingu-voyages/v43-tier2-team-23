@@ -12,7 +12,7 @@ export const Supplies = ( /*props: suppliesTypes*/ ) => {
             {suppliesArray.map(item => {
                 return(
                     
-                <div key={item.id} className='supply-container'>
+                <div key={item.name} className='supply-container'>
                     <img src={item.icon} className='supply-icon' />
 
                     <div className='supply-values'>
