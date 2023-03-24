@@ -1,98 +1,126 @@
 import { useState } from "react";
-import styles from './Allocate.module.scss';
+import styles from "./Allocate.module.scss";
 import { suppliesArray } from "../../../../backend/supplies";
-import { pods } from "../../../../backend/pods";
+import { podData } from "../../../../backend/pods";
 
 function Allocate() {
-
   const formInitial = {
-    resource: '',
+    resource: "",
     quantity: 0,
-    destination: '',
-  }
+    destination: "",
+  };
 
-  const [form, setForm] = useState({...formInitial});
+  const [form, setForm] = useState({ ...formInitial });
 
-  const [formAlert, setFormAlert] = useState('');
+  const [formAlert, setFormAlert] = useState("");
 
   const plusQuantity = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const newQuantity = form.quantity + 10;
-    const maxQuantity = suppliesArray.filter((supply) => supply.name === form.resource)[0]?.value
-    console.log(maxQuantity)
+    const maxQuantity = suppliesArray.filter(
+      (supply) => supply.name === form.resource
+    )[0]?.value;
+    console.log(maxQuantity);
     if (newQuantity > maxQuantity) {
-      setFormAlert(`Quantity must be below total supply reserves (${maxQuantity})`);
+      setFormAlert(
+        `Quantity must be below total supply reserves (${maxQuantity})`
+      );
       return;
     }
-    setForm({...form, quantity: newQuantity});
-    setFormAlert('')
-  }
-  const minusQuantity = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    setForm({ ...form, quantity: newQuantity });
+    setFormAlert("");
+  };
+  const minusQuantity = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
     const newQuantity = form.quantity - 10;
     if (newQuantity < 0) {
-      setFormAlert('quantity must be above 0')
+      setFormAlert("quantity must be above 0");
       return;
     }
-    setForm({...form, quantity: newQuantity})
-    setFormAlert('');
-  }
+    setForm({ ...form, quantity: newQuantity });
+    setFormAlert("");
+  };
 
   const submitHandler = (event: React.SyntheticEvent) => {
     event.preventDefault();
-    const maxQuantity = suppliesArray.filter((supply) => supply.name === form.resource)[0]?.value;
+    const maxQuantity = suppliesArray.filter(
+      (supply) => supply.name === form.resource
+    )[0]?.value;
     if (form.resource.length < 1) {
-        setFormAlert('please provide a resource to allocate');
-        return;
+      setFormAlert("please provide a resource to allocate");
+      return;
     } else if (form.destination.length < 1) {
-        setFormAlert('please provide a destination to allocate to');
-        return;
+      setFormAlert("please provide a destination to allocate to");
+      return;
     } else if (form.quantity > maxQuantity) {
-      setFormAlert(`Quantity must be below total supply reserves (${maxQuantity})`);
+      setFormAlert(
+        `Quantity must be below total supply reserves (${maxQuantity})`
+      );
       return;
     }
-    console.log('submitted');
-    setFormAlert('Submitted!');
-    setForm({...formInitial});
-  }
+    console.log("submitted");
+    setFormAlert("Submitted!");
+    setForm({ ...formInitial });
+  };
 
   return (
-    <form onSubmit={submitHandler} className={styles.form} >
-
-      <select required defaultValue='Resource'
-        onChange={(e) =>
-          setForm({...form, resource: e.target.value })
-        }
+    <form onSubmit={submitHandler} className={styles.form}>
+      <select
+        required
+        defaultValue="Resource"
+        onChange={(e) => setForm({ ...form, resource: e.target.value })}
       >
-        <option disabled hidden >Resource</option>
+        <option disabled hidden>
+          Resource
+        </option>
         {suppliesArray.map((supply) => (
           <option key={supply.name}>{supply.name}</option>
         ))}
       </select>
 
-      <div className={styles['num-input']} >
-        <button onClick={minusQuantity} type='button' className={`${styles['num-button']} ${styles['left-button']}`} >-</button>
-        <input type="number" min='1' value={form.quantity} required
+      <div className={styles["num-input"]}>
+        <button
+          onClick={minusQuantity}
+          type="button"
+          className={`${styles["num-button"]} ${styles["left-button"]}`}
+        >
+          -
+        </button>
+        <input
+          type="number"
+          min="1"
+          value={form.quantity}
+          required
           onChange={(e) =>
-            setForm({...form, quantity: Number(e.target.value) })
+            setForm({ ...form, quantity: Number(e.target.value) })
           }
         />
-        <button id='plus' onClick={plusQuantity} type='button' className={`${styles['num-button']} ${styles['right-button']}`} >+</button>
+        <button
+          id="plus"
+          onClick={plusQuantity}
+          type="button"
+          className={`${styles["num-button"]} ${styles["right-button"]}`}
+        >
+          +
+        </button>
       </div>
 
-      <select required defaultValue='Destination'
-        onChange={(e) =>
-            setForm({...form, destination: e.target.value })
-        }
+      <select
+        required
+        defaultValue="Destination"
+        onChange={(e) => setForm({ ...form, destination: e.target.value })}
       >
-        <option disabled hidden >Destination</option>
-        {pods.map((pod) => (
+        <option disabled hidden>
+          Destination
+        </option>
+        {podData.map((pod) => (
           <option key={pod.id}>{pod.name}</option>
         ))}
       </select>
 
-        {formAlert.length > 0 ? <>{formAlert}</> : null}
+      {formAlert.length > 0 ? <>{formAlert}</> : null}
 
-      <button type='submit' >Send</button>
-
+      <button type="submit">Send</button>
     </form>
   );
 }
