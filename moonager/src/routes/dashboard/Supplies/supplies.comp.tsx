@@ -3,8 +3,7 @@ import '../Supplies/supplies.styles.scss';
 import { suppliesArray } from '../../../../backend/supplies';
 import { suppliesTypes } from '../Supplies/supplies.types';
 
-export const Supplies = ( /*props: suppliesTypes*/ ) => {
-    // const data = suppliesArray;
+export const Supplies = () => {
 
     return(
         <div className='supply-panel'>

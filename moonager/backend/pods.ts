@@ -12,6 +12,7 @@ export const podData = [
       water: 2000,
     },
     changeRate: 2,
+    route: 'bluefalcon'
   },
   {
     id: 2,
@@ -24,6 +25,7 @@ export const podData = [
       water: 1000,
     },
     changeRate: 0,
+    route:'greendragon'
   },
   {
     id: 3,
@@ -36,6 +38,7 @@ export const podData = [
       water: 800,
     },
     changeRate: 1,
+    route: 'bluehydra'
   },
   {
     id: 4,
@@ -48,6 +51,7 @@ export const podData = [
       water: 1500,
     },
     changeRate: 2,
+    route: 'redphoenix'
   },
   {
     id: 5,
@@ -60,6 +64,7 @@ export const podData = [
       water: 900,
     },
     changeRate: 1,
+    route: 'purplewyvern'
   },
   {
     id: 6,
@@ -72,6 +77,7 @@ export const podData = [
       water: 2000,
     },
     changeRate: 1,
+    route: 'yellowgriffin'
   },
   {
     id: 7,
@@ -84,6 +90,7 @@ export const podData = [
       water: 1100,
     },
     changeRate: 1,
+    route: 'whiteunicorn'
   },
   {
     id: 8,
@@ -96,5 +103,6 @@ export const podData = [
       water: 1200,
     },
     changeRate: 1,
+    route: 'silverpegasus'
   },
 ];

@@ -9,6 +9,7 @@ export type PodTypes = {
     water: number;
   };
   changeRate: number;
+  route: string;
 };
 
 export type PodListTypes = {
