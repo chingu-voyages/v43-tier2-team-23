@@ -1,8 +1,8 @@
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 
 export const podData = [
   {
-    id: uuidv4(),
+    id: 1,
     name: "Blue Falcon",
     population: 12,
     supplies: {
@@ -14,7 +14,7 @@ export const podData = [
     changeRate: 2,
   },
   {
-    id: uuidv4(),
+    id: 2,
     name: "Green Dragon",
     population: 15,
     supplies: {
@@ -26,7 +26,7 @@ export const podData = [
     changeRate: 0,
   },
   {
-    id: uuidv4(),
+    id: 3,
     name: "Blue Hydra",
     population: 8,
     supplies: {
@@ -38,7 +38,7 @@ export const podData = [
     changeRate: 1,
   },
   {
-    id: uuidv4(),
+    id: 4,
     name: "Red Phoenix",
     population: 20,
     supplies: {
@@ -50,7 +50,7 @@ export const podData = [
     changeRate: 2,
   },
   {
-    id: uuidv4(),
+    id: 5,
     name: "Purple Wyvern",
     population: 10,
     supplies: {
@@ -62,7 +62,7 @@ export const podData = [
     changeRate: 1,
   },
   {
-    id: uuidv4(),
+    id: 6,
     name: "Yellow Griffin",
     population: 18,
     supplies: {
@@ -74,7 +74,7 @@ export const podData = [
     changeRate: 1,
   },
   {
-    id: uuidv4(),
+    id: 7,
     name: "White Unicorn",
     population: 12,
     supplies: {
@@ -86,7 +86,7 @@ export const podData = [
     changeRate: 1,
   },
   {
-    id: uuidv4(),
+    id: 8,
     name: "Silver Pegasus",
     population: 16,
     supplies: {
