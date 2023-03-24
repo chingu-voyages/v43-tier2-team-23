@@ -1,0 +1,25 @@
+.pod-details {
+    position: relative;
+    z-index: 1;
+
+    header {
+        display: flex;
+        align-items: center;
+
+        button {
+            margin-right: 25px;
+            padding: 5px;
+            border-radius: 2px;
+            background-color: #1b93f0;
+
+            &:hover {
+                background-color: #1e9eff;
+                border: 1px solid transparent;
+            }
+        }
+
+        h1 {
+            font-size: 32px;
+        }
+    }
+}

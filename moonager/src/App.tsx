@@ -9,11 +9,13 @@ import Resources from '../src/routes/resources/resources.comp';
 import Alerts from '../src/routes/alerts/alerts.comp';
 import Requests from '../src/routes/requests/requests.comp';
 import Account from '../src/routes/account/account.comp';
+import PodDetails from '../src/routes/pod-details/pod-details.comp';
 
 function App() {
   const [ menuIsOpen, setMenuIsOpen ] = useState(false);
   const [time, setTime] = useState(Date.now()); // get and set a snapshot of the time
   const [developerMode, setDeveloperMode] = useState(false);
+  const [podRoute, setPodRoute] = useState('route');
 
   const menuHandler = () => {
       { menuIsOpen ? setMenuIsOpen(false) : setMenuIsOpen(true) }
@@ -39,7 +41,7 @@ function App() {
               time={time} 
               setTime={setTime} 
               developerMode={developerMode} 
-              setDeveloperMode={setDeveloperMode} 
+              setDeveloperMode={setDeveloperMode}
             />} 
           />
           
@@ -47,6 +49,13 @@ function App() {
           <Route path='/alerts' element={<Alerts menuIsOpen={menuIsOpen}/>} />
           <Route path='/requests' element={<Requests menuIsOpen={menuIsOpen}/>} />
           <Route path='/account' element={<Account menuIsOpen={menuIsOpen}/>} />
+          
+          <Route path='/pod-details' element={
+            <PodDetails 
+              menuIsOpen={menuIsOpen} 
+              podRoute={podRoute} 
+            />} 
+          />
 
         </Route>
       </Routes>
