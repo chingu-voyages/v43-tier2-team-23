@@ -1,4 +1,4 @@
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 
 export const podData = [
   {
@@ -25,7 +25,7 @@ export const podData = [
       water: 1000,
     },
     changeRate: 0,
-    route:'greendragon'
+    route: 'greendragon'
   },
   {
     id: 3,
@@ -104,5 +104,57 @@ export const podData = [
     },
     changeRate: 1,
     route: 'silverpegasus'
+  },
+  {
+    id: 9,
+    name: "Onyx Dragon",
+    population: 16,
+    supplies: {
+      electricity: 2000,
+      food: 2500,
+      oxygen: 2000,
+      water: 1200,
+    },
+    changeRate: 1,
+    route: 'onyxdragon'
+  },
+  {
+    id: 10,
+    name: "Golden Sphinx",
+    population: 16,
+    supplies: {
+      electricity: 2000,
+      food: 2500,
+      oxygen: 2000,
+      water: 1200,
+    },
+    changeRate: 1,
+    route: 'goldensphinx'
+  },
+  {
+    id: 11,
+    name: "Silver Serpent",
+    population: 16,
+    supplies: {
+      electricity: 2000,
+      food: 2500,
+      oxygen: 2000,
+      water: 1200,
+    },
+    changeRate: 1,
+    route: 'silvergriffin'
+  },
+  {
+    id: 12,
+    name: "Green Yeti",
+    population: 16,
+    supplies: {
+      electricity: 2000,
+      food: 2500,
+      oxygen: 2000,
+      water: 1200,
+    },
+    changeRate: 1,
+    route: 'greenyeti'
   },
 ];
