@@ -1,17 +1,19 @@
 import '../dashboard/dashboard.styles.scss';
 import { useState } from 'react';
-import { DashboardProps } from './dashboard-types';
+// import { DashboardProps } from './dashboard-types';
 import { Supplies } from '../dashboard/Supplies/supplies.comp';
 import Request from './Request/Request.comp';
 import Allocate from './Allocate/Allocate.comp';
+import NextResupply from './NextResupply/NextResupply';
 
-function Dashboard(props: DashboardProps) {
+function Dashboard(props: { menuIsOpen:boolean, time:number, setTime:Function, developerMode:boolean, setDeveloperMode:Function } ) {
 
     return(
         // ternary function that changes margin-left based on menuIsOpen
         <div className={`dashboard ${props.menuIsOpen ? 'open' : 'closed'}` }> 
             <h1>DASHBOARD</h1>
-            <h5>Next resupply is in 12 days</h5>
+            <NextResupply time={props.time} />
+            {/* <h5>Next resupply is in 12 days</h5> */}
 
             <div className='dashboard-wrapper'>
                 

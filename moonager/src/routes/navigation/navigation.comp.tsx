@@ -9,9 +9,7 @@ import AlertIcon from './AlertsIcon/AlertsIcon';
 import '../navigation/navigation.styles.scss'
 import CloseIcon from '../../assets/icon-close.svg';
 
-function Navigation(props: NavigationProps) {
-    const [time, setTime] = useState(Date.now()); // get and set a snapshot of the time
-    const [developerMode, setDeveloperMode] = useState(false);
+function Navigation(props:{ menuHandler:Function, menuIsOpen:boolean, time:number, setTime:Function, developerMode:boolean, setDeveloperMode:Function }) {
 
     return (
         <Fragment>
@@ -21,11 +19,11 @@ function Navigation(props: NavigationProps) {
         
         <div className='time-bar'>
             <div>
-                <DeveloperModeSwitch developerMode={developerMode} setDeveloperMode={setDeveloperMode} /> 
+                <DeveloperModeSwitch developerMode={props.developerMode} setDeveloperMode={props.setDeveloperMode} /> 
                 <p>Developer Mode</p>   
             </div>
-            <Clock time={time} setTime={setTime} developerMode={developerMode}/>
-            <AlertIcon time={time}/>
+            <Clock time={props.time} setTime={props.setTime} developerMode={props.developerMode}/>
+            <AlertIcon time={props.time}/>
         </div>
                     
             { !props.menuIsOpen ?
