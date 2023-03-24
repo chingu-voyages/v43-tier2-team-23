@@ -1,90 +1,94 @@
 .dashboard {
-    z-index: 1;
-    position: relative;
+  z-index: 1;
+  position: relative;
 
-    h1 {
-       font-size: 35px;
-    }
+  h1 {
+    font-size: 35px;
+  }
 
-    h5 {
-        margin: 0;;
-        color: gray;
-        font-weight: 400;
-        font-size: 14px;
-    }
+  h5 {
+    margin: 0;
+    color: gray;
+    font-weight: 400;
+    font-size: 14px;
+  }
 
-    h3 {
-        font-size: 22px;
-        opacity: 70%;
-    }
+  h3 {
+    font-size: 22px;
+    opacity: 70%;
+  }
 }
 
 .dashboard-wrapper {
-    display: flex;
-    width: 80vw;
+  display: flex;
+  width: 80vw;
 
-    .supply-reserve {
-        height: 100%;
-        min-width: 200px;
-        display: block;
+  .supply-reserve {
+    height: 100%;
+    min-width: 200px;
+    display: block;
 
-        h5 {
-            margin-top: 20px;
-            color: white;
-            opacity: 80%;
-        }
-
-        .allocate-panel {
-            background-color: white;
-            width: 150px;
-            height: 100%;
-        }
-
-        .request-panel {
-            background-color: white;
-            width: 150px;
-            height: 100%;
-        }
-
-        .alerts-panel {
-            background-color: white;
-            width: 150px;
-            height: 125px;
-        }
+    h5 {
+      margin-top: 20px;
+      color: white;
+      opacity: 80%;
     }
 
-    .pods-section-wrapper {
-        margin-left: 50px;
-        height: 80vh;
-
-        .pods-header-wrapper {
-            display: flex;
-            align-items: center;
-            width: 250px;
-            justify-content: space-between;
-
-            .filter {
-                background-color: white;
-                color: black;
-            }
-        }
-
-        .tile-wrapper {
-            display: flex;
-            flex-wrap:wrap;
-            overflow-y: scroll;
-            height: 70vh;
-            box-shadow: inset 0 -75px 50px -25px rgba(0, 0, 0, 0.628);
-        }
-
-        .pod-placeholder {
-            width: 200px;
-            height: 200px;
-            background-color: rgba(255,255,255,.2);
-            backdrop-filter: blur(5px);
-            border-radius: 10px;
-            margin: 10px;
-            z-index: -1;
-        }
+    .allocate-panel {
+      background-color: white;
+      width: 150px;
+      height: 100%;
     }
+
+    .request-panel {
+      background-color: white;
+      width: 150px;
+      height: 100%;
+    }
+
+    .alerts-panel {
+      background-color: white;
+      width: 150px;
+      height: 125px;
+    }
+  }
+
+  .pods-section-wrapper {
+    margin-left: 50px;
+    height: 80vh;
+
+    .pods-header-wrapper {
+      display: flex;
+      align-items: center;
+      width: 250px;
+      justify-content: space-between;
+
+      .filter {
+        background-color: white;
+        color: black;
+      }
+    }
+
+    .tile-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      overflow-y: scroll;
+      height: 70vh;
+      box-shadow: inset 0 -75px 50px -25px rgba(0, 0, 0, 0.628);
+    }
+
+    .pod-placeholder {
+      width: 200px;
+      height: 200px;
+      background-color: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(5px);
+      border-radius: 10px;
+      margin: 10px;
+      z-index: -1;
+      color: black;
+    }
+    .pod-grid-supplies {
+      list-style: none;
+    }
+  }
 }
