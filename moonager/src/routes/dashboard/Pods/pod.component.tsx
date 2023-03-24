@@ -8,7 +8,6 @@ export const Pod = ({ pod }: PodType) => {
         <p>{name}</p>
         <p>Population: {population}</p>
       </div>
-      ;
     </>
   );
 };

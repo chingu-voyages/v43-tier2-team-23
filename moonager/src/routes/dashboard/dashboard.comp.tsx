@@ -20,8 +20,6 @@ function Dashboard(props: DashboardProps) {
 
           <Supplies />
 
-          <Supplies />
-
           <h5>Allocate</h5>
           <div className="allocate-panel">
             <Allocate />
@@ -46,14 +44,7 @@ function Dashboard(props: DashboardProps) {
           </div>
         </div>
       </div>
-      <h5>Allocate</h5>
-      <div className="allocate-panel"></div>
 
-      <h5>Request</h5>
-      <div className="request-panel"></div>
-
-      <h5>Alerts</h5>
-      <div className="alerts-panel"></div>
     </div>
   );
 }
