@@ -11,3 +11,18 @@
         cursor: pointer;
     }
 }
+
+.tile-link {
+    text-decoration: none;
+    color: white;
+
+    &:hover {
+        text-decoration: none;
+        color: white;
+    }
+
+    &:visited {
+        text-decoration: none;
+        color: white;
+    }
+}
