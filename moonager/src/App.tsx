@@ -12,6 +12,8 @@ import Account from '../src/routes/account/account.comp';
 
 function App() {
   const [ menuIsOpen, setMenuIsOpen ] = useState(false);
+  const [time, setTime] = useState(Date.now()); // get and set a snapshot of the time
+  const [developerMode, setDeveloperMode] = useState(false);
 
   const menuHandler = () => {
       { menuIsOpen ? setMenuIsOpen(false) : setMenuIsOpen(true) }
@@ -20,9 +22,27 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path='/' element={<Navigation menuHandler={menuHandler} menuIsOpen={menuIsOpen} />}>
+        <Route path='/' element={
+          <Navigation 
+            menuHandler={menuHandler} 
+            menuIsOpen={menuIsOpen} 
+            time={time} 
+            setTime={setTime} 
+            developerMode={developerMode} 
+            setDeveloperMode={setDeveloperMode} 
+          />
+          }>
 
-          <Route index element={<Dashboard menuIsOpen={menuIsOpen}/>} />
+          <Route index element={
+            <Dashboard 
+              menuIsOpen={menuIsOpen} 
+              time={time} 
+              setTime={setTime} 
+              developerMode={developerMode} 
+              setDeveloperMode={setDeveloperMode} 
+            />} 
+          />
+          
           <Route path='/resources' element={<Resources menuIsOpen={menuIsOpen}/>} />
           <Route path='/alerts' element={<Alerts menuIsOpen={menuIsOpen}/>} />
           <Route path='/requests' element={<Requests menuIsOpen={menuIsOpen}/>} />

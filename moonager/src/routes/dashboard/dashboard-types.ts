@@ -1,3 +1,4 @@
 export type DashboardProps = {
-    menuIsOpen: boolean
+    menuIsOpen: boolean,
+    time: number
 }
