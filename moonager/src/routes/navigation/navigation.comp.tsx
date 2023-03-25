@@ -18,7 +18,7 @@ function Navigation(props:{ menuHandler:Function, menuIsOpen:boolean, time:numbe
         <div className='background-image' />
         
         <div className='time-bar'>
-            <div>
+            <div className='dev-mode-wrapper'>
                 <DeveloperModeSwitch developerMode={props.developerMode} setDeveloperMode={props.setDeveloperMode} /> 
                 <p>Developer Mode</p>   
             </div>
@@ -28,7 +28,7 @@ function Navigation(props:{ menuHandler:Function, menuIsOpen:boolean, time:numbe
                     
             { !props.menuIsOpen ?
                 <div className='closedNav'>
-                    <h4>LOGO</h4>
+                    <h4 className='moonager-logo-closed'>M</h4>
                     
                     <div className='hamburger' onClick={props.menuHandler}>
                         <span className='hamburger-line'></span>
@@ -41,7 +41,7 @@ function Navigation(props:{ menuHandler:Function, menuIsOpen:boolean, time:numbe
                 </div>
             :
                 <div className='openNav'>
-                    <h4>OPEN LOGO</h4>
+                    <h4 className='moonager-logo-open'>MOONAGER</h4>
 
                     <img src={CloseIcon} onClick={props.menuHandler} className='close-icon'></img>
 

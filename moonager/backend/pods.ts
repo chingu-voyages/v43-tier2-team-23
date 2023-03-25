@@ -1,4 +1,16 @@
 // import { v4 as uuidv4 } from "uuid";
+import pod1 from '../src/assets/pod-images/pod1.jpg';
+import pod2 from '../src/assets/pod-images/pod2.jpg';
+import pod3 from '../src/assets/pod-images/pod3.jpg';
+import pod4 from '../src/assets/pod-images/pod4.jpg';
+import pod5 from '../src/assets/pod-images/pod5.jpg';
+import pod6 from '../src/assets/pod-images/pod6.jpg';
+import pod7 from '../src/assets/pod-images/pod7.jpg';
+import pod8 from '../src/assets/pod-images/pod8.jpg';
+import pod9 from '../src/assets/pod-images/pod9.jpg';
+import pod10 from '../src/assets/pod-images/pod10.jpg';
+import pod11 from '../src/assets/pod-images/pod11.jpg';
+import pod12 from '../src/assets/pod-images/pod12.jpg';
 
 export const podData = [
   {
@@ -12,7 +24,8 @@ export const podData = [
       water: 2000,
     },
     changeRate: 2,
-    route: 'bluefalcon'
+    route: 'bluefalcon',
+    image: pod1
   },
   {
     id: 2,
@@ -25,7 +38,8 @@ export const podData = [
       water: 1000,
     },
     changeRate: 0,
-    route: 'greendragon'
+    route: 'greendragon',
+    image: pod2
   },
   {
     id: 3,
@@ -38,7 +52,8 @@ export const podData = [
       water: 800,
     },
     changeRate: 1,
-    route: 'bluehydra'
+    route: 'bluehydra',
+    image: pod3
   },
   {
     id: 4,
@@ -51,7 +66,8 @@ export const podData = [
       water: 1500,
     },
     changeRate: 2,
-    route: 'redphoenix'
+    route: 'redphoenix',
+    image: pod4
   },
   {
     id: 5,
@@ -64,7 +80,8 @@ export const podData = [
       water: 900,
     },
     changeRate: 1,
-    route: 'purplewyvern'
+    route: 'purplewyvern',
+    image: pod5
   },
   {
     id: 6,
@@ -77,7 +94,8 @@ export const podData = [
       water: 2000,
     },
     changeRate: 1,
-    route: 'yellowgriffin'
+    route: 'yellowgriffin',
+    image: pod6
   },
   {
     id: 7,
@@ -90,7 +108,8 @@ export const podData = [
       water: 1100,
     },
     changeRate: 1,
-    route: 'whiteunicorn'
+    route: 'whiteunicorn',
+    image: pod7
   },
   {
     id: 8,
@@ -103,7 +122,8 @@ export const podData = [
       water: 1200,
     },
     changeRate: 1,
-    route: 'silverpegasus'
+    route: 'silverpegasus',
+    image: pod8
   },
   {
     id: 9,
@@ -116,7 +136,8 @@ export const podData = [
       water: 1200,
     },
     changeRate: 1,
-    route: 'onyxdragon'
+    route: 'onyxdragon',
+    image: pod9
   },
   {
     id: 10,
@@ -129,7 +150,8 @@ export const podData = [
       water: 1200,
     },
     changeRate: 1,
-    route: 'goldensphinx'
+    route: 'goldensphinx',
+    image: pod10
   },
   {
     id: 11,
@@ -142,7 +164,8 @@ export const podData = [
       water: 1200,
     },
     changeRate: 1,
-    route: 'silvergriffin'
+    route: 'silvergriffin',
+    image: pod11
   },
   {
     id: 12,
@@ -155,6 +178,7 @@ export const podData = [
       water: 1200,
     },
     changeRate: 1,
-    route: 'greenyeti'
+    route: 'greenyeti',
+    image: pod12
   },
 ];

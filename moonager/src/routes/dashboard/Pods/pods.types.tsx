@@ -10,6 +10,7 @@ export type PodTypes = {
   };
   changeRate: number;
   route: string;
+  image: string;
 };
 
 export type PodListTypes = {
