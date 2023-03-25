@@ -5,7 +5,6 @@ import { podData } from '../../../backend/pods';
 
 export default function PodDetails(props: {menuIsOpen: boolean, podRoute: string }) {
 
-
     return(
         <div className={`pod-details ${props.menuIsOpen ? 'open' : 'closed'}`}>
             <header>
@@ -35,7 +34,9 @@ export default function PodDetails(props: {menuIsOpen: boolean, podRoute: string
             <h2 className='details-title'>Pod Status / Personnel</h2>
             
             <div className='details-panel'>
-                <p className='data'></p>
+                <p className='data'>
+                    
+                </p>
             </div>
             
         </div>
