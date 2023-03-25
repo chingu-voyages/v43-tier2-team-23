@@ -22,4 +22,40 @@
             font-size: 32px;
         }
     }
+
+
+    .pod-map-wrapper {
+        display: flex;
+        justify-content: space-between;
+        height: 300px;
+        width: 80vw;
+        margin-top: 25px;
+
+        .coordinates-panel {
+
+        }
+
+        .map-panel {
+            height: 300px;
+            width: 60vw;
+            background-image: url('../../assets/moon.jpg');
+            background-position: cover;
+        }
+
+    }
+
+    .details-title {
+        margin: 25px 0 0;
+    }
+
+    .details-panel {
+        background-color: rgba(255,255,255,.2);
+        backdrop-filter: blur(5px);
+        height: 350px;
+        width: 80vw;
+    }
+}
+
+.data {
+    color: white;
 }
