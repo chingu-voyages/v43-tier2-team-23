@@ -15,7 +15,7 @@ function App() {
   const [ menuIsOpen, setMenuIsOpen ] = useState(false);
   const [time, setTime] = useState(Date.now()); // get and set a snapshot of the time
   const [developerMode, setDeveloperMode] = useState(false);
-  const [podRoute, setPodRoute] = useState('route');
+  const [podRoute, setPodRoute] = useState('bluefalcon');
 
   const menuHandler = () => {
       { menuIsOpen ? setMenuIsOpen(false) : setMenuIsOpen(true) }
