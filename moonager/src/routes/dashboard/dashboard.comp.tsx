@@ -33,7 +33,9 @@ function Dashboard(props: { menuIsOpen:boolean, time:number, setTime:Function, d
           </div>
 
           <h5>Alerts</h5>
-          <div className="alerts-panel"></div>
+          <div className="alerts-panel">
+            <h6>No Alerts</h6>
+          </div>
         </div>
 
         <div className="pods-section-wrapper">

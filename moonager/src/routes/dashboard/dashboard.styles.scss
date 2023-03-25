@@ -29,6 +29,7 @@
         display: block;
 
         h5 {
+            font-size: 16px;
             margin-top: 20px;
             color: white;
             opacity: 80%;
@@ -36,20 +37,27 @@
 
         .allocate-panel {
             background-color: white;
-            width: 150px;
+            width: 175px;
             height: 100%;
         }
 
         .request-panel {
             background-color: white;
-            width: 150px;
+            width: 175px;
             height: 100%;
         }
 
         .alerts-panel {
             background-color: white;
-            width: 150px;
-            height: 125px;
+            width: 175px;
+            height: 100%;
+            min-height: 25px;
+
+            h6 {
+                margin: 0;
+                padding: 10px;
+                color: rgba(0,0,0,.6);
+            }
         }
     }
 
@@ -76,7 +84,6 @@
             height: 70vh;
             width: 100%;
             color-scheme: dark;
-            align-items:baseline;
         }
     }
 }
