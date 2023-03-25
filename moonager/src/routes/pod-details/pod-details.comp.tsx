@@ -5,6 +5,15 @@ import { podData } from '../../../backend/pods';
 
 export default function PodDetails(props: {menuIsOpen: boolean, podRoute: string }) {
 
+    function searchArrayByRoute(arr, route) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i].route === route) {
+                return arr[i];
+            }
+        }
+    }
+    const currentPod = searchArrayByRoute(podData, props.podRoute);
+
     return(
         <div className={`pod-details ${props.menuIsOpen ? 'open' : 'closed'}`}>
             <header>
@@ -35,7 +44,7 @@ export default function PodDetails(props: {menuIsOpen: boolean, podRoute: string
             
             <div className='details-panel'>
                 <p className='data'>
-                    
+                    {currentPod.name}
                 </p>
             </div>
             
