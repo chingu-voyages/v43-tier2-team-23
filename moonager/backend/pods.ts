@@ -25,7 +25,11 @@ export const podData = [
     },
     changeRate: 2,
     route: 'bluefalcon',
-    image: pod1
+    image: pod1,
+    coords1: "00'00'00",
+    coords2: "00'00'00",
+    x: 5,
+    y: 60
   },
   {
     id: 2,
@@ -39,7 +43,9 @@ export const podData = [
     },
     changeRate: 0,
     route: 'greendragon',
-    image: pod2
+    image: pod2,
+    x: 20,
+    y: 75
   },
   {
     id: 3,
@@ -53,7 +59,9 @@ export const podData = [
     },
     changeRate: 1,
     route: 'bluehydra',
-    image: pod3
+    image: pod3,
+    x: 60,
+    y: 50
   },
   {
     id: 4,
@@ -67,7 +75,9 @@ export const podData = [
     },
     changeRate: 2,
     route: 'redphoenix',
-    image: pod4
+    image: pod4,
+    x: 40,
+    y: 10
   },
   {
     id: 5,
@@ -81,7 +91,9 @@ export const podData = [
     },
     changeRate: 1,
     route: 'purplewyvern',
-    image: pod5
+    image: pod5,
+    x: 15,
+    y: 95
   },
   {
     id: 6,
@@ -95,7 +107,9 @@ export const podData = [
     },
     changeRate: 1,
     route: 'yellowgriffin',
-    image: pod6
+    image: pod6,
+    x: 70,
+    y: 80
   },
   {
     id: 7,
@@ -109,7 +123,9 @@ export const podData = [
     },
     changeRate: 1,
     route: 'whiteunicorn',
-    image: pod7
+    image: pod7,
+    x: 90,
+    y: 10
   },
   {
     id: 8,
@@ -123,7 +139,9 @@ export const podData = [
     },
     changeRate: 1,
     route: 'silverpegasus',
-    image: pod8
+    image: pod8,
+    x: 20,
+    y: 20
   },
   {
     id: 9,
@@ -137,7 +155,9 @@ export const podData = [
     },
     changeRate: 1,
     route: 'onyxdragon',
-    image: pod9
+    image: pod9,
+    x: 50,
+    y: 50
   },
   {
     id: 10,
@@ -151,7 +171,9 @@ export const podData = [
     },
     changeRate: 1,
     route: 'goldensphinx',
-    image: pod10
+    image: pod10,
+    x: 55,
+    y: 85
   },
   {
     id: 11,
@@ -165,7 +187,9 @@ export const podData = [
     },
     changeRate: 1,
     route: 'silvergriffin',
-    image: pod11
+    image: pod11,
+    x: 35,
+    y: 60
   },
   {
     id: 12,
@@ -179,7 +203,9 @@ export const podData = [
     },
     changeRate: 1,
     route: 'greenyeti',
-    image: pod12
+    image: pod12,
+    x: 60,
+    y: 40
   },
 ];
 
