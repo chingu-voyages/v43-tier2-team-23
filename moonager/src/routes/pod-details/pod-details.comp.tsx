@@ -6,7 +6,7 @@ import mapPin from '../../assets/map-pin.png';
 
 export default function PodDetails(props: {menuIsOpen: boolean, podRoute: string }) {
 
-    function searchArrayByRoute(arr, route) {
+    function searchArrayByRoute(arr: string | any[], route: string) {
         for (let i = 0; i < arr.length; i++) {
             if (arr[i].route === route) {
                 return arr[i];

@@ -2,11 +2,11 @@ import '../Pods/pod.styles.scss';
 import { PodType } from "./pods.types";
 import { Link } from 'react-router-dom';
 
-export const Pod = ({ pod }: PodType ) => {
+export const Pod = ({ pod }: PodType, podRoute: string ) => {
   const { name, population, image } = pod;
 
   function getRoute() {
-    console.log(pod.route)
+    console.log(podRoute)
   }
   
   return (
