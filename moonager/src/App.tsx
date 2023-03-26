@@ -15,6 +15,8 @@ function App() {
   const [ menuIsOpen, setMenuIsOpen ] = useState(false);
   const [time, setTime] = useState(Date.now()); // get and set a snapshot of the time
   const [developerMode, setDeveloperMode] = useState(false);
+  
+  
   const [podRoute, setPodRoute] = useState('bluefalcon');
 
   const menuHandler = () => {
@@ -42,6 +44,8 @@ function App() {
               setTime={setTime} 
               developerMode={developerMode} 
               setDeveloperMode={setDeveloperMode}
+              podRoute={podRoute}
+              setPodRoute={setPodRoute}
             />} 
           />
           
@@ -56,6 +60,8 @@ function App() {
               podRoute={podRoute} 
             />} 
           />
+
+
 
         </Route>
       </Routes>

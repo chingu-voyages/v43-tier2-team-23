@@ -36,10 +36,34 @@
         }
 
         .map-panel {
-            height: 300px;
+            position: relative;
             width: 60vw;
+            height: 20vw;
             background-image: url('../../assets/moon.jpg');
-            background-position: cover;
+            background-size: contain;
+
+
+            .map-pin-wrapper {
+                position: relative;
+                width: 100px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .pin {
+                    height: 30px;
+                }
+
+                p {
+                    margin: 5px;
+                    font-size: 12px;
+                    background-color: black;
+                    padding: 2px;
+                    border-radius: 2px;
+                }
+            }
+
+
         }
 
     }
@@ -53,9 +77,20 @@
         backdrop-filter: blur(5px);
         height: 350px;
         width: 80vw;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+        p {
+            margin: 10px;
+            font-size: 22px;
+        }
+
+        .details-image {
+            height: 90%;
+            border-radius: 25px;
+        }
+        
     }
 }
 
-.data {
-    color: white;
-}

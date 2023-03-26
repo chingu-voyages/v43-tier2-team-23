@@ -25,7 +25,11 @@ export const podData = [
     },
     changeRate: 2,
     route: 'bluefalcon',
-    image: pod1
+    image: pod1,
+    coords1: "00'00'00",
+    coords2: "00'00'00",
+    x: 5,
+    y: 60
   },
   {
     id: 2,
@@ -39,7 +43,11 @@ export const podData = [
     },
     changeRate: 0,
     route: 'greendragon',
-    image: pod2
+    image: pod2,
+    coords1: "00'00'00",
+    coords2: "00'00'00",
+    x: 5,
+    y: 50
   },
   {
     id: 3,
@@ -53,7 +61,11 @@ export const podData = [
     },
     changeRate: 1,
     route: 'bluehydra',
-    image: pod3
+    image: pod3,
+    coords1: "00'00'00",
+    coords2: "00'00'00",
+    x: 5,
+    y: 40
   },
   {
     id: 4,
@@ -67,7 +79,11 @@ export const podData = [
     },
     changeRate: 2,
     route: 'redphoenix',
-    image: pod4
+    image: pod4,
+    coords1: "00'00'00",
+    coords2: "00'00'00",
+    x: 5,
+    y: 30
   },
   {
     id: 5,
@@ -81,7 +97,11 @@ export const podData = [
     },
     changeRate: 1,
     route: 'purplewyvern',
-    image: pod5
+    image: pod5,
+    coords1: "00'00'00",
+    coords2: "00'00'00",
+    x: 10,
+    y: 70
   },
   {
     id: 6,
@@ -95,7 +115,11 @@ export const podData = [
     },
     changeRate: 1,
     route: 'yellowgriffin',
-    image: pod6
+    image: pod6,
+    coords1: "00'00'00",
+    coords2: "00'00'00",
+    x: 25,
+    y: 5
   },
   {
     id: 7,
@@ -109,7 +133,11 @@ export const podData = [
     },
     changeRate: 1,
     route: 'whiteunicorn',
-    image: pod7
+    image: pod7,
+    coords1: "00'00'00",
+    coords2: "00'00'00",
+    x: 8,
+    y: 90
   },
   {
     id: 8,
@@ -123,7 +151,11 @@ export const podData = [
     },
     changeRate: 1,
     route: 'silverpegasus',
-    image: pod8
+    image: pod8,
+    coords1: "00'00'00",
+    coords2: "00'00'00",
+    x: 20,
+    y: 20
   },
   {
     id: 9,
@@ -137,7 +169,11 @@ export const podData = [
     },
     changeRate: 1,
     route: 'onyxdragon',
-    image: pod9
+    image: pod9,
+    coords1: "00'00'00",
+    coords2: "00'00'00",
+    x: 25,
+    y: 80
   },
   {
     id: 10,
@@ -151,7 +187,11 @@ export const podData = [
     },
     changeRate: 1,
     route: 'goldensphinx',
-    image: pod10
+    image: pod10,
+    coords1: "00'00'00",
+    coords2: "00'00'00",
+    x: 5,
+    y: 80
   },
   {
     id: 11,
@@ -165,7 +205,11 @@ export const podData = [
     },
     changeRate: 1,
     route: 'silvergriffin',
-    image: pod11
+    image: pod11,
+    coords1: "00'00'00",
+    coords2: "00'00'00",
+    x: 0,
+    y: 20
   },
   {
     id: 12,
@@ -179,7 +223,11 @@ export const podData = [
     },
     changeRate: 1,
     route: 'greenyeti',
-    image: pod12
+    image: pod12,
+    coords1: "00'00'00",
+    coords2: "00'00'00",
+    x: 18,
+    y: 60
   },
 ];
 
