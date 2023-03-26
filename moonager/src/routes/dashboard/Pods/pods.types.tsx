@@ -15,10 +15,14 @@ export type PodTypes = {
 
 export type PodListTypes = {
   pods: PodTypes[];
+  podRoute: string;
+  setPodRoute: Function;
 };
 
 export type PodType = {
   pod: PodTypes;
+  podRoute: string;
+  setPodRoute: Function;
 };
 
 

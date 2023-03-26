@@ -45,6 +45,7 @@ function App() {
               developerMode={developerMode} 
               setDeveloperMode={setDeveloperMode}
               podRoute={podRoute}
+              setPodRoute={setPodRoute}
             />} 
           />
           
