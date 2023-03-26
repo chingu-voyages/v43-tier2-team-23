@@ -9,7 +9,8 @@ import { Pods } from "./Pods/pods.comp";
 import { podData } from "../../../backend/pods";
 import NextResupply from './NextResupply/NextResupply';
 
-function Dashboard(props: { menuIsOpen:boolean, time:number, setTime:Function, developerMode:boolean, setDeveloperMode:Function, podRoute: String } ) {
+function Dashboard(props: { menuIsOpen:boolean, time:number, setTime:Function, developerMode:boolean, setDeveloperMode:Function, podRoute: string, setPodRoute: Function } ) {
+
   return (
     // ternary function that changes margin-left based on menuIsOpen
     <div className={`dashboard ${props.menuIsOpen ? "open" : "closed"}`}>
@@ -46,7 +47,8 @@ function Dashboard(props: { menuIsOpen:boolean, time:number, setTime:Function, d
           
           <Pods 
             pods={podData}
-            podRoute = {props.podRoute}
+            podRoute={props.podRoute}
+            setPodRoute={props.setPodRoute}
           />
 
         </div>

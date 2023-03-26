@@ -44,8 +44,10 @@ export const podData = [
     changeRate: 0,
     route: 'greendragon',
     image: pod2,
-    x: 20,
-    y: 75
+    coords1: "00'00'00",
+    coords2: "00'00'00",
+    x: 5,
+    y: 50
   },
   {
     id: 3,
@@ -60,8 +62,10 @@ export const podData = [
     changeRate: 1,
     route: 'bluehydra',
     image: pod3,
-    x: 60,
-    y: 50
+    coords1: "00'00'00",
+    coords2: "00'00'00",
+    x: 5,
+    y: 40
   },
   {
     id: 4,
@@ -76,8 +80,10 @@ export const podData = [
     changeRate: 2,
     route: 'redphoenix',
     image: pod4,
-    x: 40,
-    y: 10
+    coords1: "00'00'00",
+    coords2: "00'00'00",
+    x: 5,
+    y: 30
   },
   {
     id: 5,
@@ -92,8 +98,10 @@ export const podData = [
     changeRate: 1,
     route: 'purplewyvern',
     image: pod5,
-    x: 15,
-    y: 95
+    coords1: "00'00'00",
+    coords2: "00'00'00",
+    x: 10,
+    y: 70
   },
   {
     id: 6,
@@ -108,8 +116,10 @@ export const podData = [
     changeRate: 1,
     route: 'yellowgriffin',
     image: pod6,
-    x: 70,
-    y: 80
+    coords1: "00'00'00",
+    coords2: "00'00'00",
+    x: 25,
+    y: 5
   },
   {
     id: 7,
@@ -124,8 +134,10 @@ export const podData = [
     changeRate: 1,
     route: 'whiteunicorn',
     image: pod7,
-    x: 90,
-    y: 10
+    coords1: "00'00'00",
+    coords2: "00'00'00",
+    x: 8,
+    y: 90
   },
   {
     id: 8,
@@ -140,6 +152,8 @@ export const podData = [
     changeRate: 1,
     route: 'silverpegasus',
     image: pod8,
+    coords1: "00'00'00",
+    coords2: "00'00'00",
     x: 20,
     y: 20
   },
@@ -156,8 +170,10 @@ export const podData = [
     changeRate: 1,
     route: 'onyxdragon',
     image: pod9,
-    x: 50,
-    y: 50
+    coords1: "00'00'00",
+    coords2: "00'00'00",
+    x: 25,
+    y: 80
   },
   {
     id: 10,
@@ -172,8 +188,10 @@ export const podData = [
     changeRate: 1,
     route: 'goldensphinx',
     image: pod10,
-    x: 55,
-    y: 85
+    coords1: "00'00'00",
+    coords2: "00'00'00",
+    x: 5,
+    y: 80
   },
   {
     id: 11,
@@ -188,8 +206,10 @@ export const podData = [
     changeRate: 1,
     route: 'silvergriffin',
     image: pod11,
-    x: 35,
-    y: 60
+    coords1: "00'00'00",
+    coords2: "00'00'00",
+    x: 0,
+    y: 20
   },
   {
     id: 12,
@@ -204,8 +224,10 @@ export const podData = [
     changeRate: 1,
     route: 'greenyeti',
     image: pod12,
-    x: 60,
-    y: 40
+    coords1: "00'00'00",
+    coords2: "00'00'00",
+    x: 18,
+    y: 60
   },
 ];
 
