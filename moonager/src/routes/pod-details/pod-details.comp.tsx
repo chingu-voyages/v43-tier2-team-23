@@ -53,13 +53,17 @@ export default function PodDetails(props: {menuIsOpen: boolean, podRoute: string
             <h2 className='details-title'>Pod Status / Personnel</h2>
             
             <div className='details-panel'>
-                <p>Pod Name: {currentPod.name}</p>
-                <p>Population: {currentPod.population}</p>
-                <h5>Current Supplies</h5>
-                <p>Electricity: {currentPod.supplies.electricity}</p>
-                <p>Food: {currentPod.supplies.food}</p>
-                <p>Oxygen: {currentPod.supplies.oxygen}</p>
-                <p>Water: {currentPod.supplies.water}</p>
+                <div>
+                    <p><b>Pod Name:</b> {currentPod.name}</p>
+                    <p><b>Population:</b> {currentPod.population}</p>
+                    <p><b>Electricity:</b> {currentPod.supplies.electricity}</p>
+                    <p><b>Food:</b> {currentPod.supplies.food}</p>
+                    <p><b>Oxygen:</b> {currentPod.supplies.oxygen}</p>
+                    <p><b>Water:</b> {currentPod.supplies.water}</p>
+                </div>
+
+                <img src={currentPod.image} className='details-image'></img>
+                
             </div>
             
         </div>

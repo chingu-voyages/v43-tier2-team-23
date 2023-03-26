@@ -78,16 +78,17 @@
         height: 350px;
         width: 80vw;
         display: flex;
-        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
 
         p {
-            margin: 0;
+            margin: 10px;
+            font-size: 22px;
         }
 
-        h5 {
-            font-size: 18px;
-            text-decoration: underline;
-            margin: 25px 0 0;
+        .details-image {
+            height: 90%;
+            border-radius: 25px;
         }
         
     }
