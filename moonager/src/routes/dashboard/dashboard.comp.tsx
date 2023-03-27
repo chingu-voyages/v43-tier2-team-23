@@ -61,7 +61,6 @@ function Dashboard(props: { menuIsOpen:boolean, time:number, setTime:Function, d
         <div className="pods-section-wrapper">
           <div className="pods-header-wrapper">
             <h3>PODS</h3>
-            <span className="filter">FILTER COMPONENT</span>
           </div>
           
           <Pods 
