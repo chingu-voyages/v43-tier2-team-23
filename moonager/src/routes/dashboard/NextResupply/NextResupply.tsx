@@ -26,10 +26,10 @@ export default function NextResupply(props: { time:number }) {
         const resupplyDate:number = 15;
         
         if (today <= resupplyDate){
-            console.log(`${resupplyDate} - ${today}`)
+            // console.log(`${resupplyDate} - ${today}`)
             return resupplyDate - today;
         } else {
-            console.log(`${thisMonthsLength} - ${today} + ${resupplyDate}`)
+            // console.log(`${thisMonthsLength} - ${today} + ${resupplyDate}`)
             return thisMonthsLength - today + resupplyDate;
         }
     }
