@@ -35,6 +35,25 @@
             opacity: 80%;
         }
 
+        .allocate-request-tabs {
+            display: flex;
+            width: 175px;
+            justify-content: space-evenly;
+            margin: 25px 0px 10px;
+
+            h5 {
+                background-color: white;
+                padding: 3px;
+                border-radius:3px;
+                color: black;
+
+                &:hover {
+                    background-color: rgba(255,255,255,.5);
+                    cursor: pointer;
+                }
+            }
+        }
+
         .allocate-panel {
             background-color: white;
             width: 175px;

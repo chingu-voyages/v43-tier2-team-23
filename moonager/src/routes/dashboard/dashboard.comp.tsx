@@ -10,6 +10,17 @@ import { podData } from "../../../backend/pods";
 import NextResupply from './NextResupply/NextResupply';
 
 function Dashboard(props: { menuIsOpen:boolean, time:number, setTime:Function, developerMode:boolean, setDeveloperMode:Function, podRoute: string, setPodRoute: Function } ) {
+  const [ allocateOrRequest, setAllocateOrRequest] = useState(true)
+
+  function chooseAllocate() {
+    setAllocateOrRequest(true)
+    console.log(allocateOrRequest)
+  }
+
+  function chooseRequest() {
+    setAllocateOrRequest(false)
+    console.log(allocateOrRequest)
+  }
 
   return (
     // ternary function that changes margin-left based on menuIsOpen
@@ -23,15 +34,23 @@ function Dashboard(props: { menuIsOpen:boolean, time:number, setTime:Function, d
 
           <Supplies />
 
-          <h5>Allocate</h5>
+          <div className='allocate-request-tabs'>
+            <h5 onClick={chooseAllocate}>Allocate</h5>
+            <h5 onClick={chooseRequest}>Request</h5>
+          </div>
+          
+          { allocateOrRequest ? 
           <div className="allocate-panel">
             <Allocate />
           </div>
-
-          <h5>Request</h5>
+          :
           <div className="request-panel">
             <Request />
           </div>
+          }
+          
+
+         
 
           <h5>Alerts</h5>
           <div className="alerts-panel">
