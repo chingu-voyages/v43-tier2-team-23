@@ -35,8 +35,8 @@ function Dashboard(props: { menuIsOpen:boolean, time:number, setTime:Function, d
           <Supplies />
 
           <div className='allocate-request-tabs'>
-            <h5 onClick={chooseAllocate}>Allocate</h5>
-            <h5 onClick={chooseRequest}>Request</h5>
+            <h5 onClick={chooseAllocate} style={ allocateOrRequest ? {backgroundColor: '#d9d9d9'} : {backgroundColor: '#d9d9d990'}}>Allocate</h5>
+            <h5 onClick={chooseRequest} style={ !allocateOrRequest ? {backgroundColor: '#d9d9d9'} : {backgroundColor: '#d9d9d990'}}>Request</h5>
           </div>
           
           { allocateOrRequest ? 
@@ -48,9 +48,6 @@ function Dashboard(props: { menuIsOpen:boolean, time:number, setTime:Function, d
             <Request />
           </div>
           }
-          
-
-         
 
           <h5>Alerts</h5>
           <div className="alerts-panel">
