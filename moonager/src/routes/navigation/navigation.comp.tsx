@@ -46,7 +46,7 @@ function Navigation(props:{ menuHandler:Function, menuIsOpen:boolean, time:numbe
                       MOONAGER
                     </div>
 
-                    <div style={{width: '100%', display: 'flex', justifyContent: 'flex-end' }} >
+                    <div className='close-icon-container' >
                       <img src={CloseIcon} onClick={props.menuHandler} className='close-icon'></img>
                     </div>
 

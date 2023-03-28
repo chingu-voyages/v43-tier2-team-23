@@ -102,21 +102,25 @@
             display: flex;
             justify-content: center;
             font-family: 'Moulpali', cursive;
-            font-size: 2.5vw;
+            font-size: 2.8vw;
             letter-spacing: .2vw;
             line-height: 30px;
             color: black;
-            
             pointer-events: none;
             padding: 30px 0px 20px;
         }
 
-        .close-icon {
-            width: 30px;
-            margin-right: 15px;
+        .close-icon-container {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
 
-            &:hover {
-                cursor: pointer;
+            .close-icon {
+                width: 30px;
+                margin-right: 12px;
+                &:hover {
+                    cursor: pointer;
+                }
             }
         }
 
@@ -124,14 +128,15 @@
             display: flex;
             flex-direction: column;
             font-size: 1.5vw;
-            margin: auto;
-            margin-top: 15px;
+            justify-content: flex-start;
+            margin-left: 25px;
+            margin-top: 80px;
 
             .link {
                 color: black;
                 margin-top: 15px;
                 letter-spacing: .05em;
-                animation: collapse .3s;
+                animation: expansion .3s;
                 overflow: hidden;
 
                 &:hover {
@@ -142,7 +147,7 @@
                     color: white;
                 }
 
-                @keyframes collapse {
+                @keyframes expansion {
                     from {width: 0%};
                     to {width: 100%};
                 }
