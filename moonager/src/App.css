@@ -4,9 +4,11 @@
 
 .open {
   margin: 0 20vw;
+  transition: margin .25s ease-in;
 }
 
 .closed {
   margin: 0 10vw;
+  transition: margin .25s ease-in;
 }
 

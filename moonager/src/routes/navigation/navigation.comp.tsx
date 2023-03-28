@@ -41,9 +41,14 @@ function Navigation(props:{ menuHandler:Function, menuIsOpen:boolean, time:numbe
                 </div>
             :
                 <div className='openNav'>
-                    <h4 className='moonager-logo-open'>MOONAGER</h4>
 
-                    <img src={CloseIcon} onClick={props.menuHandler} className='close-icon'></img>
+                    <div className='moonager-logo-open' >
+                      MOONAGER
+                    </div>
+
+                    <div style={{width: '100%', display: 'flex', justifyContent: 'flex-end' }} >
+                      <img src={CloseIcon} onClick={props.menuHandler} className='close-icon'></img>
+                    </div>
 
                     <div className='navlinks'>
                         <Link to='/' onClick={props.menuHandler} className='link'>DASHBOARD</Link>
