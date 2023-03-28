@@ -30,7 +30,7 @@ export const Pods = ({ pods, podRoute, setPodRoute }: PodListTypes ) => {
       for (let supply in pods[0]?.supplies) {
         const supplyKey = podSorting.split(' ')[0];
         if (supplyKey === supply) {
-          pods = pods.sort((a, b) => a.supplies[supplyKey] - b.supplies[supplyKey])
+          pods = pods.sort((a, b) => (a.supplies as any)[supplyKey] - (b.supplies as any)[supplyKey]);
           break;
         }
       }
