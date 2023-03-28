@@ -41,16 +41,15 @@
             justify-content: space-evenly;
             margin: 25px 0 0;
 
-            h5 {
-                background-color: #d9d9d9ce;
-                padding: 3px;
-                border-radius:3px;
+            h5  {
+                width: 50%;
+                text-align: center;
+                margin: 0;
+                padding: 5px;
                 color: black;
                 opacity: 100;
                 font-weight: 600;
-                opacity: 100;
-                font-weight: 600;
-                
+
                 &:hover {
                     cursor: pointer;
                     color:#1b93f0;
@@ -59,12 +58,13 @@
         }
 
         .allocate-panel {
+            background-color: white;
             width: 175px;
             height: 100%;
-            border-radius: 15px;
         }
 
         .request-panel {
+            background-color: white;
             width: 175px;
             height: 100%;
         }
