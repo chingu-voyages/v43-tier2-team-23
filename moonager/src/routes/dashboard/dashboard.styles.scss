@@ -39,17 +39,19 @@
             display: flex;
             width: 175px;
             justify-content: space-evenly;
-            margin: 25px 0px 10px;
+            margin: 25px 0 0;
 
             h5 {
                 background-color: #d9d9d9ce;
                 padding: 3px;
                 border-radius:3px;
                 color: black;
+                opacity: 100;
+                font-weight: 600;
 
                 &:hover {
-                    background-color: rgba(255,255,255,.5);
                     cursor: pointer;
+                    color:#1b93f0;
                 }
             }
         }
