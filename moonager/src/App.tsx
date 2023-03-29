@@ -1,8 +1,7 @@
-import { useState, createContext } from 'react'
+import { useState } from 'react'
 import './App.css'
 import { Routes, Route, } from 'react-router-dom';
 
-const myContext = createContext({});
 
 // Routes
 import Navigation from '../src/routes/navigation/navigation.comp';
@@ -18,7 +17,6 @@ function App() {
   const [time, setTime] = useState(Date.now()); // get and set a snapshot of the time
   const [developerMode, setDeveloperMode] = useState(false);
   
-  
   const [podRoute, setPodRoute] = useState('bluefalcon');
 
   const menuHandler = () => {
@@ -26,49 +24,51 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Routes>
-        <Route path='/' element={
-          <Navigation 
-            menuHandler={menuHandler} 
-            menuIsOpen={menuIsOpen} 
-            time={time} 
-            setTime={setTime} 
-            developerMode={developerMode} 
-            setDeveloperMode={setDeveloperMode} 
-          />
-          }>
 
-          <Route index element={
-            <Dashboard 
+      <div className="App">
+        <Routes>
+          <Route path='/' element={
+            <Navigation 
+              menuHandler={menuHandler} 
               menuIsOpen={menuIsOpen} 
               time={time} 
               setTime={setTime} 
               developerMode={developerMode} 
-              setDeveloperMode={setDeveloperMode}
-              podRoute={podRoute}
-              setPodRoute={setPodRoute}
-            />} 
-          />
+              setDeveloperMode={setDeveloperMode} 
+            />
+            }>
+
+            <Route index element={
+              <Dashboard 
+                menuIsOpen={menuIsOpen} 
+                time={time} 
+                setTime={setTime} 
+                developerMode={developerMode} 
+                setDeveloperMode={setDeveloperMode}
+                podRoute={podRoute}
+                setPodRoute={setPodRoute}
+              />} 
+            />
+            
+            <Route path='/resources' element={<Resources menuIsOpen={menuIsOpen}/>} />
+            <Route path='/alerts' element={<Alerts menuIsOpen={menuIsOpen}/>} />
+            <Route path='/requests' element={<Requests menuIsOpen={menuIsOpen}/>} />
+            <Route path='/account' element={<Account menuIsOpen={menuIsOpen}/>} />
+            
+            <Route path='/pod-details' element={
+              <PodDetails 
+                menuIsOpen={menuIsOpen} 
+                podRoute={podRoute} 
+              />} 
+            />
+
+
+
+          </Route>
+        </Routes>
+
+      </div>
           
-          <Route path='/resources' element={<Resources menuIsOpen={menuIsOpen}/>} />
-          <Route path='/alerts' element={<Alerts menuIsOpen={menuIsOpen}/>} />
-          <Route path='/requests' element={<Requests menuIsOpen={menuIsOpen}/>} />
-          <Route path='/account' element={<Account menuIsOpen={menuIsOpen}/>} />
-          
-          <Route path='/pod-details' element={
-            <PodDetails 
-              menuIsOpen={menuIsOpen} 
-              podRoute={podRoute} 
-            />} 
-          />
-
-
-
-        </Route>
-      </Routes>
-
-    </div>
   )
 }
 

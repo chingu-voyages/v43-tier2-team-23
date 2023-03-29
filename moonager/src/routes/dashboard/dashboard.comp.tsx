@@ -1,6 +1,7 @@
 import "../dashboard/dashboard.styles.scss";
-import { useState } from "react";
-/* import { DashboardProps } from "./dashboard-types"; */
+import { useState, useContext } from "react";
+import { UserContext } from '../../contexts/test.context.jsx';
+
 import { Supplies } from "../dashboard/Supplies/supplies.comp";
 import Request from "./Request/Request.comp";
 import Allocate from "./Allocate/Allocate.comp";
@@ -10,6 +11,9 @@ import { podData } from "../../../backend/pods";
 import NextResupply from './NextResupply/NextResupply';
 
 function Dashboard(props: { menuIsOpen:boolean, time:number, setTime:Function, developerMode:boolean, setDeveloperMode:Function, podRoute: string, setPodRoute: Function } ) {
+  const { currentUser, setCurrentUser } = useContext(UserContext);
+  console.log(currentUser)
+
   const [ allocateOrRequest, setAllocateOrRequest] = useState(true)
 
   function chooseAllocate() {
