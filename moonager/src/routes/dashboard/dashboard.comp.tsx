@@ -23,36 +23,47 @@ function Dashboard(props: { menuIsOpen:boolean, time:number, setTime:Function, d
   }
 
   return (
-    // ternary function that changes margin-left based on menuIsOpen
     <div className={`dashboard ${props.menuIsOpen ? "open" : "closed"}`}>
-      <h1>DASHBOARD</h1>
-      <NextResupply time={props.time} />
+      <header className='header-wrapper'>
+        <h1>DASHBOARD</h1>
+        <NextResupply time={props.time} />
+      </header>
+        
 
       <div className="dashboard-wrapper">
         <div className="supply-reserve">
           <h3>SUPPLY RESERVE</h3>
 
           <Supplies />
-
-          <div className='allocate-request-tabs'>
-            <h5 onClick={chooseAllocate} style={ allocateOrRequest ? {backgroundColor: '#d9d9d9'} : {backgroundColor: '#d9d9d990'}}>Allocate</h5>
-            <h5 onClick={chooseRequest} style={ !allocateOrRequest ? {backgroundColor: '#d9d9d9'} : {backgroundColor: '#d9d9d990'}}>Request</h5>
+          
+          <div className='dash-mobile-flex'>
+            <div className='allocate-request-wrapper'>
+              <div className='allocate-request-tabs'>
+                <h5 onClick={chooseAllocate} style={ allocateOrRequest ? {backgroundColor: '#d9d9d9'} : {backgroundColor: '#d9d9d990'}}>Allocate</h5>
+                <h5 onClick={chooseRequest} style={ !allocateOrRequest ? {backgroundColor: '#d9d9d9'} : {backgroundColor: '#d9d9d990'}}>Request</h5>
+              </div>
+            
+            
+              { allocateOrRequest ? 
+              <div className="allocate-panel">
+                <Allocate />
+              </div>
+              :
+              <div className="request-panel">
+                <Request />
+              </div>
+              }
+            </div>
+            
+            <div className='alerts-wrapper'>
+              <h5>Alerts</h5>
+              <div className="alerts-panel">
+                <h6>No Alerts</h6>
+              </div>
+            </div>
           </div>
           
-          { allocateOrRequest ? 
-          <div className="allocate-panel">
-            <Allocate />
-          </div>
-          :
-          <div className="request-panel">
-            <Request />
-          </div>
-          }
 
-          <h5>Alerts</h5>
-          <div className="alerts-panel">
-            <h6>No Alerts</h6>
-          </div>
         </div>
 
         <div className="pods-section-wrapper">
