@@ -19,6 +19,12 @@
     }
 }
 
+@media screen and (max-width: 400px) {
+    .dashboard {
+        display: none;
+    }
+}
+
 .dashboard-wrapper {
     display: flex;
     width: 80vw;
