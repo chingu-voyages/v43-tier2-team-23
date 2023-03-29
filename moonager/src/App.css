@@ -10,6 +10,16 @@
   margin: 0 10vw;
 }
 
+@media screen and (max-width: 400px) {
+  .open {
+    margin: 0 5vw;
+  }
+  
+  .closed {
+    margin: 0 5vw;
+  }
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 *::-webkit-scrollbar {
   display: none;

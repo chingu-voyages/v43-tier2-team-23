@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { useState, createContext } from 'react'
 import './App.css'
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, } from 'react-router-dom';
+
+const myContext = createContext({});
 
 // Routes
 import Navigation from '../src/routes/navigation/navigation.comp';

@@ -171,12 +171,12 @@
         .time-bar {
             border-radius: 3px;
             width: 90vw;
-            max-height: 3rem;
+            max-height: 50px;
             display: flex;
             position: absolute;
             right: 0;
             margin: auto;
-            padding: 1rem;
+            padding: 0px auto;
             align-items: center;
             justify-content: space-between;
     
@@ -203,7 +203,7 @@
                 font-family: 'Moulpali', cursive;
                 font-size: 50px;
                 line-height: 30px;
-                color: black;
+                color: rgba(255, 255, 255, 0.572);
                 text-align: center;
                 margin: 0 20px;
                 padding: 0;
@@ -249,7 +249,7 @@
                 padding: 10px;
                 position: fixed;
                 bottom: 0;
-                color: black;
+                color: rgba(255, 255, 255, 0.572);
                 letter-spacing: 10px;
                 pointer-events: none;
             }
