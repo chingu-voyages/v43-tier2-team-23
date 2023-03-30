@@ -29,7 +29,7 @@
     .time-bar {
         // border: 1px solid #1b94f099;
         border-radius: 3px;
-        width: 400px;
+        width: 350px;
         max-height: 3rem;
         display: flex;
         position: absolute;
@@ -54,6 +54,7 @@
         backdrop-filter: blur(5px);
         display: block;
         position: fixed;
+        transition: width .25s ease-out;
 
         .moonager-logo-closed {
             font-family: 'Moulpali', cursive;
@@ -91,27 +92,35 @@
         width: 15vw;
         background-color: rgba(255,255,255,.3);
         backdrop-filter: blur(10px);
-        display: block;
+        display: flex;
+        flex-direction: column;
         position: fixed;
         box-shadow: 0px 0px 30px #1B93F0;
+        transition: width .25s ease-out;
 
         .moonager-logo-open {
+            display: flex;
+            justify-content: center;
             font-family: 'Moulpali', cursive;
-            font-size: 30px;
+            font-size: 2.8vw;
+            letter-spacing: .2vw;
             line-height: 30px;
-            margin: 0 8px;
-            padding: 25px 0;
             color: black;
-            letter-spacing: 10px;
             pointer-events: none;
+            padding: 30px 0px 20px;
         }
 
-        .close-icon {
-            height: 35px;
-            margin-left: 70%;
+        .close-icon-container {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
 
-            &:hover {
-                cursor: pointer;
+            .close-icon {
+                width: 30px;
+                margin-right: 12px;
+                &:hover {
+                    cursor: pointer;
+                }
             }
         }
 
@@ -119,12 +128,16 @@
             display: flex;
             flex-direction: column;
             font-size: 1.5vw;
-            margin-top: 50px;
+            justify-content: flex-start;
             margin-left: 25px;
+            margin-top: 55px;
 
             .link {
                 color: black;
                 margin-top: 15px;
+                letter-spacing: .05em;
+                animation: expansion .3s;
+                overflow: hidden;
 
                 &:hover {
                     color: rgb(0, 195, 255);
@@ -132,6 +145,11 @@
 
                 &:active {
                     color: white;
+                }
+
+                @keyframes expansion {
+                    from {width: 0%};
+                    to {width: 100%};
                 }
             }
         }
