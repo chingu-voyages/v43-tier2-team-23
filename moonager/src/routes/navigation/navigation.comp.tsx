@@ -14,8 +14,6 @@ function Navigation(props:{ menuHandler:Function, menuIsOpen:boolean, time:numbe
     return (
         <Fragment>
         <div className="navigation">
-
-        <div className='background-image' />
         
         <div className='time-bar'>
             <div className='dev-mode-wrapper'>
