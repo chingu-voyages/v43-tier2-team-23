@@ -2,6 +2,15 @@
   max-width: 1280px;
 }
 
+.background-image {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  z-index: 0;
+  background-image: url('../src/assets/earth-background.jpg');
+  background-size: cover;
+}
+
 .open {
   margin: 0 20vw;
   transition: margin .25s ease-in;
