@@ -75,7 +75,7 @@
 @media screen and (max-width: 400px) {
     .pod {
         box-sizing: border-box;
-        width: 120px;
+        width: 170px;
         height: 150px;
         background-color: rgba(255,255,255,.2);
         backdrop-filter: blur(5px);
@@ -86,6 +86,11 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+
+        .details-flex-wrapper {
+            display: flex;
+            align-items: center;
+        }
     
         p {
             margin: 0;
@@ -98,7 +103,7 @@
         }
     
         .pod-thumbnail {
-            height: 100px;
+            height: 80px;
             border-radius: 5px;
         }
     
@@ -108,10 +113,11 @@
         }
     
         .resource-row {
-            display: none;
-            width: 90%;
+            display: block;
+            width: 100%;
             justify-content: space-between;
             margin-top: 5px;
+            margin-left: 10px;
         }
     
         .resource-flex {
