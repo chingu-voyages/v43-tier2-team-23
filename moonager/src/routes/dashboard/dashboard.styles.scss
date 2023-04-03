@@ -199,11 +199,23 @@
                 width: 40vw;
                 height: 0%;
             }
+
+            .alerts-wrapper {
+                background-color: #d9d9d9;
+
+                h5 {
+                    color: black;
+                    opacity: 100;
+                    font-weight: 600;
+                    font-size: 16px;
+                    padding: 5px; 
+                }
+            }
     
             .alerts-panel {
                 background-color: white;
                 width: 40vw;
-                height: 50%;
+                height: 145px;
                 min-height: 25px;
     
                 h6 {
@@ -223,6 +235,7 @@
                 align-items: center;
                 width: 250px;
                 justify-content: space-between;
+                margin-top: 25px;
     
                 .filter {
                     background-color: white;
