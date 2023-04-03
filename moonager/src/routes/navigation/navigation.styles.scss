@@ -151,14 +151,6 @@
         position: relative;
         z-index: 2;
         padding-bottom: 75px;
-
-        .background-image {
-            position: fixed;
-            height: 100vh;
-            z-index: 0;
-            background-image: url('../../assets/earth-background.jpg');
-            background-size: cover;
-        }
     
         .avatar-placeholder {
             background-image: url('../../assets/avatar.jpg');
@@ -280,10 +272,17 @@
                 font-size: 18px;
                 margin-top: 10px;
                 margin-left: 0px;
+                animation: rise .3s;
+
+                @keyframes rise {
+                    from {padding-top: 300px}
+                    to {padding-top: 0px}
+                }
     
                 .link {
                     color: black;
                     margin-top: 10px;
+                    animation: none;
     
                     &:hover {
                         color: rgb(0, 195, 255);
@@ -292,6 +291,7 @@
                     &:active {
                         color: white;
                     }
+
                 }
             }
         }
