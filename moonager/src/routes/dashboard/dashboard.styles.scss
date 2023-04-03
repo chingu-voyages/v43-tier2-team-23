@@ -216,7 +216,7 @@
     
         .pods-section-wrapper {
             margin-left: 0px;
-            height: 80vh;
+            height: 10vh;
     
             .pods-header-wrapper {
                 display: flex;
@@ -234,7 +234,7 @@
                 display: flex;
                 flex-wrap:wrap;
                 overflow-y: scroll;
-                height: 70vh;
+                height: 100%;
                 width: 100%;
                 color-scheme: dark;
             }
