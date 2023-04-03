@@ -145,7 +145,6 @@
     .dashboard-wrapper {
         display: block;
         width: 90vw;
-        border: 1px solid red;
 
         .dash-mobile-flex {
             display: flex;
@@ -199,11 +198,23 @@
                 width: 40vw;
                 height: 0%;
             }
+
+            .alerts-wrapper {
+                background-color: #d9d9d9;
+
+                h5 {
+                    color: black;
+                    opacity: 100;
+                    font-weight: 600;
+                    font-size: 16px;
+                    padding: 5px; 
+                }
+            }
     
             .alerts-panel {
                 background-color: white;
                 width: 40vw;
-                height: 50%;
+                height: 145px;
                 min-height: 25px;
     
                 h6 {
@@ -216,13 +227,18 @@
     
         .pods-section-wrapper {
             margin-left: 0px;
-            height: 80vh;
+            height: 10vh;
     
             .pods-header-wrapper {
                 display: flex;
                 align-items: center;
                 width: 250px;
                 justify-content: space-between;
+                margin-top: 10px;
+
+                h3 {
+                    margin: 5px;
+                }
     
                 .filter {
                     background-color: white;
@@ -232,9 +248,9 @@
     
             .tile-wrapper {
                 display: flex;
-                flex-wrap:wrap;
-                overflow-y: scroll;
-                height: 70vh;
+                flex-wrap: nowrap;
+                overflow-x: scroll;
+                height: 150px;
                 width: 100%;
                 color-scheme: dark;
             }
