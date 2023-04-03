@@ -1,6 +1,6 @@
 import React from 'react';
 import '../Supplies/supplies.styles.scss';
-import { suppliesArray } from '../../../../backend/supplies';
+import { suppliesData } from '../../../../backend/supplies';
 import { suppliesTypes } from '../Supplies/supplies.types';
 
 export const Supplies = () => {
@@ -8,7 +8,7 @@ export const Supplies = () => {
     return(
         <div className='supply-panel'>
 
-            {suppliesArray.map(item => {
+            {suppliesData.map(item => {
                 return(
                     
                 <div key={item.name} className='supply-container'>

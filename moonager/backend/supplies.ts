@@ -5,7 +5,7 @@ import foodIcon from '../src/assets/food.png';
 import oxygenIcon from '../src/assets/oxygen.png';
 import waterIcon from '../src/assets/water.png';
 
-export const suppliesArray = [
+export const suppliesData = [
     {
         // id: uuidv4(),
         name: 'Electricity',

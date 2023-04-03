@@ -1,6 +1,8 @@
 import '../Pods/pod.styles.scss';
 import { PodType } from "./pods.types";
 import { Link } from 'react-router-dom';
+import { useState, useContext } from 'react';
+import { DataContext } from '../../../context/DataContext';
 
 // Icons
 import Electric from '../../../assets/electricity.png';
@@ -14,6 +16,10 @@ export const Pod = ({ pod, podRoute, setPodRoute }: PodType ) => {
   function getRoute() {
     setPodRoute(pod.route)
   }
+
+  const dataContext = useContext(DataContext)
+
+  console.log(dataContext)
   
   return (
     <Link to='/pod-details' className='tile-link'>

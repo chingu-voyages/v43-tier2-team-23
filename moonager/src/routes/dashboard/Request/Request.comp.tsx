@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./Request.module.scss";
-import { suppliesArray } from "../../../../backend/supplies";
+import { suppliesData } from "../../../../backend/supplies";
 import { podData } from "../../../../backend/pods";
 
 function Request() {
@@ -16,7 +16,7 @@ function Request() {
 
   const plusQuantity = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const newQuantity = form.quantity + 10;
-    const maxQuantity = suppliesArray.filter(
+    const maxQuantity = suppliesData.filter(
       (supply) => supply.name === form.resource
     )[0]?.value;
     if (newQuantity > maxQuantity) {
@@ -42,7 +42,7 @@ function Request() {
 
   const submitHandler = (event: React.SyntheticEvent) => {
     event.preventDefault();
-    const maxQuantity = suppliesArray.filter(
+    const maxQuantity = suppliesData.filter(
       (supply) => supply.name === form.resource
     )[0]?.value;
     if (form.resource.length < 1) {
@@ -72,7 +72,7 @@ function Request() {
         <option disabled hidden>
           Resource
         </option>
-        {suppliesArray.map((supply) => (
+        {suppliesData.map((supply) => (
           <option key={supply.name}>{supply.name}</option>
         ))}
       </select>
