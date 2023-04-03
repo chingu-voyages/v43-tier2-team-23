@@ -145,7 +145,6 @@
     .dashboard-wrapper {
         display: block;
         width: 90vw;
-        border: 1px solid red;
 
         .dash-mobile-flex {
             display: flex;
@@ -235,7 +234,11 @@
                 align-items: center;
                 width: 250px;
                 justify-content: space-between;
-                margin-top: 25px;
+                margin-top: 10px;
+
+                h3 {
+                    margin: 5px;
+                }
     
                 .filter {
                     background-color: white;
@@ -245,9 +248,9 @@
     
             .tile-wrapper {
                 display: flex;
-                flex-wrap:wrap;
-                overflow-y: scroll;
-                height: 100%;
+                flex-wrap: nowrap;
+                overflow-x: scroll;
+                height: 150px;
                 width: 100%;
                 color-scheme: dark;
             }

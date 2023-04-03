@@ -74,7 +74,62 @@
 
 @media screen and (max-width: 400px) {
     .pod {
-        display: none;
+        box-sizing: border-box;
+        width: 170px;
+        height: 150px;
+        background-color: rgba(255,255,255,.2);
+        backdrop-filter: blur(5px);
+        border-radius: 10px;
+        margin: .5rem;
+        transition: all .3s;
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+        p {
+            margin: 0;
+            padding: 0;
+        }
+    
+        .pod-name {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+    
+        .pod-thumbnail {
+            height: 50px;
+            border-radius: 5px;
+        }
+    
+        &:hover {
+            box-shadow: 0px 0px 1rem rgb(44, 174, 255);
+            cursor: pointer;
+        }
+    
+        .resource-row {
+            display: flex;
+            width: 90%;
+            justify-content: space-between;
+            margin-top: 5px;
+        }
+    
+        .resource-flex {
+            display: flex;
+            align-items: center;
+            
+            .tile-icon {
+                height: 25px;
+                width: 25px;
+            }
+    
+            p {
+                font-weight: 300;
+                font-size: 14px;
+                margin-left: 5px;
+            }
+        }
+    
     }
 }
 
