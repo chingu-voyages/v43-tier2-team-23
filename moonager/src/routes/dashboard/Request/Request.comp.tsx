@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import styles from "./Request.module.scss";
-import { suppliesData } from "../../../../backend/supplies";
-import { podData } from "../../../../backend/pods";
+import { DataContext } from '../../../context/DataContext';
 
 function Request() {
   const formInitial = {
@@ -10,13 +9,15 @@ function Request() {
     pod: "",
   };
 
+  const {data, setData} = useContext(DataContext);
+
   const [form, setForm] = useState({ ...formInitial });
 
   const [formAlert, setformAlert] = useState("");
 
   const plusQuantity = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const newQuantity = form.quantity + 10;
-    const maxQuantity = suppliesData.filter(
+    const maxQuantity = data.supplies.filter(
       (supply) => supply.name === form.resource
     )[0]?.value;
     if (newQuantity > maxQuantity) {
@@ -42,7 +43,7 @@ function Request() {
 
   const submitHandler = (event: React.SyntheticEvent) => {
     event.preventDefault();
-    const maxQuantity = suppliesData.filter(
+    const maxQuantity = data.supplies.filter(
       (supply) => supply.name === form.resource
     )[0]?.value;
     if (form.resource.length < 1) {
@@ -72,7 +73,7 @@ function Request() {
         <option disabled hidden>
           Resource
         </option>
-        {suppliesData.map((supply) => (
+        {data.supplies.map((supply) => (
           <option key={supply.name}>{supply.name}</option>
         ))}
       </select>
@@ -112,7 +113,7 @@ function Request() {
         <option disabled hidden>
           Pod
         </option>
-        {podData.map((pod) => (
+        {data.pods.map((pod) => (
           <option key={pod.id}>{pod.name}</option>
         ))}
       </select>

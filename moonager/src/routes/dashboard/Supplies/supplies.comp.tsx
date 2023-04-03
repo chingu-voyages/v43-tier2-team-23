@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import '../Supplies/supplies.styles.scss';
-import { suppliesData } from '../../../../backend/supplies';
 import { suppliesTypes } from '../Supplies/supplies.types';
+import { DataContext } from '../../../context/DataContext';
 
 export const Supplies = () => {
+    
+    const {data, setData} = useContext(DataContext);
 
+    /*
+    const suppliesUpdate = () => {
+        console.log(data)
+        console.log(data.supplies)
+        setData({...data, supplies: []})
+    }
+    */
+    
     return(
         <div className='supply-panel'>
 
-            {suppliesData.map(item => {
+            {/* <button onClick={suppliesUpdate} ></button> */}
+
+            {data.supplies.map(item => {
                 return(
                     
                 <div key={item.name} className='supply-container'>

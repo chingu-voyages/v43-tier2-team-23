@@ -18,8 +18,6 @@ export const Pod = ({ pod, podRoute, setPodRoute }: PodType ) => {
   }
 
   const dataContext = useContext(DataContext)
-
-  console.log(dataContext)
   
   return (
     <Link to='/pod-details' className='tile-link'>

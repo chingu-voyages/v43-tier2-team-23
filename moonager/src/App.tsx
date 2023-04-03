@@ -34,7 +34,7 @@ function App() {
   });
 
   return (
-    <DataContext.Provider value={{data, setData}} >
+    <DataContext.Provider value={{data: data, setData: setData}} >
       <div className="App">
 
         <div className='background-image' />
