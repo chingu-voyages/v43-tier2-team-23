@@ -75,7 +75,7 @@
 @media screen and (max-width: 400px) {
     .pod {
         box-sizing: border-box;
-        width: 170px;
+        width: 120px;
         height: 150px;
         background-color: rgba(255,255,255,.2);
         backdrop-filter: blur(5px);
@@ -98,7 +98,7 @@
         }
     
         .pod-thumbnail {
-            height: 50px;
+            height: 100px;
             border-radius: 5px;
         }
     
@@ -108,7 +108,7 @@
         }
     
         .resource-row {
-            display: flex;
+            display: none;
             width: 90%;
             justify-content: space-between;
             margin-top: 5px;
