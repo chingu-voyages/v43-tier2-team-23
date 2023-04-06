@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import styles from "./Request.module.scss";
 import { DataContext } from '../../../context/DataContext';
+import { requestSupplies } from "../../../context/dataUtils";
 
 function Request() {
   const formInitial = {
@@ -58,9 +59,11 @@ function Request() {
       );
       return;
     }
-    console.log("submitted");
+
+    //@ts-ignore
+    setData(requestSupplies(data, form.resource, form.quantity, form.pod));
     setformAlert("Submitted!");
-    setForm({ ...formInitial });
+    setForm({...form, quantity: 0});
   };
 
   return (

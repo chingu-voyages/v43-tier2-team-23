@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import styles from "./Allocate.module.scss";
 import { DataContext } from '../../../context/DataContext';
+import { allocateReserves } from "../../../context/dataUtils";
 
 function Allocate() {
   const formInitial = {
@@ -20,7 +21,6 @@ function Allocate() {
     const maxQuantity = data.supplies.filter(
       (supply) => supply.name === form.resource
     )[0]?.value;
-    console.log(maxQuantity);
     if (newQuantity > maxQuantity) {
       setFormAlert(
         `Quantity must be below total supply reserves (${maxQuantity})`
@@ -59,9 +59,11 @@ function Allocate() {
       );
       return;
     }
-    console.log("submitted");
+    
+    //@ts-ignore
+    setData(allocateReserves(data, form.resource, form.quantity, form.destination))
     setFormAlert("Submitted!");
-    setForm({ ...formInitial });
+    setForm({...form, quantity: 0});
   };
 
   return (
