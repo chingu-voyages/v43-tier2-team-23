@@ -8,6 +8,7 @@ import "../dashboard/dashboard.styles.scss";
 import { Pods } from "./Pods/pods.comp";
 import NextResupply from './NextResupply/NextResupply';
 import { DataContext } from '../../context/DataContext';
+import Alerts from "./Alerts/Alerts.comp";
 
 function Dashboard(props: { menuIsOpen:boolean, time:number, setTime:Function, developerMode:boolean, setDeveloperMode:Function, podRoute: string, setPodRoute: Function } ) {
   
@@ -17,12 +18,10 @@ function Dashboard(props: { menuIsOpen:boolean, time:number, setTime:Function, d
 
   function chooseAllocate() {
     setAllocateOrRequest(true)
-    console.log(allocateOrRequest)
   }
 
   function chooseRequest() {
     setAllocateOrRequest(false)
-    console.log(allocateOrRequest)
   }
 
   return (
@@ -58,12 +57,10 @@ function Dashboard(props: { menuIsOpen:boolean, time:number, setTime:Function, d
               }
             </div>
             
-            <div className='alerts-wrapper'>
-              <h5>Alerts</h5>
-              <div className="alerts-panel">
-                <h6>No Alerts</h6>
-              </div>
+            <div className='alerts-panel'>
+              <Alerts setAllocateOrRequest={setAllocateOrRequest} />
             </div>
+
           </div>
           
 

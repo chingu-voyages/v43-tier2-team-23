@@ -10,10 +10,10 @@
         font-size: .8em;
 
         input, select {
-            border: solid gray 1px;
+            border: none;
             border-radius: 2px;
             outline: none;
-            box-shadow: 1px 1px 3px black;
+            padding: 2px;
             margin-top: 3px
         }
     

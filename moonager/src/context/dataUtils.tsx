@@ -31,3 +31,23 @@ export function requestSupplies(data: any, supply: string, amount: number, pod: 
   })
   return dataCloned;
 }
+
+export function newAlert(data: any) {
+  const dataCloned = JSON.parse(JSON.stringify(data));
+  const alerts: any = [];
+  dataCloned.pods.forEach((pod: any) => {
+    for (let i in pod.supplies) {
+      if ((pod.supplies as any)[i] < 1200) {
+        alerts.push({
+          id: alerts.length + 1,
+          pod: pod.name,
+          supply: i,
+          amount: (pod.supplies as any)[i],
+        });
+      }
+    }
+    dataCloned.alerts = alerts;
+  });
+  
+  return dataCloned;
+}

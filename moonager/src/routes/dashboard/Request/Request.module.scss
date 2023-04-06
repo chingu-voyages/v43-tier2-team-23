@@ -19,6 +19,12 @@
         box-shadow: 1px 1px 3px rgb(105, 105, 105);
     }
 
+    select:focus {
+        outline: solid gray 2px;
+        outline-style: inset;
+        transition: outline ease-in .05s;
+    }
+
     button {
         background-color: #1b93f0;
         color: white;
@@ -41,6 +47,10 @@
             padding: 0px;
             border: none;
             color: #8b8b8b;
+        }
+
+        input:focus {
+            outline: none;
         }
         
         input::-webkit-outer-spin-button,

@@ -69,6 +69,7 @@ function Allocate() {
   return (
     <form onSubmit={submitHandler} className={styles.form}>
       <select
+        id='allocate-select-resource'
         required
         defaultValue="Resource"
         onChange={(e) => setForm({ ...form, resource: e.target.value })}

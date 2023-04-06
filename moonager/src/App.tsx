@@ -1,4 +1,4 @@
-import { useState, createContext } from 'react'
+import { useState, createContext, useEffect } from 'react'
 import './App.css'
 import { Routes, Route, } from 'react-router-dom';
 import { DataContext } from './context/DataContext';
@@ -14,6 +14,8 @@ import Alerts from '../src/routes/alerts/alerts.comp';
 import Requests from '../src/routes/requests/requests.comp';
 import Account from '../src/routes/account/account.comp';
 import PodDetails from '../src/routes/pod-details/pod-details.comp';
+import { alertsData } from '../backend/alerts';
+import { newAlert } from './context/dataUtils';
 
 function App() {
   const [ menuIsOpen, setMenuIsOpen ] = useState(false);
@@ -30,8 +32,18 @@ function App() {
   const [data, setData] = useState({
     pods: podData,
     supplies: suppliesData,
-    users: usersData
+    users: usersData,
+    alerts: alertsData,
   });
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      //@ts-ignore
+      setData(newAlert(data));
+    }, 5000); // set how often it should recheck for low supplies
+
+    return () => clearInterval(interval);
+  }, [data]);
 
   return (
     <DataContext.Provider value={{data: data, setData: setData}} >
