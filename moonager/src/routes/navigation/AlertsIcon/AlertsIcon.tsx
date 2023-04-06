@@ -1,8 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import './AlertIcon.scss';
+import { DataContext } from '../../../context/DataContext';
 
 export default function AlertsIcon (props:{time:number}) {
+    
+    const {data, setData} = useContext(DataContext);
+    
     const [alert, setAlert] = useState(false);
+
+    /*
     const [alertStyle, setAlertStyle] = useState('alert-icon');
     
     useEffect(() => {
@@ -13,6 +19,15 @@ export default function AlertsIcon (props:{time:number}) {
             // 'no-alert' : 'alert-icon'
         }
       }, [alert, props.time]);      // reactive values
+    */
+      
+    useEffect(() => {
+        if (data.alerts.length > 0) {
+            setAlert(true);
+        } else {
+            setAlert(false);
+        }
+    }, [data])
 
     return (
     <>
