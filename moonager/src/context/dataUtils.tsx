@@ -37,7 +37,7 @@ export function newAlert(data: any) {
   const alerts: any = [];
   dataCloned.pods.forEach((pod: any) => {
     for (let i in pod.supplies) {
-      if ((pod.supplies as any)[i] < 1000) {
+      if ((pod.supplies as any)[i] < 1200) {
         alerts.push({
           id: alerts.length + 1,
           pod: pod.name,

@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import './AlertIcon.scss';
 import { DataContext } from '../../../context/DataContext';
+import { useNavigate } from 'react-router-dom';
 
 export default function AlertsIcon (props:{time:number}) {
     
@@ -27,11 +28,20 @@ export default function AlertsIcon (props:{time:number}) {
         } else {
             setAlert(false);
         }
-    }, [data])
+    }, [data]);
+
+    const navigate = useNavigate();
+    const clickHandler = () => {
+        if (alert) {
+            navigate('/alerts');
+        } else {
+            return;
+        }
+    }
 
     return (
     <>
-        <span className={alert? 'alert-icon' : 'no-alert'}>{
+        <span onClick={clickHandler} className={alert? 'alert-icon' : 'no-alert'}>{
                     alert? '!' : 'No Alerts'
             }
         </span>

@@ -58,7 +58,7 @@ function Dashboard(props: { menuIsOpen:boolean, time:number, setTime:Function, d
             </div>
             
             <div className='alerts-panel'>
-              <Alerts />
+              <Alerts setAllocateOrRequest={setAllocateOrRequest} />
             </div>
 
           </div>
