@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import styles from "./Request.module.scss";
-import { suppliesArray } from "../../../../backend/supplies";
-import { podData } from "../../../../backend/pods";
+import { DataContext } from '../../../context/DataContext';
+import { requestSupplies } from "../../../context/dataUtils";
 
 function Request() {
   const formInitial = {
@@ -10,15 +10,17 @@ function Request() {
     pod: "",
   };
 
+  const {data, setData} = useContext(DataContext);
+
   const [form, setForm] = useState({ ...formInitial });
 
   const [formAlert, setformAlert] = useState("");
 
   const plusQuantity = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const newQuantity = form.quantity + 10;
-    const maxQuantity = suppliesArray.filter(
-      (supply) => supply.name === form.resource
-    )[0]?.value;
+    const maxQuantity = (data.pods.filter((pod) => {
+      return pod.name === form.pod;
+    })[0].supplies as any)[form.resource.toLowerCase()];
     if (newQuantity > maxQuantity) {
       setformAlert(
         `Quantity must be below total supply reserves (${maxQuantity})`
@@ -42,9 +44,11 @@ function Request() {
 
   const submitHandler = (event: React.SyntheticEvent) => {
     event.preventDefault();
-    const maxQuantity = suppliesArray.filter(
-      (supply) => supply.name === form.resource
-    )[0]?.value;
+
+    const maxQuantity = (data.pods.filter((pod) => {
+      return pod.name === form.pod;
+    })[0].supplies as any)[form.resource.toLowerCase()];
+
     if (form.resource.length < 1) {
       setformAlert("please provide a resource to request");
       return;
@@ -53,13 +57,15 @@ function Request() {
       return;
     } else if (form.quantity > maxQuantity) {
       setformAlert(
-        `Quantity must be below total supply reserves (${maxQuantity})`
+        `Quantity must be below available pod supplies (${maxQuantity})`
       );
       return;
     }
-    console.log("submitted");
+
+    //@ts-ignore
+    setData(requestSupplies(data, form.resource, form.quantity, form.pod));
     setformAlert("Submitted!");
-    setForm({ ...formInitial });
+    setForm({...form, quantity: 0});
   };
 
   return (
@@ -72,7 +78,7 @@ function Request() {
         <option disabled hidden>
           Resource
         </option>
-        {suppliesArray.map((supply) => (
+        {data.supplies.map((supply) => (
           <option key={supply.name}>{supply.name}</option>
         ))}
       </select>
@@ -112,7 +118,7 @@ function Request() {
         <option disabled hidden>
           Pod
         </option>
-        {podData.map((pod) => (
+        {data.pods.map((pod) => (
           <option key={pod.id}>{pod.name}</option>
         ))}
       </select>

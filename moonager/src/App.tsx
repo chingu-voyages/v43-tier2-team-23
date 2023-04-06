@@ -1,8 +1,10 @@
 import { useState, createContext } from 'react'
 import './App.css'
 import { Routes, Route, } from 'react-router-dom';
-
-const myContext = createContext({});
+import { DataContext } from './context/DataContext';
+import { podData } from '../backend/pods';
+import { suppliesData } from '../backend/supplies';
+import { usersData } from '../backend/users';
 
 // Routes
 import Navigation from '../src/routes/navigation/navigation.comp';
@@ -25,53 +27,61 @@ function App() {
       { menuIsOpen ? setMenuIsOpen(false) : setMenuIsOpen(true) }
   }
 
+  const [data, setData] = useState({
+    pods: podData,
+    supplies: suppliesData,
+    users: usersData
+  });
+
   return (
-    <div className="App">
+    <DataContext.Provider value={{data: data, setData: setData}} >
+      <div className="App">
 
-      <div className='background-image' />
+        <div className='background-image' />
 
-      <Routes>
-        <Route path='/' element={
-          <Navigation 
-            menuHandler={menuHandler} 
-            menuIsOpen={menuIsOpen} 
-            time={time} 
-            setTime={setTime} 
-            developerMode={developerMode} 
-            setDeveloperMode={setDeveloperMode} 
-          />
-          }>
-
-          <Route index element={
-            <Dashboard 
+        <Routes>
+          <Route path='/' element={
+            <Navigation 
+              menuHandler={menuHandler} 
               menuIsOpen={menuIsOpen} 
               time={time} 
               setTime={setTime} 
               developerMode={developerMode} 
-              setDeveloperMode={setDeveloperMode}
-              podRoute={podRoute}
-              setPodRoute={setPodRoute}
-            />} 
-          />
-          
-          <Route path='/resources' element={<Resources menuIsOpen={menuIsOpen}/>} />
-          <Route path='/alerts' element={<Alerts menuIsOpen={menuIsOpen}/>} />
-          <Route path='/requests' element={<Requests menuIsOpen={menuIsOpen}/>} />
-          <Route path='/account' element={<Account menuIsOpen={menuIsOpen}/>} />
-          
-          <Route path='/pod-details' element={
-            <PodDetails 
-              menuIsOpen={menuIsOpen} 
-              podRoute={podRoute} 
-            />} 
-          />
+              setDeveloperMode={setDeveloperMode} 
+            />
+            }>
+
+            <Route index element={
+              <Dashboard 
+                menuIsOpen={menuIsOpen} 
+                time={time} 
+                setTime={setTime} 
+                developerMode={developerMode} 
+                setDeveloperMode={setDeveloperMode}
+                podRoute={podRoute}
+                setPodRoute={setPodRoute}
+              />} 
+            />
+            
+            <Route path='/resources' element={<Resources menuIsOpen={menuIsOpen}/>} />
+            <Route path='/alerts' element={<Alerts menuIsOpen={menuIsOpen}/>} />
+            <Route path='/requests' element={<Requests menuIsOpen={menuIsOpen}/>} />
+            <Route path='/account' element={<Account menuIsOpen={menuIsOpen}/>} />
+            
+            <Route path='/pod-details' element={
+              <PodDetails 
+                menuIsOpen={menuIsOpen} 
+                podRoute={podRoute} 
+              />} 
+            />
 
 
 
-        </Route>
-      </Routes>
+          </Route>
+        </Routes>
 
-    </div>
+      </div>
+    </DataContext.Provider>
   )
 }
 

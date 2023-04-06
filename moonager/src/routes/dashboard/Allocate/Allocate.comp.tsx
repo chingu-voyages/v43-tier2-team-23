@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import styles from "./Allocate.module.scss";
-import { suppliesArray } from "../../../../backend/supplies";
-import { podData } from "../../../../backend/pods";
+import { DataContext } from '../../../context/DataContext';
+import { allocateReserves } from "../../../context/dataUtils";
 
 function Allocate() {
   const formInitial = {
@@ -9,6 +9,8 @@ function Allocate() {
     quantity: 0,
     destination: "",
   };
+  
+  const {data, setData} = useContext(DataContext);
 
   const [form, setForm] = useState({ ...formInitial });
 
@@ -16,10 +18,9 @@ function Allocate() {
 
   const plusQuantity = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const newQuantity = form.quantity + 10;
-    const maxQuantity = suppliesArray.filter(
+    const maxQuantity = data.supplies.filter(
       (supply) => supply.name === form.resource
     )[0]?.value;
-    console.log(maxQuantity);
     if (newQuantity > maxQuantity) {
       setFormAlert(
         `Quantity must be below total supply reserves (${maxQuantity})`
@@ -43,7 +44,7 @@ function Allocate() {
 
   const submitHandler = (event: React.SyntheticEvent) => {
     event.preventDefault();
-    const maxQuantity = suppliesArray.filter(
+    const maxQuantity = data.supplies.filter(
       (supply) => supply.name === form.resource
     )[0]?.value;
     if (form.resource.length < 1) {
@@ -58,9 +59,11 @@ function Allocate() {
       );
       return;
     }
-    console.log("submitted");
+    
+    //@ts-ignore
+    setData(allocateReserves(data, form.resource, form.quantity, form.destination))
     setFormAlert("Submitted!");
-    setForm({ ...formInitial });
+    setForm({...form, quantity: 0});
   };
 
   return (
@@ -73,7 +76,7 @@ function Allocate() {
         <option disabled hidden>
           Resource
         </option>
-        {suppliesArray.map((supply) => (
+        {data.supplies.map((supply) => (
           <option key={supply.name}>{supply.name}</option>
         ))}
       </select>
@@ -113,7 +116,7 @@ function Allocate() {
         <option disabled hidden>
           Destination
         </option>
-        {podData.map((pod) => (
+        {data.pods.map((pod) => (
           <option key={pod.id}>{pod.name}</option>
         ))}
       </select>

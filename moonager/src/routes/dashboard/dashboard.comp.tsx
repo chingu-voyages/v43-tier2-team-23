@@ -1,15 +1,18 @@
 import "../dashboard/dashboard.styles.scss";
-import { useState } from "react";
+import { useState, useContext } from "react";
 /* import { DashboardProps } from "./dashboard-types"; */
 import { Supplies } from "../dashboard/Supplies/supplies.comp";
 import Request from "./Request/Request.comp";
 import Allocate from "./Allocate/Allocate.comp";
 import "../dashboard/dashboard.styles.scss";
 import { Pods } from "./Pods/pods.comp";
-import { podData } from "../../../backend/pods";
 import NextResupply from './NextResupply/NextResupply';
+import { DataContext } from '../../context/DataContext';
 
 function Dashboard(props: { menuIsOpen:boolean, time:number, setTime:Function, developerMode:boolean, setDeveloperMode:Function, podRoute: string, setPodRoute: Function } ) {
+  
+  const {data, setData} = useContext(DataContext);
+  
   const [ allocateOrRequest, setAllocateOrRequest] = useState(true)
 
   function chooseAllocate() {
@@ -72,7 +75,7 @@ function Dashboard(props: { menuIsOpen:boolean, time:number, setTime:Function, d
           </div>
           
           <Pods 
-            pods={podData}
+            pods={data.pods}
             podRoute={props.podRoute}
             setPodRoute={props.setPodRoute}
           />
