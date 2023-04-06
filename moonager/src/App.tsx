@@ -27,6 +27,8 @@ function App() {
       { menuIsOpen ? setMenuIsOpen(false) : setMenuIsOpen(true) }
   }
 
+  console.log(time)
+
   const [data, setData] = useState({
     pods: podData,
     supplies: suppliesData,
