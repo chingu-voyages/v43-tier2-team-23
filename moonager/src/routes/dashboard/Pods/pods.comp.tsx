@@ -10,8 +10,6 @@ export const Pods = ({ pods, podRoute, setPodRoute }: PodListTypes ) => {
 
   if (podSearch.length > 0) {
     pods = pods.filter((pod) => {
-      console.log(pod.name)
-      console.log(podSearch)
       return pod.name.toLowerCase().indexOf(podSearch.toLowerCase()) > -1
     });
   }
@@ -63,7 +61,7 @@ export const Pods = ({ pods, podRoute, setPodRoute }: PodListTypes ) => {
 
         <div className={styles['search-wrapper']} >
           <div >Pod Search</div>
-          <input type='search' name='q' placeholder='ex: "Pod Name"...' onChange={(e) => setPodSearch(e.target.value)} />
+          <input style={{border: 'none'}} type='search' name='q' placeholder='ex: "Pod Name"...' onChange={(e) => setPodSearch(e.target.value)} />
         </div>
 
       </div>
