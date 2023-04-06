@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import '../Supplies/supplies.styles.scss';
 import { suppliesTypes } from '../Supplies/supplies.types';
 import { DataContext } from '../../../context/DataContext';
@@ -6,19 +6,21 @@ import { DataContext } from '../../../context/DataContext';
 export const Supplies = () => {
     
     const {data, setData} = useContext(DataContext);
-
-    /*
-    const suppliesUpdate = () => {
-        console.log(data)
-        console.log(data.supplies)
-        setData({...data, supplies: []})
-    }
-    */
+    
+    // notification animation of resource changing in reserves
+    useEffect(() => {
+        const elements = document.getElementsByClassName('supply-value');
+        const animation = [ { color: '#fff' }, { color: '#000' } ];
+        for (let i of elements) {
+            i.addEventListener('DOMSubtreeModified', () => {
+                i.animate(animation, 3000)
+            });
+        }
+    }, []);
+    
     
     return(
         <div className='supply-panel'>
-
-            {/* <button onClick={suppliesUpdate} ></button> */}
 
             {data.supplies.map(item => {
                 return(

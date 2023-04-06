@@ -18,9 +18,9 @@ function Request() {
 
   const plusQuantity = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const newQuantity = form.quantity + 10;
-    const maxQuantity = data.supplies.filter(
-      (supply) => supply.name === form.resource
-    )[0]?.value;
+    const maxQuantity = (data.pods.filter((pod) => {
+      return pod.name === form.pod;
+    })[0].supplies as any)[form.resource.toLowerCase()];
     if (newQuantity > maxQuantity) {
       setformAlert(
         `Quantity must be below total supply reserves (${maxQuantity})`
@@ -44,9 +44,11 @@ function Request() {
 
   const submitHandler = (event: React.SyntheticEvent) => {
     event.preventDefault();
-    const maxQuantity = data.supplies.filter(
-      (supply) => supply.name === form.resource
-    )[0]?.value;
+
+    const maxQuantity = (data.pods.filter((pod) => {
+      return pod.name === form.pod;
+    })[0].supplies as any)[form.resource.toLowerCase()];
+
     if (form.resource.length < 1) {
       setformAlert("please provide a resource to request");
       return;
@@ -55,7 +57,7 @@ function Request() {
       return;
     } else if (form.quantity > maxQuantity) {
       setformAlert(
-        `Quantity must be below total supply reserves (${maxQuantity})`
+        `Quantity must be below available pod supplies (${maxQuantity})`
       );
       return;
     }
