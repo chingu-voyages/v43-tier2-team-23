@@ -7,13 +7,13 @@ export const Supplies = () => {
     
     const {data, setData} = useContext(DataContext);
     
-    // notification animation of resource changing in reserves
+    // notification animation of resource levels changing in pod supply
     useEffect(() => {
         const elements = document.getElementsByClassName('supply-value');
         const animation = [ { color: '#fff' }, { color: '#000' } ];
         for (let i of elements) {
             i.addEventListener('DOMSubtreeModified', () => {
-                i.animate(animation, 3000)
+                i.animate(animation, 3000);
             });
         }
     }, []);

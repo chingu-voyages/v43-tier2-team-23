@@ -1,7 +1,7 @@
 import '../Pods/pod.styles.scss';
 import { PodType } from "./pods.types";
 import { Link } from 'react-router-dom';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { DataContext } from '../../../context/DataContext';
 
 // Icons
@@ -17,7 +17,16 @@ export const Pod = ({ pod, podRoute, setPodRoute }: PodType ) => {
     setPodRoute(pod.route)
   }
 
-  const dataContext = useContext(DataContext)
+  // notification animation of resource changing in reserves
+  useEffect(() => {
+    const elements = document.getElementsByClassName('tile-supply-value');
+    const animation = [ { color: '#ff0000' }, { color: '#fff' } ];
+    for (let i of elements) {
+        i.addEventListener('DOMSubtreeModified', () => {
+            i.animate(animation, 3000);
+        });
+    }
+}, []);
   
   return (
     <Link to='/pod-details' className='tile-link'>
