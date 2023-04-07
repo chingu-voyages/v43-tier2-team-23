@@ -35,19 +35,19 @@ function App() {
     users: usersData,
     alerts: alertsData,
   });
+  const [podDataState, setPodDataState] = useState(podData);
+  const [suppliesDataState, setSuppliesDataState] = useState(suppliesData);
+  const [usersDataState, setUsersDataState] = useState(usersData);
+  const [alertsDataState, setAlertsDataState] = useState(alertsData);
 
   const [alertThreshold, setAlertThreshold] = useState(1200);
   useEffect(() => {
-    const interval = setInterval(() => {
-      //@ts-ignore
-      setData(newAlert(data, alertThreshold));
-    }, 5000); // set how often it should recheck for low supplies
-
-    return () => clearInterval(interval);
-  }, [data]);
+    //@ts-ignore
+    setAlertsDataState(newAlert(podDataState, alertThreshold));
+  }, [podDataState]);
 
   return (
-    <DataContext.Provider value={{data: data, setData: setData}} >
+    <DataContext.Provider value={{data, setData, podDataState, setPodDataState, suppliesDataState, setSuppliesDataState, usersDataState, setUsersDataState, alertsDataState, setAlertsDataState}} >
       <div className="App">
 
         <div className='background-image' />

@@ -7,7 +7,7 @@ import { DataContext } from '../../context/DataContext';
 
 export default function PodDetails(props: {menuIsOpen: boolean, podRoute: string }) {
 
-    const {data, setData} = useContext(DataContext);
+    const {data, podDataState, setData} = useContext(DataContext);
 
     function searchArrayByRoute(arr: string | any[], route: string) {
         for (let i = 0; i < arr.length; i++) {
@@ -16,7 +16,7 @@ export default function PodDetails(props: {menuIsOpen: boolean, podRoute: string
             }
         }
     }
-    const currentPod = searchArrayByRoute(data.pods, props.podRoute);
+    const currentPod = searchArrayByRoute(podDataState, props.podRoute);
 
     return(
         <div className={`pod-details ${props.menuIsOpen ? 'open' : 'closed'}`}>

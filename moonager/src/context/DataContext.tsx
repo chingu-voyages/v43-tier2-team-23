@@ -11,5 +11,13 @@ export const DataContext = createContext({
         users: usersData,
         alerts: alertsData,
     },
+    podDataState: podData,
+    setPodDataState: {},
+    suppliesDataState: suppliesData,
+    setSuppliesDataState: {},
+    usersDataState: usersData,
+    setUsersDataState: {},
+    alertsDataState: alertsData,
+    setAlertsDataState: {},
     setData: {}
 })

@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import styles from "./Request.module.scss";
 import { DataContext } from '../../../context/DataContext';
-import { requestSupplies } from "../../../context/dataUtils";
+import { manipulateReserves, manipulatePodSupplies } from "../../../context/dataUtils";
 
 function Request() {
   const formInitial = {
@@ -10,7 +10,7 @@ function Request() {
     pod: "",
   };
 
-  const {data, setData} = useContext(DataContext);
+  const {data, podDataState, setPodDataState, suppliesDataState, setSuppliesDataState, setData} = useContext(DataContext);
 
   const [form, setForm] = useState({ ...formInitial });
 
@@ -18,7 +18,7 @@ function Request() {
 
   const plusQuantity = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const newQuantity = form.quantity + 10;
-    const maxQuantity = (data.pods.filter((pod) => {
+    const maxQuantity = (podDataState.filter((pod) => {
       return pod.name === form.pod;
     })[0].supplies as any)[form.resource.toLowerCase()];
     if (newQuantity > maxQuantity) {
@@ -45,7 +45,7 @@ function Request() {
   const submitHandler = (event: React.SyntheticEvent) => {
     event.preventDefault();
 
-    const maxQuantity = (data.pods.filter((pod) => {
+    const maxQuantity = (podDataState.filter((pod) => {
       return pod.name === form.pod;
     })[0].supplies as any)[form.resource.toLowerCase()];
 
@@ -63,7 +63,9 @@ function Request() {
     }
 
     //@ts-ignore
-    setData(requestSupplies(data, form.resource, form.quantity, form.pod));
+    setSuppliesDataState(manipulateReserves(suppliesDataState, form.resource, form.quantity));
+    //@ts-ignore
+    setPodDataState(manipulatePodSupplies(podDataState, form.pod, form.resource, -form.quantity));
     setformAlert("Submitted!");
     setForm({...form, quantity: 0});
   };
@@ -78,7 +80,7 @@ function Request() {
         <option disabled hidden>
           Resource
         </option>
-        {data.supplies.map((supply) => (
+        {suppliesDataState.map((supply) => (
           <option key={supply.name}>{supply.name}</option>
         ))}
       </select>
@@ -118,7 +120,7 @@ function Request() {
         <option disabled hidden>
           Pod
         </option>
-        {data.pods.map((pod) => (
+        {podDataState.map((pod) => (
           <option key={pod.id}>{pod.name}</option>
         ))}
       </select>

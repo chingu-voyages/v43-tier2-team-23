@@ -3,7 +3,7 @@ import { useState, useContext, useEffect } from "react";
 import { DataContext } from "../../../context/DataContext";
 
 function Alerts( props:any ) {
-  const { data, setData } = useContext(DataContext);
+  const { data, suppliesDataState, alertsDataState, setData } = useContext(DataContext);
 
   const clickHandler = () => {
     props.setAllocateOrRequest(true);
@@ -16,8 +16,8 @@ function Alerts( props:any ) {
     <div className='alerts-container' >
       <div className='alerts-header' >Alerts</div>
       <div className='scroll-container' >
-        {data.alerts.map((alert: any) => {
-          const units = data.supplies.filter((supply) => supply.name.toLowerCase() === alert.supply)[0]?.units;
+        {alertsDataState.map((alert: any) => {
+          const units = suppliesDataState.filter((supply) => supply.name.toLowerCase() === alert.supply)[0]?.units;
           return (
             <div className='low-supply' onClick={clickHandler} >
               <div style={{marginRight: '8px'}}>!</div> <div >{alert.pod} low {alert.supply} {`(${alert.amount} ${units ? units : ''})`}</div>
