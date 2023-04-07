@@ -38,7 +38,7 @@ function App() {
   useEffect(() => {
     //@ts-ignore
     setAlertsDataState(newAlert(podDataState, alertThreshold));
-  }, [podDataState]);
+  }, [podDataState, alertThreshold]);
 
   return (
     <DataContext.Provider value={{podDataState, setPodDataState, suppliesDataState, setSuppliesDataState, usersDataState, setUsersDataState, alertsDataState, setAlertsDataState}} >
