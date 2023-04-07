@@ -9,7 +9,7 @@ function Alert(props: any) {
 
   const { suppliesDataState, setSuppliesDataState, podDataState, setPodDataState } = useContext(DataContext);
 
-  const units = suppliesDataState.filter((supply) => supply.name.toLowerCase() === props.alert.supply)[0]?.units;
+  const units = suppliesDataState.find((supply) => supply.name.toLowerCase() === props.alert.supply)?.units;
 
   const [reserves, setReserves] = useState(suppliesDataState.find((supply) => supply.name.toLowerCase() === props.alert.supply)?.value);
   useEffect(() => {

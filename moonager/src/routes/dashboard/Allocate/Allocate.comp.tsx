@@ -10,7 +10,7 @@ function Allocate() {
     destination: "",
   };
   
-  const {data, podDataState, setPodDataState, suppliesDataState, setSuppliesDataState, setData} = useContext(DataContext);
+  const { podDataState, setPodDataState, suppliesDataState, setSuppliesDataState, } = useContext(DataContext);
 
   const [form, setForm] = useState({ ...formInitial });
 
@@ -18,9 +18,8 @@ function Allocate() {
 
   const plusQuantity = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const newQuantity = form.quantity + 10;
-    const maxQuantity = suppliesDataState.filter(
-      (supply) => supply.name === form.resource
-    )[0]?.value;
+    const maxQuantity = suppliesDataState.find((supply) => supply.name === form.resource)?.value;
+    if (!maxQuantity) return; // edgecase shouldnt be the case ever
     if (newQuantity > maxQuantity) {
       setFormAlert(
         `Quantity must be below total supply reserves (${maxQuantity})`
@@ -44,9 +43,8 @@ function Allocate() {
 
   const submitHandler = (event: React.SyntheticEvent) => {
     event.preventDefault();
-    const maxQuantity = suppliesDataState.filter(
-      (supply) => supply.name === form.resource
-    )[0]?.value;
+    const maxQuantity = suppliesDataState.find((supply) => supply.name === form.resource)?.value;
+    if (!maxQuantity) return; // edgecase shouldnt be the case ever
     if (form.resource.length < 1) {
       setFormAlert("please provide a resource to allocate");
       return;

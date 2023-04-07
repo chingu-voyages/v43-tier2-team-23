@@ -10,7 +10,7 @@ function Request() {
     pod: "",
   };
 
-  const {data, podDataState, setPodDataState, suppliesDataState, setSuppliesDataState, setData} = useContext(DataContext);
+  const { podDataState, setPodDataState, suppliesDataState, setSuppliesDataState, } = useContext(DataContext);
 
   const [form, setForm] = useState({ ...formInitial });
 
@@ -45,9 +45,9 @@ function Request() {
   const submitHandler = (event: React.SyntheticEvent) => {
     event.preventDefault();
 
-    const maxQuantity = (podDataState.filter((pod) => {
+    const maxQuantity = (podDataState.find((pod) => {
       return pod.name === form.pod;
-    })[0].supplies as any)[form.resource.toLowerCase()];
+    })?.supplies as any)[form.resource.toLowerCase()];
 
     if (form.resource.length < 1) {
       setformAlert("please provide a resource to request");
