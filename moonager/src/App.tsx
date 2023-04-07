@@ -36,10 +36,11 @@ function App() {
     alerts: alertsData,
   });
 
+  const [alertThreshold, setAlertThreshold] = useState(1200);
   useEffect(() => {
     const interval = setInterval(() => {
       //@ts-ignore
-      setData(newAlert(data));
+      setData(newAlert(data, alertThreshold));
     }, 5000); // set how often it should recheck for low supplies
 
     return () => clearInterval(interval);
@@ -76,7 +77,7 @@ function App() {
             />
             
             <Route path='/resources' element={<Resources menuIsOpen={menuIsOpen}/>} />
-            <Route path='/alerts' element={<Alerts menuIsOpen={menuIsOpen}/>} />
+            <Route path='/alerts' element={<Alerts menuIsOpen={menuIsOpen} alertThreshold={alertThreshold} setAlertThreshold={setAlertThreshold}/>} />
             <Route path='/requests' element={<Requests menuIsOpen={menuIsOpen}/>} />
             <Route path='/account' element={<Account menuIsOpen={menuIsOpen}/>} />
             

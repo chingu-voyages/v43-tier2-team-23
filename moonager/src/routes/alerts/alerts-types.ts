@@ -1,3 +1,5 @@
 export type AlertsProps = {
-    menuIsOpen: boolean
+    menuIsOpen: boolean,
+    alertThreshold: number,
+    setAlertThreshold: any
 }
