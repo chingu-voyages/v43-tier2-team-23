@@ -18,12 +18,12 @@ function Request() {
 
   const plusQuantity = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const newQuantity = form.quantity + 10;
-    const maxQuantity = (podDataState.filter((pod) => {
+    const maxQuantity = (podDataState.find((pod) => {
       return pod.name === form.pod;
-    })[0].supplies as any)[form.resource.toLowerCase()];
+    })?.supplies as any)[form.resource.toLowerCase()];
     if (newQuantity > maxQuantity) {
       setformAlert(
-        `Quantity must be below total supply reserves (${maxQuantity})`
+        `Quantity must be below total available pod supplies (${maxQuantity})`
       );
       return;
     }
