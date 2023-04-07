@@ -33,6 +33,7 @@ function Alert(props: any) {
         setSuppliesDataState(manipulateReserves(suppliesDataState, props.alert.supply, -sendAmount));
         //@ts-ignore
         setPodDataState(manipulatePodSupplies(podDataState, props.alert.pod, props.alert.supply, sendAmount));
+        setOpenAllocate(false);
     }
   }
   
