@@ -50,8 +50,8 @@ function Navigation(props:{ menuHandler:Function, menuIsOpen:boolean, time:numbe
 
                     <div className='navlinks'>
                         <Link to='/' onClick={props.menuHandler} className='link'>DASHBOARD</Link>
-                        <Link to='/resources' onClick={props.menuHandler} className='link'>RESOURCES</Link>
                         <Link to='/alerts' onClick={props.menuHandler} className='link'>ALERTS</Link>
+                        <Link to='/resources' onClick={props.menuHandler} className='link'>RESOURCES</Link>
                         <Link to='/requests' onClick={props.menuHandler} className='link'>REQUESTS</Link>
                         <Link to='/account' onClick={props.menuHandler} className='link'>ACCOUNT</Link>
                     </div>

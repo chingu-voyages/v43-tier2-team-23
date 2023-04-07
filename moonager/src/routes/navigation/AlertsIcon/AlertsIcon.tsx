@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function AlertsIcon (props:{time:number}) {
     
-    const {data, alertsDataState, setData} = useContext(DataContext);
+    const { alertsDataState, } = useContext(DataContext);
     
     const [alert, setAlert] = useState(false);
 
@@ -28,7 +28,7 @@ export default function AlertsIcon (props:{time:number}) {
         } else {
             setAlert(false);
         }
-    }, [data]);
+    }, [alertsDataState]);
 
     const navigate = useNavigate();
     const clickHandler = () => {

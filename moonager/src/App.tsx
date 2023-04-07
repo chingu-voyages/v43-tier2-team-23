@@ -29,12 +29,6 @@ function App() {
       { menuIsOpen ? setMenuIsOpen(false) : setMenuIsOpen(true) }
   }
 
-  const [data, setData] = useState({
-    pods: podData,
-    supplies: suppliesData,
-    users: usersData,
-    alerts: alertsData,
-  });
   const [podDataState, setPodDataState] = useState(podData);
   const [suppliesDataState, setSuppliesDataState] = useState(suppliesData);
   const [usersDataState, setUsersDataState] = useState(usersData);
@@ -47,7 +41,7 @@ function App() {
   }, [podDataState]);
 
   return (
-    <DataContext.Provider value={{data, setData, podDataState, setPodDataState, suppliesDataState, setSuppliesDataState, usersDataState, setUsersDataState, alertsDataState, setAlertsDataState}} >
+    <DataContext.Provider value={{podDataState, setPodDataState, suppliesDataState, setSuppliesDataState, usersDataState, setUsersDataState, alertsDataState, setAlertsDataState}} >
       <div className="App">
 
         <div className='background-image' />

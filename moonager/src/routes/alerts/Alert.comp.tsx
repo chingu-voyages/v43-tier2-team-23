@@ -7,14 +7,14 @@ function Alert(props: any) {
 
   const [openAllocate, setOpenAllocate] = useState(false);
 
-  const { data, setData, suppliesDataState, setSuppliesDataState, podDataState, setPodDataState } = useContext(DataContext);
+  const { suppliesDataState, setSuppliesDataState, podDataState, setPodDataState } = useContext(DataContext);
 
   const units = suppliesDataState.filter((supply) => supply.name.toLowerCase() === props.alert.supply)[0]?.units;
 
   const [reserves, setReserves] = useState(suppliesDataState.find((supply) => supply.name.toLowerCase() === props.alert.supply)?.value);
   useEffect(() => {
     setReserves(suppliesDataState.find((supply) => supply.name.toLowerCase() === props.alert.supply)?.value);
-  }, [data])
+  }, [suppliesDataState]);
 
   const allocateHandler = () => {
     setOpenAllocate((cur) => !cur);

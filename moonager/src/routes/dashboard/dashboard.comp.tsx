@@ -12,7 +12,7 @@ import Alerts from "./Alerts/Alerts.comp";
 
 function Dashboard(props: { menuIsOpen:boolean, time:number, setTime:Function, developerMode:boolean, setDeveloperMode:Function, podRoute: string, setPodRoute: Function } ) {
   
-  const {data, podDataState, setData} = useContext(DataContext);
+  const { podDataState, } = useContext(DataContext);
   
   const [ allocateOrRequest, setAllocateOrRequest] = useState(true)
 
