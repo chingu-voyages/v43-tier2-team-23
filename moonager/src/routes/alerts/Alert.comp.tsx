@@ -1,19 +1,19 @@
 import './Alert.styles.scss';
 import { useContext, useState, useEffect } from "react";
 import { DataContext } from "../../context/DataContext";
-import { allocateReserves } from '../../context/dataUtils';
+import { manipulateReserves, manipulatePodSupplies } from '../../context/dataUtils';
 
 function Alert(props: any) {
 
   const [openAllocate, setOpenAllocate] = useState(false);
 
-  const { data, setData } = useContext(DataContext);
+  const { data, setData, suppliesDataState, setSuppliesDataState, podDataState, setPodDataState } = useContext(DataContext);
 
-  const units = data.supplies.filter((supply) => supply.name.toLowerCase() === props.alert.supply)[0]?.units;
+  const units = suppliesDataState.filter((supply) => supply.name.toLowerCase() === props.alert.supply)[0]?.units;
 
-  const [reserves, setReserves] = useState(data.supplies.find((supply) => supply.name.toLowerCase() === props.alert.supply)?.value);
+  const [reserves, setReserves] = useState(suppliesDataState.find((supply) => supply.name.toLowerCase() === props.alert.supply)?.value);
   useEffect(() => {
-    setReserves(data.supplies.find((supply) => supply.name.toLowerCase() === props.alert.supply)?.value);
+    setReserves(suppliesDataState.find((supply) => supply.name.toLowerCase() === props.alert.supply)?.value);
   }, [data])
 
   const allocateHandler = () => {
@@ -23,14 +23,16 @@ function Alert(props: any) {
   const [sendAmount, setSendAmount] = useState(props.alertThreshold - props.alert.amount)
   const sendResources = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    const maxQuantity = data.supplies.find((supply) => supply.name.toLowerCase() === props.alert.supply)?.value;
+    const maxQuantity = suppliesDataState.find((supply) => supply.name.toLowerCase() === props.alert.supply)?.value;
     if (!maxQuantity) return; // edgecase shouldnt be the case ever
     if (sendAmount > maxQuantity) {
         window.alert('Amount exceeding current supply reserve value');
         return;
     } else {
         //@ts-ignore
-        setData(allocateReserves(data, props.alert.supply, sendAmount, props.alert.pod));
+        setSuppliesDataState(manipulateReserves(suppliesDataState, props.alert.supply, -sendAmount));
+        //@ts-ignore
+        setPodDataState(manipulatePodSupplies(podDataState, props.alert.pod, props.alert.supply, sendAmount));
     }
   }
   

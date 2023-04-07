@@ -5,7 +5,7 @@ import { DataContext } from '../../../context/DataContext';
 
 export const Supplies = () => {
     
-    const {data, setData} = useContext(DataContext);
+    const {data, suppliesDataState, setData} = useContext(DataContext);
     
     // notification animation of resource levels changing in pod supply
     useEffect(() => {
@@ -22,7 +22,7 @@ export const Supplies = () => {
     return(
         <div className='supply-panel'>
 
-            {data.supplies.map(item => {
+            {suppliesDataState.map(item => {
                 return(
                     
                 <div key={item.name} className='supply-container'>

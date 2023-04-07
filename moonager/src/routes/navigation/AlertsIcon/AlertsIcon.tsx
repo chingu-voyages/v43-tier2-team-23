@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function AlertsIcon (props:{time:number}) {
     
-    const {data, setData} = useContext(DataContext);
+    const {data, alertsDataState, setData} = useContext(DataContext);
     
     const [alert, setAlert] = useState(false);
 
@@ -23,7 +23,7 @@ export default function AlertsIcon (props:{time:number}) {
     */
       
     useEffect(() => {
-        if (data.alerts.length > 0) {
+        if (alertsDataState.length > 0) {
             setAlert(true);
         } else {
             setAlert(false);
