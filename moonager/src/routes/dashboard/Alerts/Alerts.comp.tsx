@@ -16,6 +16,7 @@ function Alerts( props:any ) {
     <div className='alerts-container' >
       <div className='alerts-header' >Alerts</div>
       <div className='scroll-container' >
+        {alertsDataState.length < 1 ? <div style={{color: 'black', textAlign: 'center', fontSize: '12px' }} >No Alerts</div> : null}
         {alertsDataState.map((alert: any) => {
           const units = suppliesDataState.filter((supply) => supply.name.toLowerCase() === alert.supply)[0]?.units;
           return (
