@@ -159,7 +159,7 @@ export const podData = [
   },
   {
     id: 9,
-    name: "Onyx Dragon",
+    name: 'Navy Dragon',
     population: 16,
     supplies: {
       electricity: 2000,
@@ -168,7 +168,7 @@ export const podData = [
       water: 1200,
     },
     changeRate: 1,
-    route: 'onyxdragon',
+    route: 'navydragon',
     image: pod9,
     coords1: "00'00'00",
     coords2: "00'00'00",
@@ -177,7 +177,7 @@ export const podData = [
   },
   {
     id: 10,
-    name: "Golden Sphinx",
+    name: 'Gold Sphinx',
     population: 16,
     supplies: {
       electricity: 2000,
@@ -186,7 +186,7 @@ export const podData = [
       water: 1200,
     },
     changeRate: 1,
-    route: 'goldensphinx',
+    route: 'goldsphinx',
     image: pod10,
     coords1: "00'00'00",
     coords2: "00'00'00",

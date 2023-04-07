@@ -1,0 +1,32 @@
+.alert {
+    background-color: #000000b2;
+    margin: 5px;
+    width: 150px;
+    min-height: 180px;
+    border-radius: 12px;
+    position: relative;
+    text-align: center;
+
+    h6 {
+        text-align: center;
+        margin: 0px;
+        padding: 8px;
+        font-size: 12px;
+        color: black;
+        position: absolute;
+        top: 0px;
+    }
+
+    p {
+        text-align: center;
+        margin: 12px;
+
+        .warn {
+            color: rgb(223, 78, 78);
+        }
+    }
+
+    input {
+        width: 90px;
+    }
+}
