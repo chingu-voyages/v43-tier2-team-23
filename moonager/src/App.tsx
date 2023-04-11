@@ -16,6 +16,7 @@ import Account from '../src/routes/account/account.comp';
 import PodDetails from '../src/routes/pod-details/pod-details.comp';
 import { alertsData } from '../backend/alerts';
 import { newAlert } from './context/dataUtils';
+import resourceDrainage from './controller/resourceDrainage'
 
 function App() {
   const [ menuIsOpen, setMenuIsOpen ] = useState(false);
@@ -39,6 +40,8 @@ function App() {
     //@ts-ignore
     setAlertsDataState(newAlert(podDataState, alertThreshold));
   }, [podDataState, alertThreshold]);
+
+  resourceDrainage();
 
   return (
     <DataContext.Provider value={{podDataState, setPodDataState, suppliesDataState, setSuppliesDataState, usersDataState, setUsersDataState, alertsDataState, setAlertsDataState}} >
