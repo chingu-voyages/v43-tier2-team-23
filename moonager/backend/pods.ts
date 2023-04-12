@@ -283,7 +283,7 @@ function calculateCalorieExpenditure(pod:Pod){
 
 export const podData = pods.map((pod) => {
   const newPod = new Pod(pod.id, pod.name, pod.population, pod.supplies, pod.route, pod.image, pod.coords1, pod.coords2, pod.x, pod.y)
-  console.log(newPod);
+  // console.log(newPod);
   return newPod;
 })
 

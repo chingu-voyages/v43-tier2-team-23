@@ -16,7 +16,7 @@ export const suppliesData = [
     {
         // id: uuidv4(),
         name: 'Food',
-        value: 100,
+        value: 10000,
         units: 'Mcal',
         icon: foodIcon,
 
@@ -24,7 +24,7 @@ export const suppliesData = [
     {
         // id: uuidv4(),
         name: 'Oxygen',
-        value: 100,
+        value: 1000,
         units: 'kiloliters',
         icon: oxygenIcon,
     },
