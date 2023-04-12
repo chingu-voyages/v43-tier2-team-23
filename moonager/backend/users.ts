@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 
-export const usersData = [
+export const usersData:Array<User> = [
     { name : 'Adam',
     id: uuidv4(),
     job : '',
@@ -9,7 +9,7 @@ export const usersData = [
     height : 60,
     weight : 150,
     activityLevel: 'high',
-    metabolicRate : null,},
+    metabolicRate : 0,},
     
     { name : 'Jane',
     id: uuidv4(),
@@ -19,7 +19,7 @@ export const usersData = [
     height : 54,
     weight : 140,
     activityLevel: 'high',
-    metabolicRate : null,},
+    metabolicRate : 0,},
     
     { name : 'Mike',
     id: uuidv4(),
@@ -29,7 +29,7 @@ export const usersData = [
     height : 71,
     weight : 170,
     activityLevel: 'average',
-    metabolicRate : null,},
+    metabolicRate : 0,},
     
     { name : 'John',
     id: uuidv4(),
@@ -39,7 +39,7 @@ export const usersData = [
     height : 59,
     weight : 250,
     activityLevel: 'low',
-    metabolicRate : null,},
+    metabolicRate : 0,},
     
     { name : 'Rachel',
     id: uuidv4(),
@@ -49,7 +49,7 @@ export const usersData = [
     height : 62,
     weight : 120,
     activityLevel: 'average',
-    metabolicRate : null,},
+    metabolicRate : 0,},
     
     { name : 'Mitch',
     id: uuidv4(),
@@ -59,7 +59,7 @@ export const usersData = [
     height : 72,
     weight : 180,
     activityLevel: 'average',
-    metabolicRate : null,},
+    metabolicRate : 0},
 
 ]
 
@@ -73,5 +73,6 @@ export type User = {
     height: number,
     weight : number,
     activityLevel: 'low' | 'average' | 'high',
-    metabolicRate : number
+    metabolicRate : number,
+    // calculateBMI: Function
 }
