@@ -65,14 +65,13 @@ export const usersData:Array<User> = [
 
 
 export type User = {
-    name : string,
-    id: string,
-    job : string,
-    age : number,
-    sex : string,
-    height: number,
-    weight : number,
-    activityLevel: 'low' | 'average' | 'high',
-    metabolicRate : number,
-    // calculateBMI: Function
+    name:string;
+    id:string;
+    job:string;
+    age:number;             // in years
+    sex:'m'|'f';    
+    height: number;         // in inches
+    weight: number;         // in pounds
+    activityLevel: 'low'|'average'|'high';
+    metabolicRate: number;  // by second
 }

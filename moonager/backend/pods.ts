@@ -12,10 +12,53 @@ import pod10 from '../src/assets/pod-images/pod10.jpg';
 import pod11 from '../src/assets/pod-images/pod11.jpg';
 import pod12 from '../src/assets/pod-images/pod12.jpg';
 
+import instantiateUsers from '../controller/resourceDrainage';
+import User from '../controller/resourceDrainage';
+
+// class Pod {
+
+//   id;
+//   name;
+//   users;
+//   population;
+//   supplies;
+//   changeRate;
+//   route;
+//   image;
+//   coords1;
+//   coords2;
+//   x;
+//   y;
+
+//   constructor(
+//     id: number, 
+//     name: string, 
+//     population:number, 
+//     supplies:Array<number>, 
+//     changeRate:number, 
+//     route:string,
+//     image:ImageBitmap,
+//     coords1: string,
+//     coords2: string,
+//     x: number,
+//     y: number) {
+//       this.id = id;
+//       this.name = name;
+//       this.population = population;
+//       this.supplies = supplies;
+//       this.users = instantiateUsers(this.population);
+//       this.changeRate = this.users.reduce((a, b) => a.metabolicRate + b.metabolicRate)
+//   }
+
+
+// }
+
+
 export const podData = [
   {
     id: 1,
     name: "Blue Falcon",
+    users: instantiateUsers(12),
     population: 12,
     supplies: {
       electricity: 1000,
@@ -230,4 +273,3 @@ export const podData = [
     y: 60
   },
 ];
-

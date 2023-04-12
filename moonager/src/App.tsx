@@ -22,27 +22,23 @@ function App() {
   const [ menuIsOpen, setMenuIsOpen ] = useState(false);
   const [time, setTime] = useState(Date.now()); // get and set a snapshot of the time
   const [developerMode, setDeveloperMode] = useState(false);
-  
-  
+  const [podDataState, setPodDataState] = useState(podData);
+  const [suppliesDataState, setSuppliesDataState] = useState(suppliesData);
+  const [usersDataState, setUsersDataState] = useState(usersData);
+  const [alertsDataState, setAlertsDataState] = useState(alertsData);
+
   const [podRoute, setPodRoute] = useState('bluefalcon');
 
   const menuHandler = () => {
       { menuIsOpen ? setMenuIsOpen(false) : setMenuIsOpen(true) }
   }
 
-  const [podDataState, setPodDataState] = useState(podData);
-  const [suppliesDataState, setSuppliesDataState] = useState(suppliesData);
-  const [usersDataState, setUsersDataState] = useState(usersData);
-  const [alertsDataState, setAlertsDataState] = useState(alertsData);
 
   const [alertThreshold, setAlertThreshold] = useState(1200);
   useEffect(() => {
     //@ts-ignore
     setAlertsDataState(newAlert(podDataState, alertThreshold));
   }, [podDataState, alertThreshold]);
-
-  const users = instantiateUsers(1);
-  console.log(users)
 
   return (
     <DataContext.Provider value={{podDataState, setPodDataState, suppliesDataState, setSuppliesDataState, usersDataState, setUsersDataState, alertsDataState, setAlertsDataState}} >

@@ -19,7 +19,7 @@ export default function instantiateUsers(n:number){
 }
 
 
-class User {
+export class User {
     name:string;
     id:string;
     job:string;
