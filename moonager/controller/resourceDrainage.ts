@@ -15,13 +15,11 @@ export default function instantiateUsers(n:number){
         userObjects.push(userObject);
     }
 
-
     return userObjects;
 }
 
 
 class User {
-
     name:string;
     id:string;
     job:string;
@@ -82,7 +80,7 @@ class User {
         const secondsInADay = 86400;
 
         if (this.sex === 'm') {
-            // Men: BMR = 88.362 + (13.397 x weight in kg) + (4.799 x height in cm) – (5.677 x age in years)
+            // Male: BMR = 88.362 + (13.397 x weight in kg) + (4.799 x height in cm) – (5.677 x age in years)
             const BMR = ( 
                 88.362 + 
                 (13.397 * (this.weight * 0.453592) + 
@@ -91,7 +89,7 @@ class User {
             )
         }
         
-        // Women: BMR = 447.593 + (9.247 x weight in kg) + (3.098 x height in cm) – (4.330 x age in years)
+        // Female: BMR = 447.593 + (9.247 x weight in kg) + (3.098 x height in cm) – (4.330 x age in years)
         const BMR =  ( 
             447.593 + 
             (9.274 * (this.weight * 0.453592) + 
