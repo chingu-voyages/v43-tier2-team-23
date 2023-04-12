@@ -1,4 +1,3 @@
-// import { v4 as uuidv4 } from "uuid";
 import pod1 from '../src/assets/pod-images/pod1.jpg';
 import pod2 from '../src/assets/pod-images/pod2.jpg';
 import pod3 from '../src/assets/pod-images/pod3.jpg';
@@ -15,50 +14,10 @@ import pod12 from '../src/assets/pod-images/pod12.jpg';
 import instantiateUsers from '../controller/resourceDrainage';
 import User from '../controller/resourceDrainage';
 
-// class Pod {
-
-//   id;
-//   name;
-//   users;
-//   population;
-//   supplies;
-//   changeRate;
-//   route;
-//   image;
-//   coords1;
-//   coords2;
-//   x;
-//   y;
-
-//   constructor(
-//     id: number, 
-//     name: string, 
-//     population:number, 
-//     supplies:Array<number>, 
-//     changeRate:number, 
-//     route:string,
-//     image:ImageBitmap,
-//     coords1: string,
-//     coords2: string,
-//     x: number,
-//     y: number) {
-//       this.id = id;
-//       this.name = name;
-//       this.population = population;
-//       this.supplies = supplies;
-//       this.users = instantiateUsers(this.population);
-//       this.changeRate = this.users.reduce((a, b) => a.metabolicRate + b.metabolicRate)
-//   }
-
-
-// }
-
-
-export const podData = [
+export const pods = [
   {
     id: 1,
     name: "Blue Falcon",
-    users: instantiateUsers(12),
     population: 12,
     supplies: {
       electricity: 1000,
@@ -273,3 +232,58 @@ export const podData = [
     y: 60
   },
 ];
+
+class Pod {
+  id;
+  name;
+  users;
+  population;
+  supplies;
+  calorieExpenditure;
+  route;
+  image;
+  coords1;
+  coords2;
+  x;
+  y;
+
+  constructor(
+    id: number, 
+    name: string, 
+    population:number, 
+    supplies:Object, 
+    route:string,
+    image:string,
+    coords1: string,
+    coords2: string,
+    x: number,
+    y: number) {
+      this.id = id;
+      this.name = name;
+      this.population = population;
+      this.supplies = supplies;
+      this.users = instantiateUsers(this.population);
+      this.calorieExpenditure = calculateCalorieExpenditure(this);
+      this.route = route;
+      this.image = image;
+      this.coords1 = coords1;
+      this.coords2 = coords2;
+      this.x = x;
+      this.y = y;
+  }
+}
+
+function calculateCalorieExpenditure(pod:Pod){
+  let x = 0;
+  for(let i = 0; i < pod.users.length; i++){
+    x += pod.users[i].metabolicRate;
+  }
+  return x;
+};
+
+export const podData = pods.map((pod) => {
+  const newPod = new Pod(pod.id, pod.name, pod.population, pod.supplies, pod.route, pod.image, pod.coords1, pod.coords2, pod.x, pod.y)
+  console.log(newPod);
+  return newPod;
+})
+

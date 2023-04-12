@@ -17,8 +17,6 @@ export default function instantiateUsers(n:number){
 
     return userObjects;
 }
-
-
 export class User {
     name:string;
     id:string;
@@ -30,7 +28,6 @@ export class User {
     activityLevel: 'low'|'average'|'high';
     metabolicRate: number;  // by second
 
-  
     constructor(
         ) {
       this.name = uniqueNamesGenerator(config);

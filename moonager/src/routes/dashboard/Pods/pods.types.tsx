@@ -8,7 +8,7 @@ export type PodTypes = {
     oxygen: number;
     water: number;
   };
-  changeRate: number;
+  calorieExpenditure: number;
   route: string;
   image: string;
 };
