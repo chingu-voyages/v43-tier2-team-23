@@ -50,7 +50,7 @@ export const Pods = ({ pods, podRoute, setPodRoute }: PodListTypes ) => {
             {pods[0]?.supplies ? 
               Object.keys(pods[0]?.supplies).map((supply) => {
                 return (
-                  <option value={`${supply} lowest`} >{`${supply} (lowest)`}</option>
+                  <option key={`dashboard-${pods[0].id}${supply}`} value={`${supply} lowest`} >{`${supply} (lowest)`}</option>
                 );
               })
               :

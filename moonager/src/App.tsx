@@ -42,7 +42,7 @@ function App() {
   useEffect(() => {
     const updatedCalorieData = podDataState.map((pod)=>{
       const updatedPod = Object.create(pod);
-      updatedPod.supplies.food = (updatedPod.supplies.food - pod.calorieExpenditure).toFixed(2);
+      updatedPod.supplies.food = parseFloat((updatedPod.supplies.food - pod.calorieExpenditure).toFixed(2));
       return updatedPod;
     })
   }, [time]);
