@@ -17,6 +17,7 @@ import PodDetails from '../src/routes/pod-details/pod-details.comp';
 import { alertsData } from '../backend/alerts';
 import { newAlert } from './context/dataUtils';
 import instantiateUsers from '../controller/resourceDrainage';
+import { PodType } from './routes/dashboard/Pods/pods.types';
 
 function App() {
   const [ menuIsOpen, setMenuIsOpen ] = useState(false);
@@ -32,13 +33,23 @@ function App() {
   const menuHandler = () => {
       { menuIsOpen ? setMenuIsOpen(false) : setMenuIsOpen(true) }
   }
-
-
   const [alertThreshold, setAlertThreshold] = useState(1200);
   useEffect(() => {
     //@ts-ignore
     setAlertsDataState(newAlert(podDataState, alertThreshold));
   }, [podDataState, alertThreshold]);
+  
+  useEffect(() => {
+    const updatedCalorieData = podDataState.map((pod)=>{
+      const updatedPod = Object.create(pod);
+      updatedPod.supplies.food = (updatedPod.supplies.food - Math.ceil(pod.calorieExpenditure));
+      return updatedPod;
+      // return pod.supplies.food - pod.calorieExpenditure; 
+    })
+    console.log(updatedCalorieData);
+    // setPodDataState(updatedCalorieData);
+    
+  }, [time]);
 
   return (
     <DataContext.Provider value={{podDataState, setPodDataState, suppliesDataState, setSuppliesDataState, usersDataState, setUsersDataState, alertsDataState, setAlertsDataState}} >
