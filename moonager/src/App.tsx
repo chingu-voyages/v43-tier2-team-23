@@ -33,17 +33,42 @@ function App() {
   const menuHandler = () => {
       { menuIsOpen ? setMenuIsOpen(false) : setMenuIsOpen(true) }
   }
-  const [alertThreshold, setAlertThreshold] = useState(1200);
+  const [alertThreshold, setAlertThreshold] = useState(600);
   useEffect(() => {
     //@ts-ignore
     setAlertsDataState(newAlert(podDataState, alertThreshold));
   }, [podDataState, alertThreshold]);
   
+  // Resource Drainage
   useEffect(() => {
-    const updatedCalorieData = podDataState.map((pod)=>{
-      const updatedPod = Object.create(pod);
-      updatedPod.supplies.food = parseFloat((updatedPod.supplies.food - pod.calorieExpenditure).toFixed(2));
-      return updatedPod;
+    // Creates a new array of pods with updated resource information. Since it is an array of objects, that data is updated by reference via prototypal inheritance in js.
+    // const updatedCalorieData = podDataState.map((pod)=>{
+      podDataState.forEach((pod) => {
+
+      // Calories
+      pod.supplies.food = parseFloat(
+        (pod.supplies.food - 
+          pod.calorieExpenditure)
+          .toFixed(3));
+      
+      // Oxygen
+      pod.supplies.oxygen = parseFloat(
+        (pod.supplies.oxygen - 
+          pod.oxygenExpenditure)
+          .toFixed(3));
+
+      // Water
+      pod.supplies.water = parseFloat(
+        (pod.supplies.water - 
+          pod.waterExpenditure)
+          .toFixed(3));
+
+      // Electricity
+      pod.supplies.electricity = parseFloat(
+        (pod.supplies.electricity - 
+          pod.electricityExpenditure)
+          .toFixed(3));
+
     })
   }, [time]);
 
