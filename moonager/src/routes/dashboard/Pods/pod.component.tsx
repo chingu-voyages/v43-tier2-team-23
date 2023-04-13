@@ -10,6 +10,8 @@ import Food from '../../../assets/food.png';
 import Oxygen from '../../../assets/oxygen.png';
 import Water from '../../../assets/water.png';
 
+const precision = 3;
+
 export const Pod = ({ pod, podRoute, setPodRoute }: PodType ) => {
   const { name, population, image, supplies } = pod;
 
@@ -40,24 +42,24 @@ export const Pod = ({ pod, podRoute, setPodRoute }: PodType ) => {
             <div className='resource-row'>
               <div className='resource-flex'>
                 <img className='tile-icon' src={Electric}/>
-                <p className='tile-supply-value'>- {supplies.electricity}</p>
+                <p className='tile-supply-value'>- {supplies.electricity.toPrecision(precision)}</p>
               </div>
 
               <div className='resource-flex'>
                 <img className='tile-icon' src={Food}/>
-                <p className='tile-supply-value'>- {supplies.food}</p>
+                <p className='tile-supply-value'>- {supplies.food.toPrecision(precision)}</p>
               </div>
             </div>
 
             <div className='resource-row'>
               <div className='resource-flex'>
                 <img className='tile-icon' src={Oxygen}/>
-                <p className='tile-supply-value'>- {supplies.oxygen}</p>
+                <p className='tile-supply-value'>- {supplies.oxygen.toPrecision(precision)}</p>
               </div>
 
               <div className='resource-flex'>
                 <img className='tile-icon' src={Water}/>
-                <p className='tile-supply-value'>- {supplies.water}</p>
+                <p className='tile-supply-value'>- {supplies.water.toPrecision(precision)}</p>
               </div>
             </div>
           </div>
