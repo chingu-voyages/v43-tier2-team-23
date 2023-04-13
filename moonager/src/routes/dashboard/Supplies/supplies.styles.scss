@@ -1,5 +1,5 @@
 .supply-panel {
-    background-color: rgb(255, 255, 255);
+    background-color: #d9d9d9;
     margin-top: 25px;
     height: 200px;
     width: 175px;
@@ -13,7 +13,7 @@
 
         .supply-icon {
             margin: 10px 20px;
-            width: 20px;
+            width: 25px;
         }
 
         .supply-values {
@@ -28,8 +28,50 @@
             .supply-value {
                 font-size: 15px;
                 margin: 0;
+                animation: notification 0.5s
             }
 
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .supply-panel {
+        background-color: #d9d9d9;
+        margin-top: -10px;
+        height: 80px;
+        width: 90vw;
+        color: black;
+        display: flex;
+        flex-wrap: wrap;
+    
+        .supply-container {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            height: 40px;
+            width: 45vw;
+    
+            .supply-icon {
+                margin: 10px 20px;
+                width: 25px;
+            }
+    
+            .supply-values {
+                display: flex;
+                flex-direction: column;
+    
+                .supply-name {
+                    font-size: 13px;
+                    margin: 0;
+                }
+    
+                .supply-value {
+                    font-size: 13px;
+                    margin: 0;
+                }
+    
+            }
         }
     }
 }

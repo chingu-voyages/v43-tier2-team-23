@@ -1,0 +1,198 @@
+.pod-details {
+    position: relative;
+    z-index: 1;
+
+    header {
+        display: flex;
+        align-items: center;
+
+        button {
+            margin-right: 25px;
+            padding: 5px;
+            border-radius: 2px;
+            background-color: #1b93f0;
+
+            &:hover {
+                background-color: #1e9eff;
+                border: 1px solid transparent;
+            }
+        }
+
+        h1 {
+            font-size: 32px;
+        }
+    }
+
+    .pod-map-wrapper {
+        display: flex;
+        justify-content: space-between;
+        height: 300px;
+        width: 80vw;
+        margin-top: 25px;
+
+        .coordinates-panel {
+
+        }
+
+        .map-panel {
+            position: relative;
+            width: 60vw;
+            height: 20vw;
+            background-image: url('../../assets/moon.jpg');
+            background-size: contain;
+
+
+            .map-pin-wrapper {
+                position: relative;
+                width: 100px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .pin {
+                    height: 30px;
+                }
+
+                p {
+                    margin: 5px;
+                    font-size: 12px;
+                    background-color: black;
+                    padding: 2px;
+                    border-radius: 2px;
+                }
+            }
+
+
+        }
+
+    }
+
+    .details-title {
+        margin: 25px 0 0;
+    }
+
+    .details-panel {
+        background-color: rgba(255,255,255,.2);
+        backdrop-filter: blur(5px);
+        height: 350px;
+        width: 80vw;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+        p {
+            margin: 10px;
+            font-size: 22px;
+        }
+
+        .details-image {
+            height: 90%;
+            border-radius: 25px;
+        }
+        
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .pod-details {
+        position: relative;
+        z-index: 1;
+    
+        header {
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+    
+            button {
+                margin-right: 25px;
+                padding: 2px 5px;
+                border-radius: 2px;
+                background-color: #1b93f0;
+    
+                &:hover {
+                    background-color: #1e9eff;
+                    border: 1px solid transparent;
+                }
+            }
+    
+            h1 {
+                font-size: 17px;
+            }
+        }
+    
+        .pod-map-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            width: 80vw;
+            margin-top: 25px;
+    
+            .coordinates-panel {
+                display: none;
+            }
+    
+            .map-panel {
+                position: relative;
+                width: 100vw;
+                height: 40vw;
+                margin-left: -5vw;
+                background-image: url('../../assets/moon.jpg');
+                background-size: contain;
+    
+    
+                .map-pin-wrapper {
+                    position: relative;
+                    width: 100px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+    
+                    .pin {
+                        height: 20px;
+                    }
+    
+                    p {
+                        margin: 5px;
+                        font-size: 10px;
+                        background-color: black;
+                        padding: 2px;
+                        border-radius: 2px;
+                    }
+                }
+    
+    
+            }
+    
+        }
+    
+        .details-title {
+            font-size: 17px;
+            margin: 25px 0 0;
+        }
+    
+        .details-panel {
+            background-color: rgba(255,255,255,.2);
+            backdrop-filter: blur(5px);
+            height: 200px;
+            width: 100vw;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-top: 5px;
+            margin-left: -5vw;
+    
+            p {
+                margin: 10px;
+                font-size: 14px;
+            }
+    
+            .details-image {
+                height: 70%;
+                border-radius: 25px;
+            }
+            
+        }
+    }
+}
+

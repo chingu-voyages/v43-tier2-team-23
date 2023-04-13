@@ -1,0 +1,53 @@
+.pods-wrapper {
+    position: relative;
+
+    .filter-wrapper {
+        position: absolute;
+        left: 80px;
+        top: -66px;
+        margin-left: 8px;
+        display: flex;
+        font-size: .8em;
+
+        input, select {
+            border: none;
+            border-radius: 2px;
+            outline: none;
+            padding: 2px;
+            margin-top: 3px
+        }
+    
+        .search-wrapper {
+            margin-left: 15px;
+        
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .pods-wrapper {
+        position: relative;
+    
+        .filter-wrapper {
+            position: absolute;
+            left: 80px;
+            top: -66px;
+            margin-left: 8px;
+            // DISPLAY NONE TEMPORARY FOR MOBILE STYLING
+            display: none;
+            font-size: .8em;
+    
+            input, select {
+                border: solid gray 1px;
+                border-radius: 2px;
+                outline: none;
+                box-shadow: 1px 1px 3px black;
+                margin-top: 3px
+            }
+        
+            .search-wrapper {
+                margin-left: 15px;
+            }
+        }
+    }
+}

@@ -14,11 +14,9 @@ function Navigation(props:{ menuHandler:Function, menuIsOpen:boolean, time:numbe
     return (
         <Fragment>
         <div className="navigation">
-
-        <div className='background-image' />
         
         <div className='time-bar'>
-            <div>
+            <div className='dev-mode-wrapper'>
                 <DeveloperModeSwitch developerMode={props.developerMode} setDeveloperMode={props.setDeveloperMode} /> 
                 <p>Developer Mode</p>   
             </div>
@@ -28,7 +26,7 @@ function Navigation(props:{ menuHandler:Function, menuIsOpen:boolean, time:numbe
                     
             { !props.menuIsOpen ?
                 <div className='closedNav'>
-                    <h4>LOGO</h4>
+                    <h4 className='moonager-logo-closed'>M</h4>
                     
                     <div className='hamburger' onClick={props.menuHandler}>
                         <span className='hamburger-line'></span>
@@ -41,14 +39,19 @@ function Navigation(props:{ menuHandler:Function, menuIsOpen:boolean, time:numbe
                 </div>
             :
                 <div className='openNav'>
-                    <h4>OPEN LOGO</h4>
 
-                    <img src={CloseIcon} onClick={props.menuHandler} className='close-icon'></img>
+                    <div className='moonager-logo-open' >
+                      MOONAGER
+                    </div>
+
+                    <div className='close-icon-container' >
+                      <img src={CloseIcon} onClick={props.menuHandler} className='close-icon'></img>
+                    </div>
 
                     <div className='navlinks'>
                         <Link to='/' onClick={props.menuHandler} className='link'>DASHBOARD</Link>
-                        <Link to='/resources' onClick={props.menuHandler} className='link'>RESOURCES</Link>
                         <Link to='/alerts' onClick={props.menuHandler} className='link'>ALERTS</Link>
+                        <Link to='/resources' onClick={props.menuHandler} className='link'>RESOURCES</Link>
                         <Link to='/requests' onClick={props.menuHandler} className='link'>REQUESTS</Link>
                         <Link to='/account' onClick={props.menuHandler} className='link'>ACCOUNT</Link>
                     </div>

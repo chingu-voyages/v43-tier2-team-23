@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import '../Clock/clock-styles.scss';
 
   export default function Clock (props: {developerMode:boolean, time:number, setTime:Function}) {   
 
@@ -20,14 +21,16 @@ import { useState, useEffect } from "react";
       const seconds = date.getSeconds().toString().padStart(2,'0');
       return (
         <>
-          {`${hour}:${minutes}:${seconds}`}
-          <br></br>
-          {`${localTime}`}
+          <p className='time'>
+            {`${hour}:${minutes}:${seconds}`}
+            <br></br>
+            {`${localTime}`}
+          </p>
         </>
         )
     }
 
     return(
-            <h3>{formatTime(props.time)}</h3>
+            <div>{formatTime(props.time)}</div>
     )
   }

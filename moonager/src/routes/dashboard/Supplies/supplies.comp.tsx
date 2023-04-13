@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import '../Supplies/supplies.styles.scss';
-import { suppliesArray } from '../../../../backend/supplies';
 import { suppliesTypes } from '../Supplies/supplies.types';
+import { DataContext } from '../../../context/DataContext';
 
-export const Supplies = ( /*props: suppliesTypes*/ ) => {
-    // const data = suppliesArray;
-
+export const Supplies = () => {
+    
+    const { suppliesDataState, } = useContext(DataContext);
+    
+    // notification animation of resource levels changing in pod supply
+    useEffect(() => {
+        const elements = document.getElementsByClassName('supply-value');
+        const animation = [ { color: '#fff' }, { color: '#000' } ];
+        for (let i of elements) {
+            i.addEventListener('DOMSubtreeModified', () => {
+                i.animate(animation, 3000);
+            });
+        }
+    }, []);
+    
+    
     return(
         <div className='supply-panel'>
 
-            {suppliesArray.map(item => {
+            {suppliesDataState.map(item => {
                 return(
                     
                 <div key={item.name} className='supply-container'>

@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import styles from "./Allocate.module.scss";
-import { suppliesArray } from "../../../../backend/supplies";
-import { podData } from "../../../../backend/pods";
+import { DataContext } from '../../../context/DataContext';
+import { manipulatePodSupplies, manipulateReserves } from "../../../context/dataUtils";
 
 function Allocate() {
   const formInitial = {
@@ -9,6 +9,8 @@ function Allocate() {
     quantity: 0,
     destination: "",
   };
+  
+  const { podDataState, setPodDataState, suppliesDataState, setSuppliesDataState, } = useContext(DataContext);
 
   const [form, setForm] = useState({ ...formInitial });
 
@@ -16,10 +18,8 @@ function Allocate() {
 
   const plusQuantity = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const newQuantity = form.quantity + 10;
-    const maxQuantity = suppliesArray.filter(
-      (supply) => supply.name === form.resource
-    )[0]?.value;
-    console.log(maxQuantity);
+    const maxQuantity = suppliesDataState.find((supply) => supply.name === form.resource)?.value;
+    if (!maxQuantity) return; // edgecase shouldnt be the case ever
     if (newQuantity > maxQuantity) {
       setFormAlert(
         `Quantity must be below total supply reserves (${maxQuantity})`
@@ -43,9 +43,8 @@ function Allocate() {
 
   const submitHandler = (event: React.SyntheticEvent) => {
     event.preventDefault();
-    const maxQuantity = suppliesArray.filter(
-      (supply) => supply.name === form.resource
-    )[0]?.value;
+    const maxQuantity = suppliesDataState.find((supply) => supply.name === form.resource)?.value;
+    if (!maxQuantity) return; // edgecase shouldnt be the case ever
     if (form.resource.length < 1) {
       setFormAlert("please provide a resource to allocate");
       return;
@@ -58,14 +57,19 @@ function Allocate() {
       );
       return;
     }
-    console.log("submitted");
+    
+    //@ts-ignore
+    setSuppliesDataState(manipulateReserves(suppliesDataState, form.resource, -form.quantity));
+    //@ts-ignore
+    setPodDataState(manipulatePodSupplies(podDataState, form.destination, form.resource, form.quantity));
     setFormAlert("Submitted!");
-    setForm({ ...formInitial });
+    setForm({...form, quantity: 0});
   };
 
   return (
     <form onSubmit={submitHandler} className={styles.form}>
       <select
+        id='allocate-select-resource'
         required
         defaultValue="Resource"
         onChange={(e) => setForm({ ...form, resource: e.target.value })}
@@ -73,7 +77,7 @@ function Allocate() {
         <option disabled hidden>
           Resource
         </option>
-        {suppliesArray.map((supply) => (
+        {suppliesDataState.map((supply) => (
           <option key={supply.name}>{supply.name}</option>
         ))}
       </select>
@@ -113,7 +117,7 @@ function Allocate() {
         <option disabled hidden>
           Destination
         </option>
-        {podData.map((pod) => (
+        {podDataState.map((pod) => (
           <option key={pod.id}>{pod.name}</option>
         ))}
       </select>

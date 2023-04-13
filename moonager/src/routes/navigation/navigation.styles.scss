@@ -1,17 +1,6 @@
 .navigation {
     position: relative;
-    z-index: 1;
     padding-bottom: 100px;
-
-    .background-image {
-        position: fixed;
-        background-position-x: center;
-        height: 100vh;
-        width: 100vw;
-        z-index: 0;
-        background-image: url('../../assets/earth-background.jpg');
-        background-size: cover;
-    }
 
     .avatar-placeholder {
         background-image: url('../../assets/avatar.jpg');
@@ -27,12 +16,10 @@
     }
 
     .time-bar {
-        background-color: rgba(255,255,255,.5);
-        border: solid white 1px;
-        border-radius: 1rem;
-        max-width: 50%;
-        min-width: 30%;
-        //max-height: 3rem;
+        // border: 1px solid #1b94f099;
+        border-radius: 3px;
+        width: 350px;
+        max-height: 3rem;
         display: flex;
         position: absolute;
         right: 0;
@@ -41,9 +28,11 @@
         align-items: center;
         justify-content: space-between;
 
-        h3 {
-            font-size: 22px;
-            opacity: 80%;
+        .dev-mode-wrapper {
+            p {
+                font-size: 14px;
+                margin: 0;
+            }
         }
     }
 
@@ -54,12 +43,17 @@
         backdrop-filter: blur(5px);
         display: block;
         position: fixed;
+        transition: width .25s ease-out;
 
-        h4 {
+        .moonager-logo-closed {
+            font-family: 'Moulpali', cursive;
+            font-size: 50px;
+            line-height: 30px;
             color: black;
             text-align: center;
             margin: 0;
             padding: 25px 0;
+            pointer-events: none;
         }
 
         .hamburger {
@@ -85,25 +79,37 @@
     .openNav {
         height: 100vh;
         width: 15vw;
-        background-color: rgba(255,255,255,.6);
+        background-color: rgba(255,255,255,.3);
         backdrop-filter: blur(10px);
-        display: block;
+        display: flex;
+        flex-direction: column;
         position: fixed;
+        box-shadow: 0px 0px 30px #1B93F0;
+        transition: width .25s ease-out;
 
-        h4 {
-            margin: 0;
-            padding: 25px 0;
+        .moonager-logo-open {
+            display: flex;
+            justify-content: center;
+            font-family: 'Moulpali', cursive;
+            font-size: 2.8vw;
+            letter-spacing: .2vw;
+            line-height: 30px;
             color: black;
-            text-align: center;
-            letter-spacing: 10px;
+            pointer-events: none;
+            padding: 30px 0px 20px;
         }
 
-        .close-icon {
-            height: 35px;
-            margin-left: 70%;
+        .close-icon-container {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
 
-            &:hover {
-                cursor: pointer;
+            .close-icon {
+                width: 30px;
+                margin-right: 12px;
+                &:hover {
+                    cursor: pointer;
+                }
             }
         }
 
@@ -111,12 +117,16 @@
             display: flex;
             flex-direction: column;
             font-size: 1.5vw;
-            margin-top: 50px;
+            justify-content: flex-start;
             margin-left: 25px;
+            margin-top: 55px;
 
             .link {
                 color: black;
                 margin-top: 15px;
+                letter-spacing: .05em;
+                animation: expansion .3s;
+                overflow: hidden;
 
                 &:hover {
                     color: rgb(0, 195, 255);
@@ -125,7 +135,167 @@
                 &:active {
                     color: white;
                 }
+
+                @keyframes expansion {
+                    from {width: 0%};
+                    to {width: 100%};
+                }
             }
         }
     }
+}
+
+// Small Mobile Styling
+@media screen and (max-width: 400px) {
+    .navigation {
+        position: relative;
+        z-index: 2;
+        padding-bottom: 75px;
+    
+        .avatar-placeholder {
+            background-image: url('../../assets/avatar.jpg');
+            background-size: cover;
+            background-position-x: center;
+            height: 40px;
+            width: 40px;
+            display: block;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 10px;
+            left: auto;
+            right: 80px;
+        }
+    
+        .time-bar {
+            border-radius: 3px;
+            width: 90vw;
+            max-height: 50px;
+            display: flex;
+            position: absolute;
+            right: 0;
+            margin: 0 5vw;
+            padding: 10px 0 0 0;
+            align-items: center;
+            justify-content: space-between;
+    
+            .dev-mode-wrapper {
+                p {
+                    font-size: 14px;
+                    margin: 0;
+                }
+            }
+        }
+    
+        .closedNav {
+            height: 60px;
+            width: 100vw;
+            background-color: rgba(255,255,255,.3);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            bottom: 0;
+    
+            .moonager-logo-closed {
+                font-family: 'Moulpali', cursive;
+                font-size: 50px;
+                line-height: 30px;
+                color: rgba(255, 255, 255, 0.572);
+                text-align: center;
+                margin: 0 20px;
+                padding: 0;
+                pointer-events: none;
+            }
+    
+            .hamburger {
+                height: 30px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                margin-right: 20px;
+    
+                &:hover {
+                    cursor: pointer;
+                }
+    
+                .hamburger-line {
+                    height: 4px;
+                    width: 35px;
+                    display: block;
+                    background: black;
+                }
+            }
+        }
+    
+        .openNav {
+            height: 250px;
+            width: 100vw;
+            background-color: rgba(255,255,255,.3);
+            backdrop-filter: blur(10px);
+            display: flex;
+            position: fixed;
+            bottom: 0;
+            box-shadow: 0px 0px 30px #1B93F0;
+
+            .moonager-logo-open {
+                font-family: 'Moulpali', cursive;
+                font-size: 30px;
+                line-height: 30px;
+                margin: 0;
+                padding: 10px;
+                position: fixed;
+                bottom: 0;
+                color: rgba(255, 255, 255, 0.572);
+                letter-spacing: 10px;
+                pointer-events: none;
+            }
+    
+            .close-icon {
+                height: 35px;
+                margin-left: 0%;
+                position: fixed;
+                right: 20px;
+                bottom: 12px;
+    
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+    
+            .navlinks {
+                width: 100vw;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                font-size: 18px;
+                margin-top: 10px;
+                margin-left: 0px;
+                animation: rise .3s;
+
+                @keyframes rise {
+                    from {padding-top: 300px}
+                    to {padding-top: 0px}
+                }
+    
+                .link {
+                    color: black;
+                    margin-top: 10px;
+                    animation: none;
+    
+                    &:hover {
+                        color: rgb(0, 195, 255);
+                    }
+    
+                    &:active {
+                        color: white;
+                    }
+
+                }
+            }
+        }
+    }
+
+
 }

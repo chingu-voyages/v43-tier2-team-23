@@ -4,17 +4,17 @@ export default function NextResupply(props: { time:number }) {
     // const options:Intl.DateTimeFormatOptions = { weekday: undefined, year: '2-digit', month: 'numeric', day: 'numeric', hour12: true} as const;
     const now = new Date(props.time);
     // const localTime = date.toLocaleDateString(undefined, options);
-    const today = now.getDay();
+    const today = now.getDate();
     const thisMonth = now.getMonth();
     
-    function calculateNextMonthsLength(thisMonth:number) {
-        if (thisMonth === 1) {
+    function calculateDaysInMonth(thisMonth:number) {
+        if (thisMonth === 2) {
             return 28
         } else if (
-            thisMonth === 3 || 
-            thisMonth === 5 ||
-            thisMonth === 8 || 
-            thisMonth === 10) {
+            thisMonth === 4 || 
+            thisMonth === 6 ||
+            thisMonth === 9 || 
+            thisMonth === 11) {
              return 30
         } else {
             return 31
@@ -22,14 +22,15 @@ export default function NextResupply(props: { time:number }) {
     }
     
     function calculateDaysLeft(thisMonth:number):number{
-        const nextMonthsLength:number = calculateNextMonthsLength(thisMonth);
+        const thisMonthsLength:number = calculateDaysInMonth(thisMonth);
         const resupplyDate:number = 15;
         
-        if (today <= 15){
+        if (today <= resupplyDate){
+            // console.log(`${resupplyDate} - ${today}`)
             return resupplyDate - today;
-        }
-        else {
-            return (resupplyDate - today) + Math.ceil(nextMonthsLength / 2)
+        } else {
+            // console.log(`${thisMonthsLength} - ${today} + ${resupplyDate}`)
+            return thisMonthsLength - today + resupplyDate;
         }
     }
 

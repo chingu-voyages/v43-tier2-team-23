@@ -8,13 +8,22 @@ export type PodTypes = {
     oxygen: number;
     water: number;
   };
-  changeRate: number;
+  calorieExpenditure: number;
+  route: string;
+  image: string;
 };
 
 export type PodListTypes = {
   pods: PodTypes[];
+  podRoute: string;
+  setPodRoute: Function;
+  
 };
 
 export type PodType = {
   pod: PodTypes;
+  podRoute: string;
+  setPodRoute: Function;
 };
+
+
