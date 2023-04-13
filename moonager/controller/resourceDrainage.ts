@@ -64,7 +64,7 @@ export class User {
                 return 'low';
             case 4||5||6||7:
                 return 'average';
-            case 7||8||9||10:
+            case 8||9||10:
                 return 'high';
             default:
                 return 'average';
