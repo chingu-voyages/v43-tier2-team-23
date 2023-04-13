@@ -247,6 +247,9 @@ class Pod {
   population;
   supplies;
   calorieExpenditure;
+  oxygenExpenditure;
+  waterExpenditure;
+  electricityExpenditure;
   route;
   image;
   coords1;
@@ -271,6 +274,9 @@ class Pod {
       this.supplies = supplies;
       this.users = instantiateUsers(this.population);
       this.calorieExpenditure = calculateCalorieExpenditure(this);
+      this.oxygenExpenditure = (this.population * 840) / 86400 // grams per second;
+      this.waterExpenditure = (this.population * 11) / 86400; // liters per seconds
+      this.electricityExpenditure = (this.population * 250) / 86400; // watts per second
       this.route = route;
       this.image = image;
       this.coords1 = coords1;

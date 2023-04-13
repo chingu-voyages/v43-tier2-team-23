@@ -37,7 +37,7 @@ export class User {
       this.height = this.calculateHeight(this.sex);
       this.weight = this.calculateWeight(this.sex);
       this.activityLevel = this.calculateActivityLevel();
-      this.metabolicRate = this.calculateBMI();
+      this.metabolicRate = this.calculateBMR();
     }
 
     calculateAge(){
@@ -70,7 +70,7 @@ export class User {
         }
     }
 
-    calculateBMI(){
+    calculateBMR(){
 
         const secondsInADay = 86400;
         if (this.sex === 'm') {
