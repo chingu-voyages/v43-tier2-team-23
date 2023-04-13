@@ -20,7 +20,7 @@ function Alerts( props:any ) {
         {alertsDataState.map((alert: any) => {
           const units = suppliesDataState.find((supply) => supply.name.toLowerCase() === alert.supply)?.units;
           return (
-            <div className='low-supply' onClick={clickHandler} >
+            <div key={`dashboard-${alert.id}${alert.pod}`} className='low-supply' onClick={clickHandler} >
               <div style={{marginRight: '8px'}}>!</div> <div >{alert.pod} low {alert.supply} {`(${alert.amount} ${units ? units : ''})`}</div>
             </div>
           );

@@ -14,6 +14,13 @@ import pod12 from '../src/assets/pod-images/pod12.jpg';
 import instantiateUsers from '../controller/resourceDrainage';
 import User from '../controller/resourceDrainage';
 
+type Supplies = {
+  water: number;
+  oxygen: number;
+  electricity: number;
+  food: number;
+}
+
 export const pods = [
   {
     id: 1,
@@ -251,7 +258,7 @@ class Pod {
     id: number, 
     name: string, 
     population:number, 
-    supplies:Object, 
+    supplies:Supplies, 
     route:string,
     image:string,
     coords1: string,
@@ -271,6 +278,25 @@ class Pod {
       this.x = x;
       this.y = y;
   }
+
+  addFood(food:number){
+    this.supplies.food += food;
+    return this.supplies.food;
+  }
+  addWater(water:number){
+    this.supplies.water += water;
+    return this.supplies.water;
+  }
+
+  addOxygen(oxygen:number){
+    this.supplies.oxygen += oxygen;
+    return this.supplies.oxygen;
+  }
+
+  addElectricity(electricity:number){
+    this.supplies.electricity += electricity;
+    return this.supplies.electricity;
+  }
 }
 
 function calculateCalorieExpenditure(pod:Pod){
@@ -283,7 +309,6 @@ function calculateCalorieExpenditure(pod:Pod){
 
 export const podData = pods.map((pod) => {
   const newPod = new Pod(pod.id, pod.name, pod.population, pod.supplies, pod.route, pod.image, pod.coords1, pod.coords2, pod.x, pod.y)
-  // console.log(newPod);
   return newPod;
 })
 

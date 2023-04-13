@@ -5,7 +5,7 @@ import { DataContext } from "../../context/DataContext";
 import Alert from "./Alert.comp";
 
 function Alerts(props: AlertsProps) {
-  const { data, setData, alertsDataState } = useContext(DataContext);
+  const { alertsDataState } = useContext(DataContext);
 
   const [formThreshold, setFormThreshold] = useState(props.alertThreshold);
 
@@ -47,7 +47,7 @@ function Alerts(props: AlertsProps) {
         <h5>Active Alerts</h5>
         <div className="alerts-container">
           {alertsDataState.map((alert) => {
-            return <Alert alert={alert} alertThreshold={props.alertThreshold} />
+            return <Alert key={`${alert.id}${alert.pod}`} alert={alert} alertThreshold={props.alertThreshold} />
           })}
         </div>
       </div>

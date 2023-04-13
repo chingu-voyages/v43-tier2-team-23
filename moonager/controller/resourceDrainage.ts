@@ -6,7 +6,6 @@ const config: Config = {
   dictionaries: [starWars]
 }
 
-
 export default function instantiateUsers(n:number){
     let userObjects: Array<User> = [];
 
@@ -69,13 +68,11 @@ export class User {
             default:
                 return 'average';
         }
-        
     }
 
     calculateBMI(){
 
         const secondsInADay = 86400;
-
         if (this.sex === 'm') {
             // Male: BMR = 88.362 + (13.397 x weight in kg) + (4.799 x height in cm) – (5.677 x age in years)
             const BMR = ( 
@@ -92,7 +89,7 @@ export class User {
             (9.274 * (this.weight * 0.453592) + 
             (3.098 * (this.height * 2.54)) - 
             (4.330 * this.age))
-        ) / secondsInADay
+        ) / secondsInADay;
     
         switch (this.activityLevel) {
             case ('low'): return BMR * 1.2         
@@ -100,6 +97,5 @@ export class User {
             default: return BMR * 1.6
         }
     }
-  
   }
 
