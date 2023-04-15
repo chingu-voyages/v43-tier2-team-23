@@ -7,14 +7,12 @@ import waterIcon from '../src/assets/water.png';
 
 export const suppliesData = [
     {
-        // id: uuidv4(),
         name: 'Electricity',
         value: 100,
         units: 'mWh',
         icon: electricIcon,
     },
     {
-        // id: uuidv4(),
         name: 'Food',
         value: 10000,
         units: 'Mcal',
@@ -22,14 +20,12 @@ export const suppliesData = [
 
     },
     {
-        // id: uuidv4(),
         name: 'Oxygen',
         value: 1000,
         units: 'kiloliters',
         icon: oxygenIcon,
     },
     {
-        // id: uuidv4(),
         name: 'Water',
         value: 100,
         units: 'kiloliters',
