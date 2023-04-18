@@ -1,6 +1,6 @@
 .pod-details {
     position: relative;
-    z-index: 1;
+    // z-index: 1;
 
     header {
         display: flex;
@@ -96,7 +96,7 @@
 @media screen and (max-width: 400px) {
     .pod-details {
         position: relative;
-        z-index: 1;
+        // z-index: 1;
     
         header {
             margin-top: 25px;
