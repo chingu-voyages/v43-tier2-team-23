@@ -30,7 +30,7 @@ function App() {
 
   const [podRoute, setPodRoute] = useState('bluefalcon');
 
-  const menuHandler = () => {
+  function menuHandler (e: React.MouseEvent<HTMLDivElement, React.MouseEvent>):void{
       { menuIsOpen ? setMenuIsOpen(false) : setMenuIsOpen(true) }
   }
 
