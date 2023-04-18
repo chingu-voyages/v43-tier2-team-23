@@ -33,6 +33,11 @@ function App() {
   const menuHandler = () => {
       { menuIsOpen ? setMenuIsOpen(false) : setMenuIsOpen(true) }
   }
+
+  const menuHandler2 = () => {
+    { menuIsOpen ? setMenuIsOpen(false) : setMenuIsOpen(true) }
+  }
+
   const [alertThreshold, setAlertThreshold] = useState(600);
   useEffect(() => {
     //@ts-ignore
@@ -81,7 +86,8 @@ function App() {
         <Routes>
           <Route path='/' element={
             <Navigation 
-              menuHandler={menuHandler} 
+              menuHandler={menuHandler}
+              menuHandler2={menuHandler2}
               menuIsOpen={menuIsOpen} 
               time={time} 
               setTime={setTime} 
