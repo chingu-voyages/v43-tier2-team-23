@@ -9,7 +9,13 @@ import AlertIcon from './AlertsIcon/AlertsIcon';
 import '../navigation/navigation.styles.scss'
 import CloseIcon from '../../assets/icon-close.svg';
 
-function Navigation(props:{ menuHandler: MouseEventHandler<HTMLDivElement>, menuHandler2: MouseEventHandler<HTMLAnchorElement>, menuIsOpen:boolean, time:number, setTime:Function, developerMode:boolean, setDeveloperMode:Function }) {
+function Navigation(props:{ 
+    menuHandler: MouseEventHandler<HTMLDivElement>, 
+    menuHandler2: MouseEventHandler<HTMLAnchorElement>, 
+    menuIsOpen:boolean, time:number, 
+    setTime:Function, 
+    developerMode:boolean, 
+    setDeveloperMode:Function }) {
 
     return (
         <Fragment>

@@ -7,7 +7,7 @@ import { DataContext } from '../../context/DataContext';
 
 export default function PodDetails(props: {menuIsOpen: boolean, podRoute: string }) {
 
-    const {data, podDataState, setData} = useContext(DataContext);
+    const {podDataState} = useContext(DataContext);
 
     function searchArrayByRoute(arr: string | any[], route: string) {
         for (let i = 0; i < arr.length; i++) {
