@@ -1,10 +1,10 @@
 # Moonager
 
-## Overview — Why did you start this project?
+## Overview
 
 As developers we wanted to gain experience in building a resource management / inventory front end system.
 
-## Features — What are some key things your project can do?
+## Features
 
 - Resource management
 - Real-time resource consumption based on real-world metabolic data built on randomly generated user profiles.
