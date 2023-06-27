@@ -1,4 +1,4 @@
-import { useState, Fragment } from 'react';
+import { useState, Fragment, MouseEventHandler } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { NavigationProps } from './navigation-types';
 
@@ -9,7 +9,13 @@ import AlertIcon from './AlertsIcon/AlertsIcon';
 import '../navigation/navigation.styles.scss'
 import CloseIcon from '../../assets/icon-close.svg';
 
-function Navigation(props:{ menuHandler:Function, menuIsOpen:boolean, time:number, setTime:Function, developerMode:boolean, setDeveloperMode:Function }) {
+function Navigation(props:{ 
+    menuHandler: MouseEventHandler<HTMLDivElement>, 
+    menuHandler2: MouseEventHandler<HTMLAnchorElement>, 
+    menuIsOpen:boolean, time:number, 
+    setTime:Function, 
+    developerMode:boolean, 
+    setDeveloperMode:Function }) {
 
     return (
         <Fragment>
@@ -49,11 +55,11 @@ function Navigation(props:{ menuHandler:Function, menuIsOpen:boolean, time:numbe
                     </div>
 
                     <div className='navlinks'>
-                        <Link to='/' onClick={props.menuHandler} className='link'>DASHBOARD</Link>
-                        <Link to='/alerts' onClick={props.menuHandler} className='link'>ALERTS</Link>
-                        <Link to='/resources' onClick={props.menuHandler} className='link'>RESOURCES</Link>
-                        <Link to='/requests' onClick={props.menuHandler} className='link'>REQUESTS</Link>
-                        <Link to='/account' onClick={props.menuHandler} className='link'>ACCOUNT</Link>
+                        <Link to='/' onClick={props.menuHandler2} className='link'>DASHBOARD</Link>
+                        <Link to='/alerts' onClick={props.menuHandler2} className='link'>ALERTS</Link>
+                        <Link to='/resources' onClick={props.menuHandler2} className='link'>RESOURCES</Link>
+                        <Link to='/requests' onClick={props.menuHandler2} className='link'>REQUESTS</Link>
+                        <Link to='/account' onClick={props.menuHandler2} className='link'>ACCOUNT</Link>
                     </div>
 
                     <div className='avatar-placeholder'></div>
